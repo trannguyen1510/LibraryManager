@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LibraryManager
 {
-    public partial class MainForm : Form
+    public partial class Login : Form
     {
-        public MainForm()
+        public Login()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
