@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ColumnHeader clmCode;
+            System.Windows.Forms.ColumnHeader clmName;
+            System.Windows.Forms.ColumnHeader clmhAuthor;
+            System.Windows.Forms.ColumnHeader cmlhCategory;
+            System.Windows.Forms.ColumnHeader clmhAmount;
             this.txtbSearch = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,16 +54,16 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.clmCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cmlhCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmhAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmhAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
+            clmCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            clmName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            clmhAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            cmlhCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            clmhAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -270,11 +275,12 @@
             // 
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmCode,
-            this.clmName,
-            this.clmhAuthor,
-            this.cmlhCategory,
-            this.clmhAmount});
+            clmCode,
+            clmName,
+            clmhAuthor,
+            cmlhCategory,
+            clmhAmount});
+            this.listView1.FullRowSelect = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(6, 26);
@@ -287,33 +293,33 @@
             // 
             // clmCode
             // 
-            this.clmCode.Text = "Mã sách";
-            this.clmCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmCode.Width = 104;
+            clmCode.Text = "Mã sách";
+            clmCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmCode.Width = 104;
             // 
             // clmName
             // 
-            this.clmName.Text = "Tiêu đề";
-            this.clmName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmName.Width = 210;
-            // 
-            // cmlhCategory
-            // 
-            this.cmlhCategory.Text = "Danh mục";
-            this.cmlhCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cmlhCategory.Width = 158;
-            // 
-            // clmhAmount
-            // 
-            this.clmhAmount.Text = "Số lượng";
-            this.clmhAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmhAmount.Width = 77;
+            clmName.Text = "Tiêu đề";
+            clmName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmName.Width = 210;
             // 
             // clmhAuthor
             // 
-            this.clmhAuthor.Text = "Tác giả";
-            this.clmhAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmhAuthor.Width = 126;
+            clmhAuthor.Text = "Tác giả";
+            clmhAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmhAuthor.Width = 126;
+            // 
+            // cmlhCategory
+            // 
+            cmlhCategory.Text = "Danh mục";
+            cmlhCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            cmlhCategory.Width = 158;
+            // 
+            // clmhAmount
+            // 
+            clmhAmount.Text = "Số lượng";
+            clmhAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmhAmount.Width = 77;
             // 
             // checkedListBox1
             // 
@@ -428,11 +434,6 @@
         private System.Windows.Forms.Button btnCategory;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColumnHeader clmCode;
-        private System.Windows.Forms.ColumnHeader clmName;
-        private System.Windows.Forms.ColumnHeader cmlhCategory;
-        private System.Windows.Forms.ColumnHeader clmhAmount;
-        private System.Windows.Forms.ColumnHeader clmhAuthor;
     }
 }
 
