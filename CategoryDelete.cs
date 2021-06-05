@@ -16,5 +16,10 @@ namespace LibraryManager
         {
             InitializeComponent();
         }
+
+        private void CategoryDelete_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

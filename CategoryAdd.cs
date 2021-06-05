@@ -16,5 +16,10 @@ namespace LibraryManager
         {
             InitializeComponent();
         }
+
+        private void lbAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
