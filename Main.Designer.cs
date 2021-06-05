@@ -69,6 +69,36 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // clmCode
+            // 
+            clmCode.Text = "Mã sách";
+            clmCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmCode.Width = 104;
+            // 
+            // clmName
+            // 
+            clmName.Text = "Tiêu đề";
+            clmName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmName.Width = 210;
+            // 
+            // clmhAuthor
+            // 
+            clmhAuthor.Text = "Tác giả";
+            clmhAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmhAuthor.Width = 126;
+            // 
+            // cmlhCategory
+            // 
+            cmlhCategory.Text = "Danh mục";
+            cmlhCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            cmlhCategory.Width = 158;
+            // 
+            // clmhAmount
+            // 
+            clmhAmount.Text = "Số lượng";
+            clmhAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            clmhAmount.Width = 77;
+            // 
             // txtbSearch
             // 
             this.txtbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,36 +321,6 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.listView1_ColumnWidthChanged);
             // 
-            // clmCode
-            // 
-            clmCode.Text = "Mã sách";
-            clmCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmCode.Width = 104;
-            // 
-            // clmName
-            // 
-            clmName.Text = "Tiêu đề";
-            clmName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmName.Width = 210;
-            // 
-            // clmhAuthor
-            // 
-            clmhAuthor.Text = "Tác giả";
-            clmhAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmhAuthor.Width = 126;
-            // 
-            // cmlhCategory
-            // 
-            cmlhCategory.Text = "Danh mục";
-            cmlhCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            cmlhCategory.Width = 158;
-            // 
-            // clmhAmount
-            // 
-            clmhAmount.Text = "Số lượng";
-            clmhAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmhAmount.Width = 77;
-            // 
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -346,7 +346,7 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(190, 44);
             this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "Xoá Tất Cả ";
+            this.btnClear.Text = "Xóa thông tin";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
