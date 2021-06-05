@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace LibraryManager
 {
@@ -55,7 +54,8 @@ namespace LibraryManager
 
         private void btnReader_Click(object sender, EventArgs e)
         {
-
+            QL_MUON_TRA muonTra = new QL_MUON_TRA();
+            muonTra.Show();
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
