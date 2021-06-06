@@ -33,8 +33,8 @@ namespace LibraryManager
             this.listView1 = new System.Windows.Forms.ListView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAđ = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.grbCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,18 +86,6 @@ namespace LibraryManager
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnAđ
-            // 
-            this.btnAđ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAđ.Location = new System.Drawing.Point(582, 172);
-            this.btnAđ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAđ.Name = "btnAđ";
-            this.btnAđ.Size = new System.Drawing.Size(254, 52);
-            this.btnAđ.TabIndex = 13;
-            this.btnAđ.Text = "Thêm";
-            this.btnAđ.UseVisualStyleBackColor = true;
-            this.btnAđ.Click += new System.EventHandler(this.btnAđ_Click);
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,12 +98,23 @@ namespace LibraryManager
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnAdd.Location = new System.Drawing.Point(582, 170);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(254, 56);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 502);
-            this.Controls.Add(this.btnAđ);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -133,8 +132,8 @@ namespace LibraryManager
         private System.Windows.Forms.GroupBox grbCategory;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAđ;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

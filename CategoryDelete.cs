@@ -21,5 +21,15 @@ namespace LibraryManager
         {
 
         }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Đã xoá thành công!", "Thông báo");
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

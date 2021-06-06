@@ -67,6 +67,7 @@ namespace LibraryManager
             this.btnAccept.TabIndex = 2;
             this.btnAccept.Text = "Đồng ý";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
@@ -78,6 +79,7 @@ namespace LibraryManager
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 

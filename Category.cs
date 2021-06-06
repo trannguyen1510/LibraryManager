@@ -22,19 +22,24 @@ namespace LibraryManager
 
         }
 
-        private void btnAđ_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            CategoryDelete delObject = new CategoryDelete();
+            delObject.Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            CatagoryEdit editObject = new CatagoryEdit();
+            editObject.Show();
+        }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            CategoryAdd addObject = new CategoryAdd();
+            addObject.Show();
         }
     }
 }

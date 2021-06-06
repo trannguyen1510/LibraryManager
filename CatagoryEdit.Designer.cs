@@ -81,6 +81,7 @@ namespace LibraryManager
             this.btnAccept.TabIndex = 6;
             this.btnAccept.Text = "Đồng ý";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // label1
             // 

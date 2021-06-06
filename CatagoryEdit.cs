@@ -39,7 +39,12 @@ namespace LibraryManager
 
         private void label2_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Đã sửa thành công!", "Thông báo");
+        }
 
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
