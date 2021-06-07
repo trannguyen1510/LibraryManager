@@ -12,11 +12,12 @@ namespace LibraryManager
 {
     public partial class Muon : Form
     {
+        DBConnect db;
         public Muon()
         {
             InitializeComponent();
 
-
+            db = new DBConnect();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +57,16 @@ namespace LibraryManager
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+            
+            textmasach.Text = "ket qua tra ve";
+        }
+
+        private void trangchu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main m = new Main();
+            m.ShowDialog();
+            this.Show();
 
         }
     }

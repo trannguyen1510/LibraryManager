@@ -12,6 +12,7 @@ namespace LibraryManager
 {
     public partial class Main : Form
     {
+        DBConnect db;
         public Main()
         {
             InitializeComponent();
@@ -20,9 +21,9 @@ namespace LibraryManager
             this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
             this.groupBox2.BackColor = Color.FromArgb(229, 236, 244);
 
-            DBConnect db = new DBConnect();
+            db = new DBConnect();
             DataTable task;
-            string query  = "SELECT * FROM BOOK";
+            string query = "SELECT * FROM BOOK";
             task = db.GetDataTable(query);
 
             foreach (DataRow r in task.Rows)
@@ -35,6 +36,7 @@ namespace LibraryManager
 
                 this.listView1.Items.Add(listViewItem);
             }
+
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -49,9 +51,22 @@ namespace LibraryManager
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            DBConnect db = new DBConnect();
+            DataTable task;
+            string query = "SELECT * FROM BOOK";
+            task = db.GetDataTable(query);
 
+            foreach (DataRow r in task.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
+                listViewItem.SubItems.Add(r["Title"].ToString());
+                listViewItem.SubItems.Add(r["Author"].ToString());
+                listViewItem.SubItems.Add(r["CategoryID"].ToString());
+                listViewItem.SubItems.Add(r["Amount"].ToString());
+
+                this.listView1.Items.Add(listViewItem);
+            }
         }
-
         private void btnReader_Click(object sender, EventArgs e)
         {
             QL_MUON_TRA muonTra = new QL_MUON_TRA();
@@ -91,6 +106,31 @@ namespace LibraryManager
         {
             //e.Cancel = true;
             //e.NewWidth = this.listView1.Columns[e.ColumnIndex].Width;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            this.DataView_Closed();
+            DataTable task = db.Search_Book(this.txtbSearch.Text);
+            foreach (DataRow r in task.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
+                listViewItem.SubItems.Add(r["Title"].ToString());
+                listViewItem.SubItems.Add(r["Author"].ToString());
+                listViewItem.SubItems.Add(r["CategoryID"].ToString());
+                listViewItem.SubItems.Add(r["Amount"].ToString());
+                this.listView1.Items.Add(listViewItem);
+            }
+        }
+
+        private void DataView_Closed()
+        {
+            this.listView1.Items.Clear();
+        }
+
+        private void txtbSearch_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
