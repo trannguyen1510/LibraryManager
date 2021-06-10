@@ -35,6 +35,8 @@ namespace LibraryManager
         }
 
         //open connection to database
+        //kết nối với db để thực hiện truy vấn
+        //  OpenConnection(connection);
         private void OpenConnection(SQLiteConnection connection)
         {
             if (File.Exists("D:\\Programs\\Git Repo\\LibraryManager\\lbDatabase.db"))
@@ -46,18 +48,21 @@ namespace LibraryManager
         }
 
         //Close connection
+
         private void CloseConnection(SQLiteConnection connection)
         {
             connection.Close();
         }
 
         // Read data
+        // Nhận câu truy vấn sql và trả về kết quả dưới dạng datatable . Tự đóng csdl lại
+
         public DataTable GetDataTable(string query)
         {
             DataTable dt = new DataTable();
             try
             {
-                OpenConnection(connection);
+                OpenConnection(this.connection);
                 if (connection.State == ConnectionState.Open)
                 {
                     cmd = connection.CreateCommand();
@@ -120,6 +125,15 @@ namespace LibraryManager
         public void Restore()
         {
 
+        }
+
+        public DataTable Search_Book(string code)
+        {
+            string query = $"SELECT * FROM BOOK B WHERE B.ID = {code}";
+            DataTable task = new DataTable();
+            task = this.GetDataTable(query);
+
+            return task;
         }
     }
 }

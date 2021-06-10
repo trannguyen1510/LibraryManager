@@ -63,6 +63,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangchu = new System.Windows.Forms.Button();
             this.thongtinsach.SuspendLayout();
             this.docgia.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -220,7 +221,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.dateTimePicker2.Location = new System.Drawing.Point(191, 220);
+            this.dateTimePicker2.Location = new System.Drawing.Point(214, 215);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(265, 26);
@@ -229,7 +230,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(192, 269);
+            this.dateTimePicker1.Location = new System.Drawing.Point(213, 269);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 26);
@@ -238,7 +239,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox5.Location = new System.Drawing.Point(192, 161);
+            this.textBox5.Location = new System.Drawing.Point(214, 159);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(264, 30);
@@ -248,7 +249,7 @@
             // 
             this.ngaymuon.AutoSize = true;
             this.ngaymuon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.ngaymuon.Location = new System.Drawing.Point(61, 218);
+            this.ngaymuon.Location = new System.Drawing.Point(61, 215);
             this.ngaymuon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ngaymuon.Name = "ngaymuon";
             this.ngaymuon.Size = new System.Drawing.Size(138, 26);
@@ -258,7 +259,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(192, 111);
+            this.textBox2.Location = new System.Drawing.Point(213, 109);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(264, 30);
@@ -267,7 +268,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(192, 62);
+            this.textBox3.Location = new System.Drawing.Point(213, 62);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(264, 30);
@@ -299,7 +300,7 @@
             // 
             this.ngaytra.AutoSize = true;
             this.ngaytra.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.ngaytra.Location = new System.Drawing.Point(42, 269);
+            this.ngaytra.Location = new System.Drawing.Point(61, 269);
             this.ngaytra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ngaytra.Name = "ngaytra";
             this.ngaytra.Size = new System.Drawing.Size(153, 26);
@@ -326,7 +327,7 @@
             this.muontiep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.muontiep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.muontiep.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.muontiep.Location = new System.Drawing.Point(1076, 46);
+            this.muontiep.Location = new System.Drawing.Point(1076, 136);
             this.muontiep.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.muontiep.Name = "muontiep";
             this.muontiep.Size = new System.Drawing.Size(166, 54);
@@ -342,7 +343,7 @@
             this.cho_muon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.cho_muon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.cho_muon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.cho_muon.Location = new System.Drawing.Point(1076, 160);
+            this.cho_muon.Location = new System.Drawing.Point(1076, 229);
             this.cho_muon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cho_muon.Name = "cho_muon";
             this.cho_muon.Size = new System.Drawing.Size(166, 49);
@@ -357,7 +358,7 @@
             this.kt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.kt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.kt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.kt.Location = new System.Drawing.Point(1076, 274);
+            this.kt.Location = new System.Drawing.Point(1076, 313);
             this.kt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.kt.Name = "kt";
             this.kt.Size = new System.Drawing.Size(166, 51);
@@ -374,7 +375,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1184, 182);
+            this.groupBox1.Size = new System.Drawing.Size(1184, 257);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Mượn";
@@ -382,6 +383,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -395,7 +397,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1161, 84);
+            this.dataGridView1.Size = new System.Drawing.Size(1155, 171);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -449,6 +451,22 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 50;
             // 
+            // trangchu
+            // 
+            this.trangchu.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trangchu.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.trangchu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
+            this.trangchu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.trangchu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.trangchu.Location = new System.Drawing.Point(1076, 50);
+            this.trangchu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.trangchu.Name = "trangchu";
+            this.trangchu.Size = new System.Drawing.Size(166, 49);
+            this.trangchu.TabIndex = 12;
+            this.trangchu.Text = "Trang Chủ";
+            this.trangchu.UseVisualStyleBackColor = false;
+            this.trangchu.Click += new System.EventHandler(this.trangchu_Click);
+            // 
             // Muon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -458,6 +476,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1269, 605);
+            this.Controls.Add(this.trangchu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kt);
             this.Controls.Add(this.cho_muon);
@@ -466,11 +485,11 @@
             this.Controls.Add(this.thongtinsach);
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Muon";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mượn";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -521,5 +540,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button trangchu;
     }
 }

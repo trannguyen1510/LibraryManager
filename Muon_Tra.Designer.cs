@@ -40,11 +40,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Constantia", 40F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(510, 126);
+            this.label1.Location = new System.Drawing.Point(587, 142);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(537, 272);
+            this.label1.Size = new System.Drawing.Size(771, 388);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý mượn - trả\r\n\r\n\r\n\r\n";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -53,11 +53,11 @@
             // 
             this.muon.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.muon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.muon.Font = new System.Drawing.Font("Constantia", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.muon.Font = new System.Drawing.Font("Constantia", 24F, System.Drawing.FontStyle.Bold);
             this.muon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.muon.Location = new System.Drawing.Point(522, 401);
+            this.muon.Location = new System.Drawing.Point(750, 352);
             this.muon.Name = "muon";
-            this.muon.Size = new System.Drawing.Size(175, 87);
+            this.muon.Size = new System.Drawing.Size(204, 127);
             this.muon.TabIndex = 1;
             this.muon.Text = "Mượn";
             this.muon.UseVisualStyleBackColor = false;
@@ -69,11 +69,11 @@
             this.tra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tra.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.tra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
-            this.tra.Font = new System.Drawing.Font("Constantia", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tra.Font = new System.Drawing.Font("Constantia", 24F, System.Drawing.FontStyle.Bold);
             this.tra.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tra.Location = new System.Drawing.Point(774, 401);
+            this.tra.Location = new System.Drawing.Point(1076, 352);
             this.tra.Name = "tra";
-            this.tra.Size = new System.Drawing.Size(175, 87);
+            this.tra.Size = new System.Drawing.Size(200, 127);
             this.tra.TabIndex = 2;
             this.tra.Text = "Trả";
             this.tra.UseVisualStyleBackColor = false;
@@ -87,7 +87,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = global::LibraryManager.Properties.Resources.logo_uit;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1148, 648);
+            this.ClientSize = new System.Drawing.Size(1771, 746);
             this.Controls.Add(this.tra);
             this.Controls.Add(this.muon);
             this.Controls.Add(this.label1);
@@ -96,6 +96,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "QL_MUON_TRA";
             this.Text = "QL_MUON_TRA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.QL_MUON_TRA_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
