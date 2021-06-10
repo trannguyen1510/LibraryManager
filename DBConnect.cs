@@ -28,7 +28,10 @@ namespace LibraryManager
         //Initialize values
         private void Initialize()
         {
-            connectionString = "Data Source=D:\\CÔNG NGHỆ PHẦN MỀM\\LibraryManager-main\\lbDatabase.db; Version = 3;";
+            var enviroment = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(enviroment).Parent.FullName;
+            projectDirectory = projectDirectory.Replace(@"\", @"\\");
+            connectionString = $"Data Source={projectDirectory}\\lbDatabase.db; Version = 3;";
 
             connection = new SQLiteConnection(connectionString);
         }
@@ -36,7 +39,7 @@ namespace LibraryManager
         //open connection to database
         private void OpenConnection(SQLiteConnection connection)
         {
-            if (File.Exists("D:\\CÔNG NGHỆ PHẦN MỀM\\LibraryManager-main\\lbDatabase.db"))
+            if (File.Exists("D:\\Programs\\Git Repo\\LibraryManager\\lbDatabase.db"))
                 connection.Open();
             else
             {
