@@ -14,10 +14,8 @@ namespace LibraryManager
     {
         private SQLiteConnection connection;
         string connectionString;
-        private string database;
         private SQLiteDataReader reader;
         private SQLiteCommand cmd;
-        private string curentPath;
 
         //Constructor
         public DBConnect()
