@@ -32,6 +32,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.thongtinsach = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.texttacgia = new System.Windows.Forms.TextBox();
             this.texttensach = new System.Windows.Forms.TextBox();
             this.textmasach = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.masach = new System.Windows.Forms.Label();
             this.docgia = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -58,8 +60,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +85,7 @@
             // thongtinsach
             // 
             this.thongtinsach.AutoSize = true;
+            this.thongtinsach.Controls.Add(this.button1);
             this.thongtinsach.Controls.Add(this.texttacgia);
             this.thongtinsach.Controls.Add(this.texttensach);
             this.thongtinsach.Controls.Add(this.textmasach);
@@ -98,16 +99,27 @@
             this.thongtinsach.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.thongtinsach.Name = "thongtinsach";
             this.thongtinsach.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.thongtinsach.Size = new System.Drawing.Size(450, 342);
+            this.thongtinsach.Size = new System.Drawing.Size(462, 342);
             this.thongtinsach.TabIndex = 0;
             this.thongtinsach.TabStop = false;
             this.thongtinsach.Text = "Thông Tin Sách";
             this.thongtinsach.Enter += new System.EventHandler(this.thongtinsach_Enter);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(409, 77);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(46, 30);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Tìm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // texttacgia
             // 
             this.texttacgia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.texttacgia.Location = new System.Drawing.Point(181, 269);
+            this.texttacgia.Location = new System.Drawing.Point(181, 255);
             this.texttacgia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.texttacgia.Name = "texttacgia";
             this.texttacgia.Size = new System.Drawing.Size(214, 30);
@@ -116,7 +128,7 @@
             // texttensach
             // 
             this.texttensach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texttensach.Location = new System.Drawing.Point(181, 149);
+            this.texttensach.Location = new System.Drawing.Point(181, 133);
             this.texttensach.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.texttensach.Name = "texttensach";
             this.texttensach.Size = new System.Drawing.Size(214, 30);
@@ -125,17 +137,18 @@
             // textmasach
             // 
             this.textmasach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textmasach.Location = new System.Drawing.Point(181, 86);
+            this.textmasach.Location = new System.Drawing.Point(181, 75);
             this.textmasach.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textmasach.Name = "textmasach";
             this.textmasach.Size = new System.Drawing.Size(214, 30);
             this.textmasach.TabIndex = 5;
+            this.textmasach.TextChanged += new System.EventHandler(this.textmasach_TextChanged);
             // 
             // tensach
             // 
             this.tensach.AutoSize = true;
             this.tensach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.tensach.Location = new System.Drawing.Point(59, 154);
+            this.tensach.Location = new System.Drawing.Point(61, 137);
             this.tensach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tensach.Name = "tensach";
             this.tensach.Size = new System.Drawing.Size(110, 26);
@@ -146,7 +159,7 @@
             // 
             this.loaisach.AutoSize = true;
             this.loaisach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.loaisach.Location = new System.Drawing.Point(61, 218);
+            this.loaisach.Location = new System.Drawing.Point(61, 204);
             this.loaisach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loaisach.Name = "loaisach";
             this.loaisach.Size = new System.Drawing.Size(118, 26);
@@ -157,7 +170,7 @@
             // 
             this.tacgia.AutoSize = true;
             this.tacgia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.tacgia.Location = new System.Drawing.Point(61, 274);
+            this.tacgia.Location = new System.Drawing.Point(61, 255);
             this.tacgia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tacgia.Name = "tacgia";
             this.tacgia.Size = new System.Drawing.Size(95, 26);
@@ -176,7 +189,7 @@
             "Tham khảo",
             "Luận văn",
             "Ngoại ngữ"});
-            this.comboBox1.Location = new System.Drawing.Point(181, 213);
+            this.comboBox1.Location = new System.Drawing.Point(181, 197);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(214, 33);
@@ -187,7 +200,7 @@
             // 
             this.masach.AutoSize = true;
             this.masach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.masach.Location = new System.Drawing.Point(61, 86);
+            this.masach.Location = new System.Drawing.Point(61, 75);
             this.masach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.masach.Name = "masach";
             this.masach.Size = new System.Drawing.Size(112, 26);
@@ -198,6 +211,7 @@
             // docgia
             // 
             this.docgia.AutoSize = true;
+            this.docgia.Controls.Add(this.button2);
             this.docgia.Controls.Add(this.dateTimePicker2);
             this.docgia.Controls.Add(this.dateTimePicker1);
             this.docgia.Controls.Add(this.textBox5);
@@ -213,10 +227,20 @@
             this.docgia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.docgia.Name = "docgia";
             this.docgia.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.docgia.Size = new System.Drawing.Size(495, 343);
+            this.docgia.Size = new System.Drawing.Size(536, 343);
             this.docgia.TabIndex = 8;
             this.docgia.TabStop = false;
             this.docgia.Text = "Đọc Giả";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(484, 64);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 28);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Tìm";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker2
             // 
@@ -327,10 +351,10 @@
             this.muontiep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.muontiep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.muontiep.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.muontiep.Location = new System.Drawing.Point(1076, 136);
+            this.muontiep.Location = new System.Drawing.Point(1084, 134);
             this.muontiep.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.muontiep.Name = "muontiep";
-            this.muontiep.Size = new System.Drawing.Size(166, 54);
+            this.muontiep.Size = new System.Drawing.Size(158, 54);
             this.muontiep.TabIndex = 9;
             this.muontiep.Text = "Mượn Tiếp";
             this.muontiep.UseVisualStyleBackColor = false;
@@ -343,10 +367,10 @@
             this.cho_muon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.cho_muon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.cho_muon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.cho_muon.Location = new System.Drawing.Point(1076, 229);
+            this.cho_muon.Location = new System.Drawing.Point(1084, 222);
             this.cho_muon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cho_muon.Name = "cho_muon";
-            this.cho_muon.Size = new System.Drawing.Size(166, 49);
+            this.cho_muon.Size = new System.Drawing.Size(158, 49);
             this.cho_muon.TabIndex = 10;
             this.cho_muon.Text = "Cho Mượn";
             this.cho_muon.UseVisualStyleBackColor = false;
@@ -358,10 +382,10 @@
             this.kt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.kt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.kt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.kt.Location = new System.Drawing.Point(1076, 313);
+            this.kt.Location = new System.Drawing.Point(1084, 313);
             this.kt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.kt.Name = "kt";
-            this.kt.Size = new System.Drawing.Size(166, 51);
+            this.kt.Size = new System.Drawing.Size(158, 51);
             this.kt.TabIndex = 11;
             this.kt.Text = "Kết Thúc";
             this.kt.UseVisualStyleBackColor = false;
@@ -388,8 +412,6 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
-            this.Column4,
             this.Column5,
             this.Column6,
             this.Column7});
@@ -399,6 +421,7 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1155, 171);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -414,42 +437,28 @@
             this.Column2.HeaderText = "Tên sách";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 250;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Loại sách";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tác giả";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.Column2.Width = 350;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Ngày mượn";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 200;
+            this.Column5.Width = 250;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Ngày hẹn trả";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
-            this.Column6.Width = 200;
+            this.Column6.Width = 250;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "SL";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 50;
+            this.Column7.Width = 150;
             // 
             // trangchu
             // 
@@ -458,10 +467,10 @@
             this.trangchu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
             this.trangchu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.trangchu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.trangchu.Location = new System.Drawing.Point(1076, 50);
+            this.trangchu.Location = new System.Drawing.Point(1084, 53);
             this.trangchu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.trangchu.Name = "trangchu";
-            this.trangchu.Size = new System.Drawing.Size(166, 49);
+            this.trangchu.Size = new System.Drawing.Size(158, 49);
             this.trangchu.TabIndex = 12;
             this.trangchu.Text = "Trang Chủ";
             this.trangchu.UseVisualStyleBackColor = false;
@@ -475,7 +484,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1269, 605);
+            this.ClientSize = new System.Drawing.Size(1385, 605);
             this.Controls.Add(this.trangchu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kt);
@@ -533,13 +542,13 @@
         private System.Windows.Forms.Button kt;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button trangchu;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button trangchu;
     }
 }

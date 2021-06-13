@@ -10,12 +10,15 @@ using System.IO;
 
 namespace LibraryManager
 {
-    class DBConnect
+    public class DBConnect
     {
-        private SQLiteConnection connection;
+        private SQLiteConnection connection; 
         string connectionString;
         private SQLiteDataReader reader;
         private SQLiteCommand cmd;
+
+        public SQLiteConnection Connection { get => connection; set => connection = value; }
+        public object Messagebox { get; private set; }
 
         //Constructor
         public DBConnect()
@@ -31,13 +34,13 @@ namespace LibraryManager
             projectDirectory = projectDirectory.Replace(@"\", @"\\");
             connectionString = $"Data Source={projectDirectory}\\lbDatabase.db; Version = 3;";
 
-            connection = new SQLiteConnection(connectionString);
+            Connection = new SQLiteConnection(connectionString);
         }
 
         //open connection to database
         //kết nối với db để thực hiện truy vấn
         //  OpenConnection(connection);
-        private void OpenConnection(SQLiteConnection connection)
+        public void OpenConnection(SQLiteConnection connection)
         {
             if (File.Exists("D:\\Programs\\Git Repo\\LibraryManager\\lbDatabase.db"))
                 connection.Open();
@@ -62,16 +65,16 @@ namespace LibraryManager
             DataTable dt = new DataTable();
             try
             {
-                OpenConnection(this.connection);
-                if (connection.State == ConnectionState.Open)
+                OpenConnection(this.Connection);
+                if (Connection.State == ConnectionState.Open)
                 {
-                    cmd = connection.CreateCommand();
+                    cmd = Connection.CreateCommand();
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     reader = cmd.ExecuteReader();
                     dt.Load(reader);
                     reader.Close();
-                    CloseConnection(connection);
+                    CloseConnection(Connection);
                 }
                 else
                 {
@@ -81,6 +84,7 @@ namespace LibraryManager
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+               
             }
             return dt;
         }
