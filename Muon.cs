@@ -7,24 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace LibraryManager
 {
     public partial class Muon : Form
     {
-        DBConnect db;
+        DBConnect db = new DBConnect();
         public Muon()
         {
             InitializeComponent();
 
-            db = new DBConnect();
+         
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
+        
         private void masach_Click(object sender, EventArgs e)
         {
 
@@ -67,6 +69,52 @@ namespace LibraryManager
             Main m = new Main();
             m.ShowDialog();
             this.Show();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textmasach_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DBConnect db = new DBConnect();
+            DataTable task;
+            string maso = textmasach.Text;
+            if (string.IsNullOrWhiteSpace(maso) )
+            {
+                MessageBox.Show("vui lòng nhập mã số");
+            }
+            else
+            {
+                string query = "SELECT * FROM BOOK where ID = " + maso;
+                task = db.GetDataTable(query);
+                if (task != null)
+                {
+                    
+                        texttensach.Text = task.Rows[0][1].ToString();
+                        comboBox1.Text = task.Rows[0][2].ToString();
+                        texttacgia.Text = task.Rows[0][3].ToString();                    
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Nhap sai");
+                    return;
+                }
+            }
+          
+
+
+
+
+
 
         }
     }
