@@ -14,10 +14,8 @@ namespace LibraryManager
     {
         private SQLiteConnection connection; 
         string connectionString;
-        private string database;
         private SQLiteDataReader reader;
         private SQLiteCommand cmd;
-        private string curentPath;
 
         public SQLiteConnection Connection { get => connection; set => connection = value; }
         public object Messagebox { get; private set; }
@@ -31,7 +29,10 @@ namespace LibraryManager
         //Initialize values
         private void Initialize()
         {
-            connectionString = "Data Source=D:\\CÔNG NGHỆ PHẦN MỀM\\LibraryManager-main\\lbDatabase.db; Version = 3;";
+            var enviroment = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(enviroment).Parent.FullName;
+            projectDirectory = projectDirectory.Replace(@"\", @"\\");
+            connectionString = $"Data Source={projectDirectory}\\lbDatabase.db; Version = 3;";
 
             Connection = new SQLiteConnection(connectionString);
         }
@@ -41,7 +42,7 @@ namespace LibraryManager
         //  OpenConnection(connection);
         public void OpenConnection(SQLiteConnection connection)
         {
-            if (File.Exists("D:\\CÔNG NGHỆ PHẦN MỀM\\LibraryManager-main\\lbDatabase.db"))
+            if (File.Exists("D:\\Programs\\Git Repo\\LibraryManager\\lbDatabase.db"))
                 connection.Open();
             else
             {

@@ -110,7 +110,7 @@ namespace LibraryManager
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            this.DataView_Closed();
+            DataView_Closed();
             DataTable task = db.Search_Book(this.txtbSearch.Text);
             foreach (DataRow r in task.Rows)
             {
@@ -119,7 +119,7 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["Author"].ToString());
                 listViewItem.SubItems.Add(r["CategoryID"].ToString());
                 listViewItem.SubItems.Add(r["Amount"].ToString());
-                this.listView1.Items.Add(listViewItem);
+                listView1.Items.Add(listViewItem);
             }
         }
 
