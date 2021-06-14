@@ -116,7 +116,6 @@ namespace LibraryManager
             DBConnect db = new DBConnect();
             DataTable temp;
             string id= textBox3.Text;// lay ma doc gia
-
             try
             {
                 if (string.IsNullOrWhiteSpace(id))
@@ -144,9 +143,7 @@ namespace LibraryManager
             {
                 //  Block of code to handle errors
                 throw new Exception(ex.Message);
-            }
-
-           
+            }           
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
