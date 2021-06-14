@@ -74,6 +74,7 @@ namespace LibraryManager
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     reader = cmd.ExecuteReader();
+                    Console.WriteLine(reader);
                     dt.Load(reader);
                     reader.Close();
                     CloseConnection(Connection);
