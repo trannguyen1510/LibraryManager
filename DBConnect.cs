@@ -82,12 +82,12 @@ namespace LibraryManager
                 else
                 {
                     MessageBox.Show("Connection Failed");
+                    return null;
                 }
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
-               
+                throw new Exception(e.Message);               
             }
             return dt;
         }

@@ -109,12 +109,45 @@ namespace LibraryManager
                     return;
                 }
             }
-          
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DBConnect db = new DBConnect();
+            DataTable temp;
+            string id= textBox3.Text;// lay ma doc gia
+            try
+            {
+                if (string.IsNullOrWhiteSpace(id))
+                {
+                    MessageBox.Show("vui lòng nhập mã số");
+                }
+                else
+                {
+                    string query = "SELECT * FROM READER where ID = " + id;
+                    temp = db.GetDataTable(query);
+                    if (temp != null)
+                    {
 
+                        textBox2.Text = temp.Rows[0][1].ToString();//họ tên
+                        textBox5.Text = temp.Rows[0][4].ToString();//Email
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhap sai");
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //  Block of code to handle errors
+                throw new Exception(ex.Message);
+            }           
+        }
 
-
-
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -26,15 +26,15 @@ namespace LibraryManager
             string query = "SELECT * FROM BOOK";
             task = db.GetDataTable(query);
 
-            foreach (DataRow r in task.Rows)
+           foreach (DataRow r in task.Rows)
             {
-                ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
+               ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
                 listViewItem.SubItems.Add(r["Title"].ToString());
                 listViewItem.SubItems.Add(r["Author"].ToString());
                 listViewItem.SubItems.Add(r["CategoryID"].ToString());
-                listViewItem.SubItems.Add(r["Amount"].ToString());
-
-                this.listView1.Items.Add(listViewItem);
+              listViewItem.SubItems.Add(r["Amount"].ToString());
+              
+               this.listView1.Items.Add(listViewItem);
             }
 
         }
