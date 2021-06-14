@@ -26,15 +26,15 @@ namespace LibraryManager
             string query = "SELECT * FROM BOOK";
             task = db.GetDataTable(query);
 
-           foreach (DataRow r in task.Rows)
+            foreach (DataRow r in task.Rows)
             {
-               ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
+                ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
                 listViewItem.SubItems.Add(r["Title"].ToString());
                 listViewItem.SubItems.Add(r["Author"].ToString());
                 listViewItem.SubItems.Add(r["CategoryID"].ToString());
-              listViewItem.SubItems.Add(r["Amount"].ToString());
-              
-               this.listView1.Items.Add(listViewItem);
+                listViewItem.SubItems.Add(r["Amount"].ToString());
+
+                this.listView1.Items.Add(listViewItem);
             }
 
         }
@@ -110,16 +110,31 @@ namespace LibraryManager
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataView_Closed();
-            DataTable task = db.Search_Book(this.txtbSearch.Text);
-            foreach (DataRow r in task.Rows)
+            try
             {
-                ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
-                listViewItem.SubItems.Add(r["Title"].ToString());
-                listViewItem.SubItems.Add(r["Author"].ToString());
-                listViewItem.SubItems.Add(r["CategoryID"].ToString());
-                listViewItem.SubItems.Add(r["Amount"].ToString());
-                listView1.Items.Add(listViewItem);
+                DataTable task = db.Search_Book(this.txtbSearch.Text);
+                if (task != null)
+                {
+                    DataView_Closed();
+                    foreach (DataRow r in task.Rows)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
+                        listViewItem.SubItems.Add(r["Title"].ToString());
+                        listViewItem.SubItems.Add(r["Author"].ToString());
+                        listViewItem.SubItems.Add(r["CategoryID"].ToString());
+                        listViewItem.SubItems.Add(r["Amount"].ToString());
+                        listView1.Items.Add(listViewItem);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không có sách cần tìm");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+
             }
         }
 

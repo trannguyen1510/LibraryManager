@@ -74,20 +74,26 @@ namespace LibraryManager
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     reader = cmd.ExecuteReader();
-                    Console.WriteLine(reader);
-                    dt.Load(reader);
-                    reader.Close();
-                    CloseConnection(Connection);
+                    if (reader.HasRows)
+                    {
+                        dt.Load(reader);
+                        reader.Close();
+                        CloseConnection(Connection);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Connection Failed");
-                    return null;
                 }
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);               
+                throw new Exception(e.Message);
+               
             }
             return dt;
         }

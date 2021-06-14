@@ -115,7 +115,7 @@ namespace LibraryManager
         {
             DBConnect db = new DBConnect();
             DataTable temp;
-            string id= textBox3.Text;// lay ma doc gia
+            string id = textBox3.Text;// lay ma doc gia
             try
             {
                 if (string.IsNullOrWhiteSpace(id))
