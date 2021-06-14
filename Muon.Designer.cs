@@ -241,6 +241,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Tìm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dateTimePicker2
             // 
@@ -297,6 +298,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(264, 30);
             this.textBox3.TabIndex = 5;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // mas
             // 
@@ -305,9 +307,9 @@
             this.mas.Location = new System.Drawing.Point(61, 111);
             this.mas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mas.Name = "mas";
-            this.mas.Size = new System.Drawing.Size(106, 26);
+            this.mas.Size = new System.Drawing.Size(118, 26);
             this.mas.TabIndex = 4;
-            this.mas.Text = "Mã sách:";
+            this.mas.Text = "Họ và tên:";
             // 
             // sl
             // 
@@ -316,9 +318,9 @@
             this.sl.Location = new System.Drawing.Point(61, 161);
             this.sl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sl.Name = "sl";
-            this.sl.Size = new System.Drawing.Size(110, 26);
+            this.sl.Size = new System.Drawing.Size(81, 26);
             this.sl.TabIndex = 3;
-            this.sl.Text = "Số lượng:";
+            this.sl.Text = "Email:";
             // 
             // ngaytra
             // 
@@ -484,7 +486,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1385, 605);
+            this.ClientSize = new System.Drawing.Size(1411, 605);
             this.Controls.Add(this.trangchu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kt);
