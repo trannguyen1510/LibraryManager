@@ -20,7 +20,11 @@ namespace LibraryManager
             this.checkedListBox1.BackColor = Color.FromArgb(229, 236, 244);
             this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
             this.groupBox2.BackColor = Color.FromArgb(229, 236, 244);
+            load_database();
+        }
 
+        private void load_database()
+        {
             db = new DBConnect();
             DataTable task;
             string query = "SELECT * FROM BOOK";
@@ -32,11 +36,9 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["Title"].ToString());
                 listViewItem.SubItems.Add(r["Author"].ToString());
                 listViewItem.SubItems.Add(r["CategoryID"].ToString());
-                listViewItem.SubItems.Add(r["Amount"].ToString());
 
                 this.listView1.Items.Add(listViewItem);
             }
-
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -69,8 +71,8 @@ namespace LibraryManager
         }
         private void btnReader_Click(object sender, EventArgs e)
         {
-            QL_MUON_TRA muonTra = new QL_MUON_TRA();
-            muonTra.Show();
+            Reader reader = new Reader();
+            reader.Show();
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
@@ -80,7 +82,8 @@ namespace LibraryManager
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
-
+            QL_MUON_TRA muonTra = new QL_MUON_TRA();
+            muonTra.Show();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
