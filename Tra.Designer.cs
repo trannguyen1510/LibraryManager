@@ -1,6 +1,6 @@
 ﻿namespace LibraryManager
 {
-    partial class Tra
+    partial class Muon_Tra
     {
         /// <summary>
         /// Required designer variable.
@@ -361,7 +361,6 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Tra";
             this.Text = "Trả sách";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

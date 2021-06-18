@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManager
 {
-    public partial class Tra : Form
+    public partial class Muon_Tra : Form
     {
-        public Tra()
+        public Muon_Tra()
         {
             InitializeComponent();
         }
@@ -39,11 +39,13 @@ namespace LibraryManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //Nhap ma sinh vien--> Hien thi ra thong tin sinh vien vaf cac cuon sach da muon
+           //
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Main m = new Main();
             m.Show();
         }

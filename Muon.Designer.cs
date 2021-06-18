@@ -53,7 +53,6 @@
             this.sl = new System.Windows.Forms.Label();
             this.ngaytra = new System.Windows.Forms.Label();
             this.madg = new System.Windows.Forms.Label();
-            this.muontiep = new System.Windows.Forms.Button();
             this.cho_muon = new System.Windows.Forms.Button();
             this.kt = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,6 +63,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangchu = new System.Windows.Forms.Button();
+            this.muontiep = new System.Windows.Forms.Button();
             this.thongtinsach.SuspendLayout();
             this.docgia.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -122,7 +122,7 @@
             this.texttacgia.Location = new System.Drawing.Point(181, 255);
             this.texttacgia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.texttacgia.Name = "texttacgia";
-            this.texttacgia.Size = new System.Drawing.Size(214, 23);
+            this.texttacgia.Size = new System.Drawing.Size(214, 30);
             this.texttacgia.TabIndex = 7;
             // 
             // texttensach
@@ -131,7 +131,7 @@
             this.texttensach.Location = new System.Drawing.Point(181, 133);
             this.texttensach.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.texttensach.Name = "texttensach";
-            this.texttensach.Size = new System.Drawing.Size(214, 23);
+            this.texttensach.Size = new System.Drawing.Size(214, 30);
             this.texttensach.TabIndex = 6;
             // 
             // textmasach
@@ -140,7 +140,7 @@
             this.textmasach.Location = new System.Drawing.Point(181, 75);
             this.textmasach.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textmasach.Name = "textmasach";
-            this.textmasach.Size = new System.Drawing.Size(214, 23);
+            this.textmasach.Size = new System.Drawing.Size(214, 30);
             this.textmasach.TabIndex = 5;
             this.textmasach.TextChanged += new System.EventHandler(this.textmasach_TextChanged);
             // 
@@ -151,7 +151,7 @@
             this.tensach.Location = new System.Drawing.Point(61, 137);
             this.tensach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tensach.Name = "tensach";
-            this.tensach.Size = new System.Drawing.Size(74, 19);
+            this.tensach.Size = new System.Drawing.Size(110, 26);
             this.tensach.TabIndex = 4;
             this.tensach.Text = "Tên sách:";
             // 
@@ -162,7 +162,7 @@
             this.loaisach.Location = new System.Drawing.Point(61, 204);
             this.loaisach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loaisach.Name = "loaisach";
-            this.loaisach.Size = new System.Drawing.Size(78, 19);
+            this.loaisach.Size = new System.Drawing.Size(118, 26);
             this.loaisach.TabIndex = 3;
             this.loaisach.Text = "Loại sách:";
             // 
@@ -173,7 +173,7 @@
             this.tacgia.Location = new System.Drawing.Point(61, 255);
             this.tacgia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tacgia.Name = "tacgia";
-            this.tacgia.Size = new System.Drawing.Size(63, 19);
+            this.tacgia.Size = new System.Drawing.Size(95, 26);
             this.tacgia.TabIndex = 2;
             this.tacgia.Text = "Tác giả:";
             this.tacgia.Click += new System.EventHandler(this.label1_Click);
@@ -192,7 +192,7 @@
             this.comboBox1.Location = new System.Drawing.Point(181, 197);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(214, 24);
+            this.comboBox1.Size = new System.Drawing.Size(214, 33);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -203,7 +203,7 @@
             this.masach.Location = new System.Drawing.Point(61, 75);
             this.masach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.masach.Name = "masach";
-            this.masach.Size = new System.Drawing.Size(76, 19);
+            this.masach.Size = new System.Drawing.Size(112, 26);
             this.masach.TabIndex = 0;
             this.masach.Text = "Mã sách: ";
             this.masach.Click += new System.EventHandler(this.masach_Click);
@@ -249,7 +249,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(214, 215);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(265, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(265, 26);
             this.dateTimePicker2.TabIndex = 12;
             // 
             // dateTimePicker1
@@ -258,7 +258,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(213, 269);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(265, 26);
             this.dateTimePicker1.TabIndex = 11;
             // 
             // textBox5
@@ -267,7 +267,7 @@
             this.textBox5.Location = new System.Drawing.Point(214, 159);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(264, 23);
+            this.textBox5.Size = new System.Drawing.Size(264, 30);
             this.textBox5.TabIndex = 10;
             // 
             // ngaymuon
@@ -277,7 +277,7 @@
             this.ngaymuon.Location = new System.Drawing.Point(61, 215);
             this.ngaymuon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ngaymuon.Name = "ngaymuon";
-            this.ngaymuon.Size = new System.Drawing.Size(93, 19);
+            this.ngaymuon.Size = new System.Drawing.Size(138, 26);
             this.ngaymuon.TabIndex = 9;
             this.ngaymuon.Text = "Ngày mượn:";
             // 
@@ -287,7 +287,7 @@
             this.textBox2.Location = new System.Drawing.Point(213, 109);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(264, 23);
+            this.textBox2.Size = new System.Drawing.Size(264, 30);
             this.textBox2.TabIndex = 6;
             // 
             // textBox3
@@ -296,7 +296,7 @@
             this.textBox3.Location = new System.Drawing.Point(213, 62);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(264, 23);
+            this.textBox3.Size = new System.Drawing.Size(264, 30);
             this.textBox3.TabIndex = 5;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -307,7 +307,7 @@
             this.mas.Location = new System.Drawing.Point(61, 111);
             this.mas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mas.Name = "mas";
-            this.mas.Size = new System.Drawing.Size(79, 19);
+            this.mas.Size = new System.Drawing.Size(118, 26);
             this.mas.TabIndex = 4;
             this.mas.Text = "Họ và tên:";
             // 
@@ -318,7 +318,7 @@
             this.sl.Location = new System.Drawing.Point(61, 161);
             this.sl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sl.Name = "sl";
-            this.sl.Size = new System.Drawing.Size(52, 19);
+            this.sl.Size = new System.Drawing.Size(81, 26);
             this.sl.TabIndex = 3;
             this.sl.Text = "Email:";
             // 
@@ -329,7 +329,7 @@
             this.ngaytra.Location = new System.Drawing.Point(61, 269);
             this.ngaytra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ngaytra.Name = "ngaytra";
-            this.ngaytra.Size = new System.Drawing.Size(101, 19);
+            this.ngaytra.Size = new System.Drawing.Size(153, 26);
             this.ngaytra.TabIndex = 2;
             this.ngaytra.Text = "Ngày hẹn trả:";
             this.ngaytra.Click += new System.EventHandler(this.ngaytra_Click);
@@ -341,26 +341,10 @@
             this.madg.Location = new System.Drawing.Point(61, 62);
             this.madg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.madg.Name = "madg";
-            this.madg.Size = new System.Drawing.Size(89, 19);
+            this.madg.Size = new System.Drawing.Size(134, 26);
             this.madg.TabIndex = 0;
             this.madg.Text = "Mã độc giả:";
             this.madg.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // muontiep
-            // 
-            this.muontiep.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.muontiep.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.muontiep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
-            this.muontiep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.muontiep.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.muontiep.Location = new System.Drawing.Point(1084, 134);
-            this.muontiep.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.muontiep.Name = "muontiep";
-            this.muontiep.Size = new System.Drawing.Size(158, 54);
-            this.muontiep.TabIndex = 9;
-            this.muontiep.Text = "Mượn Tiếp";
-            this.muontiep.UseVisualStyleBackColor = false;
-            this.muontiep.Click += new System.EventHandler(this.button1_Click);
             // 
             // cho_muon
             // 
@@ -376,6 +360,7 @@
             this.cho_muon.TabIndex = 10;
             this.cho_muon.Text = "Cho Mượn";
             this.cho_muon.UseVisualStyleBackColor = false;
+            this.cho_muon.Click += new System.EventHandler(this.cho_muon_Click);
             // 
             // kt
             // 
@@ -439,7 +424,7 @@
             this.Column2.HeaderText = "Tên sách";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 350;
+            this.Column2.Width = 300;
             // 
             // Column5
             // 
@@ -457,7 +442,7 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "SL";
+            this.Column7.HeaderText = "Tinh Trang";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.Width = 150;
@@ -478,9 +463,25 @@
             this.trangchu.UseVisualStyleBackColor = false;
             this.trangchu.Click += new System.EventHandler(this.trangchu_Click);
             // 
+            // muontiep
+            // 
+            this.muontiep.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.muontiep.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.muontiep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
+            this.muontiep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.muontiep.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.muontiep.Location = new System.Drawing.Point(1084, 134);
+            this.muontiep.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.muontiep.Name = "muontiep";
+            this.muontiep.Size = new System.Drawing.Size(158, 54);
+            this.muontiep.TabIndex = 9;
+            this.muontiep.Text = "Mượn - Trả";
+            this.muontiep.UseVisualStyleBackColor = false;
+            this.muontiep.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Muon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
@@ -537,7 +538,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button muontiep;
         private System.Windows.Forms.Button cho_muon;
         private System.Windows.Forms.Button kt;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -550,5 +550,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button muontiep;
     }
 }

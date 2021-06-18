@@ -82,6 +82,7 @@ namespace LibraryManager
                     }
                     else
                     {
+                        CloseConnection(Connection);
                         return null;
                     }
                 }
@@ -99,9 +100,29 @@ namespace LibraryManager
         }
 
         //Insert statement
-        public void Insert()
+        public bool Insert(string query)
         {
-
+            try
+            {
+                OpenConnection(this.Connection);
+                if (Connection.State == ConnectionState.Open)
+                {
+                    cmd = Connection.CreateCommand();
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();  //Thuc hien chen vao csdl
+                    connection.Close();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Connection Failed");
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         //Update statement
