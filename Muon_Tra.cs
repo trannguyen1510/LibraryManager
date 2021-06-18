@@ -50,13 +50,15 @@ namespace LibraryManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Muon m = new Muon();
             m.Show();
         }
 
         private void tra_Click(object sender, EventArgs e)
         {
-            Tra t = new Tra();
+            this.Hide();
+            Muon_Tra t = new Muon_Tra();
             t.Show();
         }
     }
