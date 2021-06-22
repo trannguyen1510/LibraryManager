@@ -152,7 +152,15 @@ namespace LibraryManager
         {
 
         }
+        void load_dgv1(DataTable Data2)
+        {
+            //Ham cap nhat lại data cho bảng
 
+            foreach (DataRow item in Data2.Rows)
+            {
+                dataGridView1.Rows.Add(item.ItemArray);
+            }
+        }
         private void cho_muon_Click(object sender, EventArgs e)
         {
 
@@ -189,21 +197,13 @@ namespace LibraryManager
                         bool kq2 = db.Insert(sql2);
                         //Xuất ra bảng: lay het cac ma sach con dang muon 
                         string query = "SELECT* FROM BOOK_BORROW WHERE Status = '1' and UserID=" + id;
-                        DataTable Data = db.GetDataTable(query);
+                        DataTable Data2 = db.GetDataTable(query);
 
-                        string[] row = new string[] { Data.Rows[0][0].ToString(), Data.Rows[0][1].ToString(), Data.Rows[0][2].ToString(), Data.Rows[0][3].ToString() };
+                        //string[] row = new string[] { Data.Rows[0][0].ToString(), Data.Rows[0][1].ToString(), Data.Rows[0][2].ToString(), Data.Rows[0][3].ToString() };
 
-                        dataGridView1.Rows.Add(row);
+                        // dataGridView1.Rows.Add(row);
+                        load_dgv1(Data2);
 
-                        //dataGridView1.Rows[2].Cells[1].Value = Data.Rows[1][1].ToString();
-                        //dataGridView1.Rows[2].Cells[2].Value = Data.Rows[1][2].ToString();
-                        //dataGridView1.Rows[2].Cells[3].Value = Data.Rows[1][3].ToString();
-                        //dataGridView1.Rows[2].Cells[4].Value = Data.Rows[1][4].ToString();
-
-                        //dataGridView1.Rows[3].Cells[1].Value = Data.Rows[2][1].ToString();
-                        //dataGridView1.Rows[3].Cells[2].Value = Data.Rows[2][2].ToString();
-                        //dataGridView1.Rows[3].Cells[3].Value = Data.Rows[2][3].ToString();
-                        //dataGridView1.Rows[3].Cells[4].Value = Data.Rows[2][4].ToString();
                     }
                     else
                     {
@@ -217,6 +217,11 @@ namespace LibraryManager
                throw new Exception(err.Message);
             }
           
+        }
+
+        private void kt_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

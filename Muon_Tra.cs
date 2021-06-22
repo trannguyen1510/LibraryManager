@@ -57,7 +57,7 @@ namespace LibraryManager
 
         private void tra_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Muon_Tra t = new Muon_Tra();
             t.Show();
         }
