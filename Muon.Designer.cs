@@ -57,13 +57,13 @@
             this.kt = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.trangchu = new System.Windows.Forms.Button();
+            this.muontiep = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangchu = new System.Windows.Forms.Button();
-            this.muontiep = new System.Windows.Forms.Button();
             this.thongtinsach.SuspendLayout();
             this.docgia.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -376,6 +376,7 @@
             this.kt.TabIndex = 11;
             this.kt.Text = "Kết Thúc";
             this.kt.UseVisualStyleBackColor = false;
+            this.kt.Click += new System.EventHandler(this.kt_Click);
             // 
             // groupBox1
             // 
@@ -410,43 +411,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 150F;
-            this.Column1.HeaderText = "Mã sách";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 300F;
-            this.Column2.HeaderText = "Tên sách";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 300;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Ngày mượn";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 250;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ngày hẹn trả";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 250;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Tinh Trang";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
-            // 
             // trangchu
             // 
             this.trangchu.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -478,6 +442,43 @@
             this.muontiep.Text = "Mượn - Trả";
             this.muontiep.UseVisualStyleBackColor = false;
             this.muontiep.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 150F;
+            this.Column1.HeaderText = "MSSV";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 300F;
+            this.Column2.HeaderText = "Mã sách";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 300;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Ngày mượn";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 250;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Ngày hẹn trả";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 250;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Tinh Trang";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
             // 
             // Muon
             // 
@@ -545,11 +546,11 @@
         private System.Windows.Forms.Button trangchu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button muontiep;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button muontiep;
     }
 }
