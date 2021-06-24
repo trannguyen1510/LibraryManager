@@ -28,416 +28,290 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ColumnHeader clmCode;
-            System.Windows.Forms.ColumnHeader clmName;
-            System.Windows.Forms.ColumnHeader clmhAuthor;
-            System.Windows.Forms.ColumnHeader cmlhCategory;
-            System.Windows.Forms.ColumnHeader clmhAmount;
-            this.txtbSearch = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtbAmount = new System.Windows.Forms.TextBox();
-            this.lbAmount = new System.Windows.Forms.Label();
-            this.txtbAuthor = new System.Windows.Forms.TextBox();
-            this.txtbCategory = new System.Windows.Forms.TextBox();
-            this.txtbName = new System.Windows.Forms.TextBox();
-            this.txtbCode = new System.Windows.Forms.TextBox();
-            this.lbAuthor = new System.Windows.Forms.Label();
-            this.lbCategory = new System.Windows.Forms.Label();
-            this.lbName = new System.Windows.Forms.Label();
-            this.lbCode = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnReservation = new System.Windows.Forms.Button();
-            this.btnReader = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnCategory = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
-            clmCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            clmName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            clmhAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            cmlhCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            clmhAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabpageHome = new System.Windows.Forms.TabPage();
+            this.tabPageBorrow = new System.Windows.Forms.TabPage();
+            this.tabPageReader = new System.Windows.Forms.TabPage();
+            this.tabPageExit = new System.Windows.Forms.TabPage();
+            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
+            this.clmNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mbtnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.mtbSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.materialTabControl1.SuspendLayout();
+            this.tabpageHome.SuspendLayout();
+            this.materialCard1.SuspendLayout();
+            this.materialCard2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // clmCode
+            // materialTabControl1
             // 
-            clmCode.Text = "Mã sách";
-            clmCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmCode.Width = 104;
+            this.materialTabControl1.Controls.Add(this.tabpageHome);
+            this.materialTabControl1.Controls.Add(this.tabPageBorrow);
+            this.materialTabControl1.Controls.Add(this.tabPageReader);
+            this.materialTabControl1.Controls.Add(this.tabPageExit);
+            this.materialTabControl1.Depth = 0;
+            this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialTabControl1.ImageList = this.imageList1;
+            this.materialTabControl1.Location = new System.Drawing.Point(3, 64);
+            this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabControl1.Multiline = true;
+            this.materialTabControl1.Name = "materialTabControl1";
+            this.materialTabControl1.SelectedIndex = 0;
+            this.materialTabControl1.Size = new System.Drawing.Size(1153, 569);
+            this.materialTabControl1.TabIndex = 18;
             // 
-            // clmName
+            // tabpageHome
             // 
-            clmName.Text = "Tiêu đề";
-            clmName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmName.Width = 210;
+            this.tabpageHome.Controls.Add(this.materialCard2);
+            this.tabpageHome.Controls.Add(this.materialCard1);
+            this.tabpageHome.ImageKey = "home_32x.png";
+            this.tabpageHome.Location = new System.Drawing.Point(4, 39);
+            this.tabpageHome.Name = "tabpageHome";
+            this.tabpageHome.Padding = new System.Windows.Forms.Padding(3);
+            this.tabpageHome.Size = new System.Drawing.Size(1145, 526);
+            this.tabpageHome.TabIndex = 0;
+            this.tabpageHome.Text = "Home";
+            this.tabpageHome.UseVisualStyleBackColor = true;
             // 
-            // clmhAuthor
+            // tabPageBorrow
             // 
-            clmhAuthor.Text = "Tác giả";
-            clmhAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmhAuthor.Width = 126;
+            this.tabPageBorrow.BackColor = System.Drawing.Color.White;
+            this.tabPageBorrow.ImageKey = "book_32x.png";
+            this.tabPageBorrow.Location = new System.Drawing.Point(4, 39);
+            this.tabPageBorrow.Name = "tabPageBorrow";
+            this.tabPageBorrow.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBorrow.Size = new System.Drawing.Size(1145, 526);
+            this.tabPageBorrow.TabIndex = 1;
+            this.tabPageBorrow.Text = "Mượn sách";
             // 
-            // cmlhCategory
+            // tabPageReader
             // 
-            cmlhCategory.Text = "Danh mục";
-            cmlhCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            cmlhCategory.Width = 158;
+            this.tabPageReader.BackColor = System.Drawing.Color.White;
+            this.tabPageReader.ImageKey = "reader_32x.png";
+            this.tabPageReader.Location = new System.Drawing.Point(4, 39);
+            this.tabPageReader.Name = "tabPageReader";
+            this.tabPageReader.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageReader.Size = new System.Drawing.Size(1145, 526);
+            this.tabPageReader.TabIndex = 2;
+            this.tabPageReader.Text = "Độc giả";
             // 
-            // clmhAmount
+            // tabPageExit
             // 
-            clmhAmount.Text = "Số lượng";
-            clmhAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            clmhAmount.Width = 77;
+            this.tabPageExit.BackColor = System.Drawing.Color.White;
+            this.tabPageExit.ImageKey = "exit_32x.png";
+            this.tabPageExit.Location = new System.Drawing.Point(4, 39);
+            this.tabPageExit.Name = "tabPageExit";
+            this.tabPageExit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageExit.Size = new System.Drawing.Size(1145, 526);
+            this.tabPageExit.TabIndex = 4;
+            this.tabPageExit.Text = "Thoát";
+            this.tabPageExit.Click += new System.EventHandler(this.tabPageExit_Click);
+            this.tabPageExit.Enter += new System.EventHandler(this.tabPageExit_Enter);
             // 
-            // txtbSearch
+            // materialComboBox1
             // 
-            this.txtbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbSearch.Location = new System.Drawing.Point(37, 123);
-            this.txtbSearch.Name = "txtbSearch";
-            this.txtbSearch.Size = new System.Drawing.Size(144, 26);
-            this.txtbSearch.TabIndex = 3;
-            this.txtbSearch.TextChanged += new System.EventHandler(this.txtbSearch_TextChanged);
+            this.materialComboBox1.AutoResize = false;
+            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBox1.Depth = 0;
+            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBox1.DropDownHeight = 174;
+            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBox1.DropDownWidth = 121;
+            this.materialComboBox1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBox1.FormattingEnabled = true;
+            this.materialComboBox1.IntegralHeight = false;
+            this.materialComboBox1.ItemHeight = 43;
+            this.materialComboBox1.Location = new System.Drawing.Point(475, 26);
+            this.materialComboBox1.MaxDropDownItems = 4;
+            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBox1.Name = "materialComboBox1";
+            this.materialComboBox1.Size = new System.Drawing.Size(121, 49);
+            this.materialComboBox1.StartIndex = 0;
+            this.materialComboBox1.TabIndex = 9;
             // 
-            // menuStrip1
+            // materialCard1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(944, 27);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.mtbSearch);
+            this.materialCard1.Controls.Add(this.mbtnSearch);
+            this.materialCard1.Controls.Add(this.materialComboBox1);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(173, 17);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(743, 99);
+            this.materialCard1.TabIndex = 18;
             // 
-            // homeToolStripMenuItem
+            // materialCard2
             // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
-            this.homeToolStripMenuItem.Text = "Home";
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.materialListView1);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(51, 144);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Size = new System.Drawing.Size(996, 372);
+            this.materialCard2.TabIndex = 19;
             // 
-            // btnSearch
+            // materialListView1
             // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(200, 120);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(80, 33);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.materialListView1.AutoSizeTable = false;
+            this.materialListView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmNum,
+            this.clmID,
+            this.clmTitle,
+            this.clmAuthor,
+            this.clmCategory});
+            this.materialListView1.Depth = 0;
+            this.materialListView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialListView1.FullRowSelect = true;
+            this.materialListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.materialListView1.HideSelection = false;
+            this.materialListView1.Location = new System.Drawing.Point(17, 17);
+            this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialListView1.Name = "materialListView1";
+            this.materialListView1.OwnerDraw = true;
+            this.materialListView1.Size = new System.Drawing.Size(962, 338);
+            this.materialListView1.TabIndex = 0;
+            this.materialListView1.UseCompatibleStateImageBehavior = false;
+            this.materialListView1.View = System.Windows.Forms.View.Details;
             // 
-            // groupBox1
+            // clmNum
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.groupBox1.Controls.Add(this.txtbAmount);
-            this.groupBox1.Controls.Add(this.lbAmount);
-            this.groupBox1.Controls.Add(this.txtbAuthor);
-            this.groupBox1.Controls.Add(this.txtbCategory);
-            this.groupBox1.Controls.Add(this.txtbName);
-            this.groupBox1.Controls.Add(this.txtbCode);
-            this.groupBox1.Controls.Add(this.lbAuthor);
-            this.groupBox1.Controls.Add(this.lbCategory);
-            this.groupBox1.Controls.Add(this.lbName);
-            this.groupBox1.Controls.Add(this.lbCode);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(286, 81);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(421, 230);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông Tin Chi Tiết";
+            this.clmNum.Text = "STT";
             // 
-            // txtbAmount
+            // clmTitle
             // 
-            this.txtbAmount.Location = new System.Drawing.Point(121, 183);
-            this.txtbAmount.Name = "txtbAmount";
-            this.txtbAmount.Size = new System.Drawing.Size(278, 30);
-            this.txtbAmount.TabIndex = 9;
+            this.clmTitle.Text = "Tiêu đề";
+            this.clmTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmTitle.Width = 330;
             // 
-            // lbAmount
+            // clmCategory
             // 
-            this.lbAmount.AutoSize = true;
-            this.lbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAmount.Location = new System.Drawing.Point(18, 190);
-            this.lbAmount.Name = "lbAmount";
-            this.lbAmount.Size = new System.Drawing.Size(81, 22);
-            this.lbAmount.TabIndex = 8;
-            this.lbAmount.Text = "Số lượng";
+            this.clmCategory.Text = "Danh mục";
+            this.clmCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmCategory.Width = 100;
             // 
-            // txtbAuthor
+            // clmAuthor
             // 
-            this.txtbAuthor.Location = new System.Drawing.Point(121, 147);
-            this.txtbAuthor.Name = "txtbAuthor";
-            this.txtbAuthor.Size = new System.Drawing.Size(278, 30);
-            this.txtbAuthor.TabIndex = 7;
+            this.clmAuthor.Text = "Tác giả";
+            this.clmAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmAuthor.Width = 200;
             // 
-            // txtbCategory
+            // clmID
             // 
-            this.txtbCategory.Location = new System.Drawing.Point(121, 111);
-            this.txtbCategory.Name = "txtbCategory";
-            this.txtbCategory.Size = new System.Drawing.Size(278, 30);
-            this.txtbCategory.TabIndex = 6;
+            this.clmID.Text = "Mã sách";
+            this.clmID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmID.Width = 200;
             // 
-            // txtbName
+            // mbtnSearch
             // 
-            this.txtbName.Location = new System.Drawing.Point(121, 75);
-            this.txtbName.Name = "txtbName";
-            this.txtbName.Size = new System.Drawing.Size(278, 30);
-            this.txtbName.TabIndex = 5;
+            this.mbtnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mbtnSearch.Depth = 0;
+            this.mbtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbtnSearch.HighEmphasis = true;
+            this.mbtnSearch.Icon = null;
+            this.mbtnSearch.Location = new System.Drawing.Point(630, 39);
+            this.mbtnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnSearch.Name = "mbtnSearch";
+            this.mbtnSearch.Size = new System.Drawing.Size(86, 36);
+            this.mbtnSearch.TabIndex = 10;
+            this.mbtnSearch.Text = "Tìm kiếm";
+            this.mbtnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mbtnSearch.UseAccentColor = false;
+            this.mbtnSearch.UseVisualStyleBackColor = true;
+            this.mbtnSearch.Click += new System.EventHandler(this.mbtnSearch_Click);
             // 
-            // txtbCode
+            // mtbSearch
             // 
-            this.txtbCode.Location = new System.Drawing.Point(121, 39);
-            this.txtbCode.Name = "txtbCode";
-            this.txtbCode.Size = new System.Drawing.Size(278, 30);
-            this.txtbCode.TabIndex = 4;
+            this.mtbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mtbSearch.Depth = 0;
+            this.mtbSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mtbSearch.LeadingIcon = null;
+            this.mtbSearch.Location = new System.Drawing.Point(37, 27);
+            this.mtbSearch.MaxLength = 50;
+            this.mtbSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.mtbSearch.Multiline = false;
+            this.mtbSearch.Name = "mtbSearch";
+            this.mtbSearch.Size = new System.Drawing.Size(406, 50);
+            this.mtbSearch.TabIndex = 11;
+            this.mtbSearch.Text = "";
+            this.mtbSearch.TrailingIcon = null;
             // 
-            // lbAuthor
+            // imageList1
             // 
-            this.lbAuthor.AutoSize = true;
-            this.lbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAuthor.Location = new System.Drawing.Point(18, 154);
-            this.lbAuthor.Name = "lbAuthor";
-            this.lbAuthor.Size = new System.Drawing.Size(75, 22);
-            this.lbAuthor.TabIndex = 3;
-            this.lbAuthor.Text = "Tác giả:";
-            // 
-            // lbCategory
-            // 
-            this.lbCategory.AutoSize = true;
-            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.Location = new System.Drawing.Point(18, 118);
-            this.lbCategory.Name = "lbCategory";
-            this.lbCategory.Size = new System.Drawing.Size(96, 22);
-            this.lbCategory.TabIndex = 2;
-            this.lbCategory.Text = "Danh mục:";
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(18, 82);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(76, 22);
-            this.lbName.TabIndex = 1;
-            this.lbName.Text = "Tiêu đề:";
-            // 
-            // lbCode
-            // 
-            this.lbCode.AutoSize = true;
-            this.lbCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCode.Location = new System.Drawing.Point(18, 44);
-            this.lbCode.Name = "lbCode";
-            this.lbCode.Size = new System.Drawing.Size(85, 22);
-            this.lbCode.TabIndex = 0;
-            this.lbCode.Text = "Mã Sách:";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(732, 103);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(190, 44);
-            this.btnUpdate.TabIndex = 9;
-            this.btnUpdate.Text = "Cập Nhật";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnReservation
-            // 
-            this.btnReservation.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservation.Location = new System.Drawing.Point(732, 228);
-            this.btnReservation.Name = "btnReservation";
-            this.btnReservation.Size = new System.Drawing.Size(190, 44);
-            this.btnReservation.TabIndex = 10;
-            this.btnReservation.Text = "Quản Lý Mượn Trả";
-            this.btnReservation.UseVisualStyleBackColor = false;
-            this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
-            // 
-            // btnReader
-            // 
-            this.btnReader.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnReader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReader.Location = new System.Drawing.Point(732, 163);
-            this.btnReader.Name = "btnReader";
-            this.btnReader.Size = new System.Drawing.Size(190, 44);
-            this.btnReader.TabIndex = 11;
-            this.btnReader.Text = "Quản Lý Độc Giả";
-            this.btnReader.UseVisualStyleBackColor = false;
-            this.btnReader.Click += new System.EventHandler(this.btnReader_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(732, 445);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(190, 44);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.Text = "Kết Thúc";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.groupBox2.Controls.Add(this.listView1);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 317);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(695, 203);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh Sách";
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            clmCode,
-            clmName,
-            clmhAuthor,
-            cmlhCategory,
-            clmhAmount});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 26);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(683, 171);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.listView1_ColumnWidthChanged);
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Mã Sách",
-            "Tiêu Đề",
-            "Danh Mục",
-            "Tác Giả"});
-            this.checkedListBox1.Location = new System.Drawing.Point(79, 180);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(155, 70);
-            this.checkedListBox1.TabIndex = 14;
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(732, 372);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(190, 44);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "Xóa thông tin";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnCategory
-            // 
-            this.btnCategory.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategory.Location = new System.Drawing.Point(732, 293);
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(190, 44);
-            this.btnCategory.TabIndex = 16;
-            this.btnCategory.Text = "Danh Mục";
-            this.btnCategory.UseVisualStyleBackColor = false;
-            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Californian FB", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(0, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(944, 49);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Quản Lý Thư Viện";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "home_32x.png");
+            this.imageList1.Images.SetKeyName(1, "book_32x.png");
+            this.imageList1.Images.SetKeyName(2, "exit_32x.png");
+            this.imageList1.Images.SetKeyName(3, "reader_32x.png");
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(944, 532);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCategory);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnReader);
-            this.Controls.Add(this.btnReservation);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtbSearch);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(1159, 636);
+            this.Controls.Add(this.materialTabControl1);
+            this.DrawerShowIconsWhenHidden = true;
+            this.DrawerTabControl = this.materialTabControl1;
             this.Name = "Main";
-            this.Text = "Main";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lý thư viện";
+            this.materialTabControl1.ResumeLayout(false);
+            this.tabpageHome.ResumeLayout(false);
+            this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
+            this.materialCard2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtbSearch;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtbAmount;
-        private System.Windows.Forms.Label lbAmount;
-        private System.Windows.Forms.TextBox txtbAuthor;
-        private System.Windows.Forms.TextBox txtbCategory;
-        private System.Windows.Forms.TextBox txtbName;
-        private System.Windows.Forms.TextBox txtbCode;
-        private System.Windows.Forms.Label lbAuthor;
-        private System.Windows.Forms.Label lbCategory;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbCode;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnReservation;
-        private System.Windows.Forms.Button btnReader;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnCategory;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
+        private System.Windows.Forms.TabPage tabpageHome;
+        private System.Windows.Forms.TabPage tabPageBorrow;
+        private System.Windows.Forms.TabPage tabPageReader;
+        private System.Windows.Forms.TabPage tabPageExit;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private MaterialSkin.Controls.MaterialListView materialListView1;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private System.Windows.Forms.ColumnHeader clmNum;
+        private System.Windows.Forms.ColumnHeader clmTitle;
+        private System.Windows.Forms.ColumnHeader clmCategory;
+        private System.Windows.Forms.ColumnHeader clmAuthor;
+        private System.Windows.Forms.ColumnHeader clmID;
+        private MaterialSkin.Controls.MaterialTextBox mtbSearch;
+        private MaterialSkin.Controls.MaterialButton mbtnSearch;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

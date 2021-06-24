@@ -25,7 +25,7 @@ namespace LibraryManager
             string query = "SELECT * FROM READER";
             task = db.GetDataTable(query);
 
-            foreach (DataRow r in task.Rows)
+            foreach (DataRow r in task.Rows)    
             {
                 ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
                 listViewItem.SubItems.Add(r["FullName"].ToString());
