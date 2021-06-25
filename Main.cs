@@ -25,12 +25,6 @@ namespace LibraryManager
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue300, Primary.Blue500, Primary.Blue300, Accent.LightBlue200, TextShade.WHITE);
-
-
-            //this.label1.BackColor = Color.FromArgb(17, 93, 130);
-            //this.checkedListBox1.BackColor = Color.FromArgb(229, 236, 244);
-            //this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
-            //this.groupBox2.BackColor = Color.FromArgb(229, 236, 244);
             load_database();
         }
 
