@@ -24,7 +24,13 @@ namespace LibraryManager
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue300, Primary.Blue500, Primary.Blue300, Accent.LightBlue200, TextShade.WHITE);
+
+
+            //this.label1.BackColor = Color.FromArgb(17, 93, 130);
+            //this.checkedListBox1.BackColor = Color.FromArgb(229, 236, 244);
+            //this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
+            //this.groupBox2.BackColor = Color.FromArgb(229, 236, 244);
             load_database();
         }
 
@@ -64,39 +70,10 @@ namespace LibraryManager
             //}
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnReader_Click(object sender, EventArgs e)
-        {
-            Reader reader = new Reader();
-            reader.Show();
-        }
-
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnReservation_Click(object sender, EventArgs e)
         {
             QL_MUON_TRA muonTra = new QL_MUON_TRA();
             muonTra.Show();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            //this.checkedListBox1.ClearSelected();
-            //this.txtbSearch.Text = "";
-
-            //this.txtbCode.Text = "";
-            //this.txtbName.Text = "";
-            //this.txtbCategory.Text = "";
-            //this.txtbAuthor.Text = "";
-            //this.txtbAmount.Text = "";
-
-            //this.listView1.Items.Clear();
         }
 
         private void listView1_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
@@ -112,7 +89,7 @@ namespace LibraryManager
 
         private void txtbSearch_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void mbtnSearch_Click(object sender, EventArgs e)
@@ -186,7 +163,17 @@ namespace LibraryManager
         // Exit tab
         private void tabPageExit_Enter(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void ngaytra_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
 
 
