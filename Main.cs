@@ -131,5 +131,40 @@ namespace LibraryManager
         {
 
         }
+
+        private void materialLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialTextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_a_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_aa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_a_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loaisach_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
