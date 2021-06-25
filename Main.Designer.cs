@@ -33,6 +33,17 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabpageHome = new System.Windows.Forms.TabPage();
+            this.materialCardHome2 = new MaterialSkin.Controls.MaterialCard();
+            this.materialHomeListView = new MaterialSkin.Controls.MaterialListView();
+            this.clmHomeIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmHomeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmHomeTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmHomeAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmHomeCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.materialCardHome1 = new MaterialSkin.Controls.MaterialCard();
+            this.mtbHomeSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.mbtnHomeSearch = new MaterialSkin.Controls.MaterialButton();
+            this.materialComboBoxCategory = new MaterialSkin.Controls.MaterialComboBox();
             this.tabPageBorrow = new System.Windows.Forms.TabPage();
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
             this.materialListView2 = new MaterialSkin.Controls.MaterialListView();
@@ -94,28 +105,6 @@
             this.textBox1_a = new MaterialSkin.Controls.MaterialTextBox();
             this.button1_a = new MaterialSkin.Controls.MaterialButton();
             this.tabPageReader = new System.Windows.Forms.TabPage();
-            this.tabPageExit = new System.Windows.Forms.TabPage();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.materialTabControl1.SuspendLayout();
-            this.tabpageHome.SuspendLayout();
-            this.tabPageBorrow.SuspendLayout();
-            this.materialCard7.SuspendLayout();
-            this.materialCard6.SuspendLayout();
-            this.materialCard5.SuspendLayout();
-            this.materialCard4.SuspendLayout();
-            this.materialCard3.SuspendLayout();
-            this.tabReturn.SuspendLayout();
-            this.materialCardHome2 = new MaterialSkin.Controls.MaterialCard();
-            this.materialHomeListView = new MaterialSkin.Controls.MaterialListView();
-            this.clmHomeIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmHomeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmHomeTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmHomeAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmHomeCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialCardHome1 = new MaterialSkin.Controls.MaterialCard();
-            this.mtbHomeSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.mbtnHomeSearch = new MaterialSkin.Controls.MaterialButton();
-            this.materialComboBoxCategory = new MaterialSkin.Controls.MaterialComboBox();
             this.materialCardReader = new MaterialSkin.Controls.MaterialCard();
             this.materialReaderListView = new MaterialSkin.Controls.MaterialListView();
             this.clmReaderIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -125,20 +114,29 @@
             this.clmReaderAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmReaderEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmDateCreated = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageExit = new System.Windows.Forms.TabPage();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabControl1.SuspendLayout();
             this.tabpageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
             this.materialCardHome1.SuspendLayout();
-            this.tabPageReader.SuspendLayout();
-            this.materialCardReader.SuspendLayout();
+            this.tabPageBorrow.SuspendLayout();
+            this.materialCard7.SuspendLayout();
+            this.materialCard6.SuspendLayout();
+            this.materialCard5.SuspendLayout();
+            this.materialCard4.SuspendLayout();
+            this.materialCard3.SuspendLayout();
+            this.tabReturn.SuspendLayout();
             this.materialCard9.SuspendLayout();
             this.button4_a.SuspendLayout();
             this.materialCard10.SuspendLayout();
             this.materialCard8.SuspendLayout();
+            this.tabPageReader.SuspendLayout();
+            this.materialCardReader.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // materialTabControl1
-            //
+            // 
             this.materialTabControl1.Controls.Add(this.tabpageHome);
             this.materialTabControl1.Controls.Add(this.tabPageBorrow);
             this.materialTabControl1.Controls.Add(this.tabReturn);
@@ -153,11 +151,11 @@
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1203, 730);
+            this.materialTabControl1.Size = new System.Drawing.Size(1313, 730);
             this.materialTabControl1.TabIndex = 18;
-            //
+            // 
             // tabpageHome
-            //
+            // 
             this.tabpageHome.Controls.Add(this.materialCardHome2);
             this.tabpageHome.Controls.Add(this.materialCardHome1);
             this.tabpageHome.ImageKey = "home_32x.png";
@@ -165,12 +163,13 @@
             this.tabpageHome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabpageHome.Name = "tabpageHome";
             this.tabpageHome.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabpageHome.Size = new System.Drawing.Size(1146, 687);
+            this.tabpageHome.Size = new System.Drawing.Size(1195, 687);
             this.tabpageHome.TabIndex = 0;
             this.tabpageHome.Text = "Home";
             this.tabpageHome.UseVisualStyleBackColor = true;
+            // 
             // materialCardHome2
-            //
+            // 
             this.materialCardHome2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCardHome2.Controls.Add(this.materialHomeListView);
             this.materialCardHome2.Depth = 0;
@@ -182,9 +181,9 @@
             this.materialCardHome2.Padding = new System.Windows.Forms.Padding(14);
             this.materialCardHome2.Size = new System.Drawing.Size(996, 372);
             this.materialCardHome2.TabIndex = 19;
-            //
+            // 
             // materialHomeListView
-            //
+            // 
             this.materialHomeListView.AutoSizeTable = false;
             this.materialHomeListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialHomeListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -209,37 +208,37 @@
             this.materialHomeListView.TabIndex = 0;
             this.materialHomeListView.UseCompatibleStateImageBehavior = false;
             this.materialHomeListView.View = System.Windows.Forms.View.Details;
-            //
+            // 
             // clmHomeIndex
-            //
+            // 
             this.clmHomeIndex.Text = "STT";
-            //
+            // 
             // clmHomeID
-            //
+            // 
             this.clmHomeID.Text = "Mã sách";
             this.clmHomeID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmHomeID.Width = 200;
-            //
+            // 
             // clmHomeTitle
-            //
+            // 
             this.clmHomeTitle.Text = "Tiêu đề";
             this.clmHomeTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmHomeTitle.Width = 330;
-            //
+            // 
             // clmHomeAuthor
-            //
+            // 
             this.clmHomeAuthor.Text = "Tác giả";
             this.clmHomeAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmHomeAuthor.Width = 200;
-            //
+            // 
             // clmHomeCategory
-            //
+            // 
             this.clmHomeCategory.Text = "Danh mục";
             this.clmHomeCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmHomeCategory.Width = 100;
-            //
+            // 
             // materialCardHome1
-            //
+            // 
             this.materialCardHome1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCardHome1.Controls.Add(this.mtbHomeSearch);
             this.materialCardHome1.Controls.Add(this.mbtnHomeSearch);
@@ -253,9 +252,9 @@
             this.materialCardHome1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCardHome1.Size = new System.Drawing.Size(743, 99);
             this.materialCardHome1.TabIndex = 18;
-            //
+            // 
             // mtbHomeSearch
-            //
+            // 
             this.mtbHomeSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtbHomeSearch.Depth = 0;
             this.mtbHomeSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -269,9 +268,9 @@
             this.mtbHomeSearch.TabIndex = 11;
             this.mtbHomeSearch.Text = "";
             this.mtbHomeSearch.TrailingIcon = null;
-            //
+            // 
             // mbtnHomeSearch
-            //
+            // 
             this.mbtnHomeSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnHomeSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.mbtnHomeSearch.Depth = 0;
@@ -289,9 +288,9 @@
             this.mbtnHomeSearch.UseAccentColor = false;
             this.mbtnHomeSearch.UseVisualStyleBackColor = true;
             this.mbtnHomeSearch.Click += new System.EventHandler(this.mbtnSearch_Click);
-            //
+            // 
             // materialComboBoxCategory
-            //
+            // 
             this.materialComboBoxCategory.AutoResize = false;
             this.materialComboBoxCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialComboBoxCategory.Depth = 0;
@@ -311,9 +310,9 @@
             this.materialComboBoxCategory.Size = new System.Drawing.Size(121, 49);
             this.materialComboBoxCategory.StartIndex = 0;
             this.materialComboBoxCategory.TabIndex = 9;
-            //
+            // 
             // tabPageBorrow
-            //
+            // 
             this.tabPageBorrow.BackColor = System.Drawing.Color.White;
             this.tabPageBorrow.Controls.Add(this.materialCard7);
             this.tabPageBorrow.Controls.Add(this.materialCard6);
@@ -324,13 +323,13 @@
             this.tabPageBorrow.Location = new System.Drawing.Point(4, 39);
             this.tabPageBorrow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageBorrow.Name = "tabPageBorrow";
-            this.tabPageBorrow.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPageBorrow.Size = new System.Drawing.Size(1146, 687);
+            this.tabPageBorrow.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBorrow.Size = new System.Drawing.Size(1195, 687);
             this.tabPageBorrow.TabIndex = 1;
             this.tabPageBorrow.Text = "Mượn sách";
-            //
+            // 
             // materialCard7
-            //
+            // 
             this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard7.Controls.Add(this.materialListView2);
             this.materialCard7.Depth = 0;
@@ -342,9 +341,9 @@
             this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard7.Size = new System.Drawing.Size(985, 217);
             this.materialCard7.TabIndex = 5;
-            //
+            // 
             // materialListView2
-            //
+            // 
             this.materialListView2.AutoSizeTable = false;
             this.materialListView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialListView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -367,38 +366,38 @@
             this.materialListView2.TabIndex = 2;
             this.materialListView2.UseCompatibleStateImageBehavior = false;
             this.materialListView2.View = System.Windows.Forms.View.Details;
-            //
+            // 
             // Column1
-            //
+            // 
             this.Column1.Text = "MSSV";
             this.Column1.Width = 150;
-            //
+            // 
             // Column2
-            //
+            // 
             this.Column2.Text = "Mã sách";
             this.Column2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column2.Width = 150;
-            //
+            // 
             // Column5
-            //
+            // 
             this.Column5.Text = "Ngày mượn";
             this.Column5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column5.Width = 150;
-            //
+            // 
             // Column6
-            //
+            // 
             this.Column6.Text = "Ngày hẹn trả";
             this.Column6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column6.Width = 150;
-            //
+            // 
             // Column7
-            //
+            // 
             this.Column7.Text = "Tình trạng";
             this.Column7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column7.Width = 150;
-            //
+            // 
             // materialCard6
-            //
+            // 
             this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard6.Controls.Add(this.materialButton1);
             this.materialCard6.Controls.Add(this.textBox3);
@@ -412,9 +411,9 @@
             this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard6.Size = new System.Drawing.Size(464, 101);
             this.materialCard6.TabIndex = 4;
-            //
+            // 
             // materialButton1
-            //
+            // 
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton1.Depth = 0;
@@ -431,9 +430,9 @@
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
-            //
+            // 
             // textBox3
-            //
+            // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Depth = 0;
             this.textBox3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -447,9 +446,9 @@
             this.textBox3.TabIndex = 4;
             this.textBox3.Text = "";
             this.textBox3.TrailingIcon = null;
-            //
+            // 
             // madg
-            //
+            // 
             this.madg.AutoSize = true;
             this.madg.Depth = 0;
             this.madg.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -459,9 +458,9 @@
             this.madg.Size = new System.Drawing.Size(134, 19);
             this.madg.TabIndex = 0;
             this.madg.Text = "*Nhập mã đọc giả:";
-            //
+            // 
             // materialCard5
-            //
+            // 
             this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard5.Controls.Add(this.textmasach);
             this.materialCard5.Controls.Add(this.button1);
@@ -475,9 +474,9 @@
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard5.Size = new System.Drawing.Size(508, 101);
             this.materialCard5.TabIndex = 3;
-            //
+            // 
             // textmasach
-            //
+            // 
             this.textmasach.BackColor = System.Drawing.Color.White;
             this.textmasach.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textmasach.Depth = 0;
@@ -492,9 +491,9 @@
             this.textmasach.TabIndex = 1;
             this.textmasach.Text = "";
             this.textmasach.TrailingIcon = null;
-            //
+            // 
             // button1
-            //
+            // 
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.button1.Depth = 0;
@@ -511,9 +510,9 @@
             this.button1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.button1.UseAccentColor = false;
             this.button1.UseVisualStyleBackColor = true;
-            //
+            // 
             // masach
-            //
+            // 
             this.masach.AutoSize = true;
             this.masach.Depth = 0;
             this.masach.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -523,9 +522,9 @@
             this.masach.Size = new System.Drawing.Size(115, 19);
             this.masach.TabIndex = 0;
             this.masach.Text = "*Nhập mã sách:";
-            //
+            // 
             // materialCard4
-            //
+            // 
             this.materialCard4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard4.Controls.Add(this.dateTimePicker1);
             this.materialCard4.Controls.Add(this.dateTimePicker2);
@@ -544,27 +543,27 @@
             this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard4.Size = new System.Drawing.Size(464, 216);
             this.materialCard4.TabIndex = 1;
-            //
+            // 
             // dateTimePicker1
-            //
+            // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(136, 177);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker1.TabIndex = 14;
-            //
+            // 
             // dateTimePicker2
-            //
+            // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.dateTimePicker2.Location = new System.Drawing.Point(136, 136);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker2.TabIndex = 13;
-            //
+            // 
             // ngaytra
-            //
+            // 
             this.ngaytra.AutoSize = true;
             this.ngaytra.Depth = 0;
             this.ngaytra.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -575,9 +574,9 @@
             this.ngaytra.TabIndex = 10;
             this.ngaytra.Text = "*Ngày hẹn trả:";
             this.ngaytra.Click += new System.EventHandler(this.ngaytra_Click);
-            //
+            // 
             // textBox2
-            //
+            // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Depth = 0;
             this.textBox2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -591,9 +590,9 @@
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = "";
             this.textBox2.TrailingIcon = null;
-            //
+            // 
             // textBox5
-            //
+            // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Depth = 0;
             this.textBox5.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -607,9 +606,9 @@
             this.textBox5.TabIndex = 5;
             this.textBox5.Text = "";
             this.textBox5.TrailingIcon = null;
-            //
+            // 
             // ngaymuon
-            //
+            // 
             this.ngaymuon.AutoSize = true;
             this.ngaymuon.Depth = 0;
             this.ngaymuon.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -619,9 +618,9 @@
             this.ngaymuon.Size = new System.Drawing.Size(88, 19);
             this.ngaymuon.TabIndex = 3;
             this.ngaymuon.Text = "Ngày mượn:";
-            //
+            // 
             // sl
-            //
+            // 
             this.sl.AutoSize = true;
             this.sl.Depth = 0;
             this.sl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -631,9 +630,9 @@
             this.sl.Size = new System.Drawing.Size(45, 19);
             this.sl.TabIndex = 2;
             this.sl.Text = "Email:";
-            //
+            // 
             // mas
-            //
+            // 
             this.mas.AutoSize = true;
             this.mas.Depth = 0;
             this.mas.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -643,9 +642,9 @@
             this.mas.Size = new System.Drawing.Size(72, 19);
             this.mas.TabIndex = 1;
             this.mas.Text = "Họ và tên:";
-            //
+            // 
             // materialCard3
-            //
+            // 
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard3.Controls.Add(this.texttacgia);
             this.materialCard3.Controls.Add(this.texttensach);
@@ -662,9 +661,9 @@
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard3.Size = new System.Drawing.Size(508, 216);
             this.materialCard3.TabIndex = 0;
-            //
+            // 
             // texttacgia
-            //
+            // 
             this.texttacgia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.texttacgia.Depth = 0;
             this.texttacgia.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -678,9 +677,9 @@
             this.texttacgia.TabIndex = 8;
             this.texttacgia.Text = "";
             this.texttacgia.TrailingIcon = null;
-            //
+            // 
             // texttensach
-            //
+            // 
             this.texttensach.BackColor = System.Drawing.SystemColors.Control;
             this.texttensach.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.texttensach.Depth = 0;
@@ -695,9 +694,9 @@
             this.texttensach.TabIndex = 7;
             this.texttensach.Text = "";
             this.texttensach.TrailingIcon = null;
-            //
+            // 
             // comboBox1
-            //
+            // 
             this.comboBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.comboBox1.Depth = 0;
             this.comboBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -711,9 +710,9 @@
             this.comboBox1.TabIndex = 6;
             this.comboBox1.Text = "";
             this.comboBox1.TrailingIcon = null;
-            //
+            // 
             // tacgia
-            //
+            // 
             this.tacgia.AutoSize = true;
             this.tacgia.Depth = 0;
             this.tacgia.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -723,9 +722,9 @@
             this.tacgia.Size = new System.Drawing.Size(58, 19);
             this.tacgia.TabIndex = 5;
             this.tacgia.Text = "Tác giả:";
-            //
+            // 
             // loaisach
-            //
+            // 
             this.loaisach.AutoSize = true;
             this.loaisach.Depth = 0;
             this.loaisach.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -736,9 +735,9 @@
             this.loaisach.TabIndex = 4;
             this.loaisach.Text = "Loại sách:";
             this.loaisach.Click += new System.EventHandler(this.loaisach_Click);
-            //
+            // 
             // tensach
-            //
+            // 
             this.tensach.AutoSize = true;
             this.tensach.Depth = 0;
             this.tensach.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -748,9 +747,9 @@
             this.tensach.Size = new System.Drawing.Size(70, 19);
             this.tensach.TabIndex = 3;
             this.tensach.Text = "Tên sách:";
-            //
+            // 
             // tabReturn
-            //
+            // 
             this.tabReturn.Controls.Add(this.materialCard9);
             this.tabReturn.Controls.Add(this.button4_a);
             this.tabReturn.Controls.Add(this.materialCard10);
@@ -759,13 +758,13 @@
             this.tabReturn.Location = new System.Drawing.Point(4, 39);
             this.tabReturn.Name = "tabReturn";
             this.tabReturn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReturn.Size = new System.Drawing.Size(1195, 687);
+            this.tabReturn.Size = new System.Drawing.Size(1305, 687);
             this.tabReturn.TabIndex = 5;
             this.tabReturn.Text = "Trả sách";
             this.tabReturn.UseVisualStyleBackColor = true;
-            //
+            // 
             // materialCard9
-            //
+            // 
             this.materialCard9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard9.Controls.Add(this.materialListView3);
             this.materialCard9.Depth = 0;
@@ -777,9 +776,9 @@
             this.materialCard9.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard9.Size = new System.Drawing.Size(617, 378);
             this.materialCard9.TabIndex = 2;
-            //
+            // 
             // materialListView3
-            //
+            // 
             this.materialListView3.AutoSizeTable = false;
             this.materialListView3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialListView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -803,44 +802,44 @@
             this.materialListView3.TabIndex = 0;
             this.materialListView3.UseCompatibleStateImageBehavior = false;
             this.materialListView3.View = System.Windows.Forms.View.Details;
-            //
+            // 
             // Column4_a
-            //
+            // 
             this.Column4_a.Text = "MSSV";
             this.Column4_a.Width = 150;
-            //
+            // 
             // Column1_a
-            //
+            // 
             this.Column1_a.Text = "Mã sách";
             this.Column1_a.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column1_a.Width = 150;
-            //
+            // 
             // Column2_a
-            //
+            // 
             this.Column2_a.Text = "Ngày mượn";
             this.Column2_a.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column2_a.Width = 150;
-            //
+            // 
             // Column3_a
-            //
+            // 
             this.Column3_a.Text = "Ngày trả";
             this.Column3_a.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column3_a.Width = 150;
-            //
+            // 
             // Column6_a
-            //
+            // 
             this.Column6_a.Text = "Tình trạng";
             this.Column6_a.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column6_a.Width = 150;
-            //
+            // 
             // Column5_a
-            //
+            // 
             this.Column5_a.Text = "Quá hạn";
             this.Column5_a.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Column5_a.Width = 150;
-            //
+            // 
             // button4_a
-            //
+            // 
             this.button4_a.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button4_a.Controls.Add(this.button4_aa);
             this.button4_a.Controls.Add(this.textBox7_a);
@@ -854,9 +853,9 @@
             this.button4_a.Padding = new System.Windows.Forms.Padding(14);
             this.button4_a.Size = new System.Drawing.Size(613, 128);
             this.button4_a.TabIndex = 1;
-            //
+            // 
             // button4_aa
-            //
+            // 
             this.button4_aa.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button4_aa.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.button4_aa.Depth = 0;
@@ -873,9 +872,9 @@
             this.button4_aa.UseAccentColor = false;
             this.button4_aa.UseVisualStyleBackColor = true;
             this.button4_aa.Click += new System.EventHandler(this.button4_aa_Click);
-            //
+            // 
             // textBox7_a
-            //
+            // 
             this.textBox7_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7_a.Depth = 0;
             this.textBox7_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -889,9 +888,9 @@
             this.textBox7_a.TabIndex = 3;
             this.textBox7_a.Text = "";
             this.textBox7_a.TrailingIcon = null;
-            //
+            // 
             // materialLabel2
-            //
+            // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -901,9 +900,9 @@
             this.materialLabel2.Size = new System.Drawing.Size(134, 19);
             this.materialLabel2.TabIndex = 3;
             this.materialLabel2.Text = "*Nhập mã sách trả";
-            //
+            // 
             // materialCard10
-            //
+            // 
             this.materialCard10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard10.Controls.Add(this.textBox6_a);
             this.materialCard10.Controls.Add(this.materialLabel7);
@@ -917,16 +916,16 @@
             this.materialCard10.Controls.Add(this.materialLabel3);
             this.materialCard10.Depth = 0;
             this.materialCard10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard10.Location = new System.Drawing.Point(17, 173);
+            this.materialCard10.Location = new System.Drawing.Point(93, 297);
             this.materialCard10.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard10.Name = "materialCard10";
             this.materialCard10.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard10.Size = new System.Drawing.Size(474, 383);
+            this.materialCard10.Size = new System.Drawing.Size(582, 373);
             this.materialCard10.TabIndex = 1;
-            //
+            // 
             // textBox6_a
-            //
+            // 
             this.textBox6_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6_a.Depth = 0;
             this.textBox6_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -940,9 +939,9 @@
             this.textBox6_a.TabIndex = 12;
             this.textBox6_a.Text = "";
             this.textBox6_a.TrailingIcon = null;
-            //
+            // 
             // materialLabel7
-            //
+            // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -952,9 +951,9 @@
             this.materialLabel7.Size = new System.Drawing.Size(76, 19);
             this.materialLabel7.TabIndex = 11;
             this.materialLabel7.Text = "Ngày sinh:";
-            //
+            // 
             // textBox5_a
-            //
+            // 
             this.textBox5_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5_a.Depth = 0;
             this.textBox5_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -969,9 +968,9 @@
             this.textBox5_a.Text = "";
             this.textBox5_a.TrailingIcon = null;
             this.textBox5_a.TextChanged += new System.EventHandler(this.textBox5_a_TextChanged);
-            //
+            // 
             // textBox4_a
-            //
+            // 
             this.textBox4_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4_a.Depth = 0;
             this.textBox4_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -986,9 +985,9 @@
             this.textBox4_a.Text = "";
             this.textBox4_a.TrailingIcon = null;
             this.textBox4_a.TextChanged += new System.EventHandler(this.materialTextBox4_TextChanged);
-            //
+            // 
             // textBox3_a
-            //
+            // 
             this.textBox3_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3_a.Depth = 0;
             this.textBox3_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1002,9 +1001,9 @@
             this.textBox3_a.TabIndex = 8;
             this.textBox3_a.Text = "";
             this.textBox3_a.TrailingIcon = null;
-            //
+            // 
             // textBox2_a
-            //
+            // 
             this.textBox2_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2_a.Depth = 0;
             this.textBox2_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1019,9 +1018,9 @@
             this.textBox2_a.Text = "";
             this.textBox2_a.TrailingIcon = null;
             this.textBox2_a.TextChanged += new System.EventHandler(this.materialTextBox2_TextChanged);
-            //
+            // 
             // materialLabel6
-            //
+            // 
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1031,9 +1030,9 @@
             this.materialLabel6.Size = new System.Drawing.Size(54, 19);
             this.materialLabel6.TabIndex = 7;
             this.materialLabel6.Text = "Địa chỉ:";
-            //
+            // 
             // materialLabel5
-            //
+            // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1043,9 +1042,9 @@
             this.materialLabel5.Size = new System.Drawing.Size(45, 19);
             this.materialLabel5.TabIndex = 6;
             this.materialLabel5.Text = "MSSV";
-            //
+            // 
             // materialLabel4
-            //
+            // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1056,9 +1055,9 @@
             this.materialLabel4.TabIndex = 5;
             this.materialLabel4.Text = "Email:";
             this.materialLabel4.Click += new System.EventHandler(this.materialLabel4_Click);
-            //
+            // 
             // materialLabel3
-            //
+            // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1068,25 +1067,25 @@
             this.materialLabel3.Size = new System.Drawing.Size(72, 19);
             this.materialLabel3.TabIndex = 4;
             this.materialLabel3.Text = "Họ và tên:";
-            //
+            // 
             // materialCard8
-            //
+            // 
             this.materialCard8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard8.Controls.Add(this.materialLabel1);
             this.materialCard8.Controls.Add(this.textBox1_a);
             this.materialCard8.Controls.Add(this.button1_a);
             this.materialCard8.Depth = 0;
             this.materialCard8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard8.Location = new System.Drawing.Point(17, 17);
+            this.materialCard8.Location = new System.Drawing.Point(93, 78);
             this.materialCard8.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard8.Name = "materialCard8";
             this.materialCard8.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard8.Size = new System.Drawing.Size(474, 128);
+            this.materialCard8.Size = new System.Drawing.Size(582, 146);
             this.materialCard8.TabIndex = 0;
-            //
+            // 
             // materialLabel1
-            //
+            // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1096,9 +1095,9 @@
             this.materialLabel1.Size = new System.Drawing.Size(94, 19);
             this.materialLabel1.TabIndex = 2;
             this.materialLabel1.Text = "*Nhập MSSV";
-            //
+            // 
             // textBox1_a
-            //
+            // 
             this.textBox1_a.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1_a.Depth = 0;
             this.textBox1_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1112,9 +1111,9 @@
             this.textBox1_a.TabIndex = 1;
             this.textBox1_a.Text = "";
             this.textBox1_a.TrailingIcon = null;
-            //
+            // 
             // button1_a
-            //
+            // 
             this.button1_a.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1_a.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.button1_a.Depth = 0;
@@ -1131,100 +1130,22 @@
             this.button1_a.UseAccentColor = false;
             this.button1_a.UseVisualStyleBackColor = true;
             this.button1_a.Click += new System.EventHandler(this.button1_a_Click);
-            //
+            // 
             // tabPageReader
-            //
-            this.tabPageReader.BackColor = System.Drawing.Color.White;
-            this.tabPageReader.ImageKey = "reader_32x.png";
-            this.tabPageReader.Location = new System.Drawing.Point(4, 39);
-            this.tabPageReader.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPageReader.Name = "tabPageReader";
-            this.tabPageReader.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPageReader.Size = new System.Drawing.Size(1826, 960);
-            this.tabPageBorrow.ImageKey = "book_32x.png";
-            this.tabPageBorrow.Location = new System.Drawing.Point(4, 39);
-            this.tabPageBorrow.Name = "tabPageBorrow";
-            this.tabPageBorrow.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBorrow.Size = new System.Drawing.Size(1145, 526);
-            this.tabPageBorrow.TabIndex = 1;
-            this.tabPageBorrow.Text = "Mượn sách";
-            //
-            // tabPageReader
-            //
+            // 
             this.tabPageReader.BackColor = System.Drawing.Color.White;
             this.tabPageReader.Controls.Add(this.materialCardReader);
             this.tabPageReader.ImageKey = "reader_32x.png";
             this.tabPageReader.Location = new System.Drawing.Point(4, 39);
+            this.tabPageReader.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageReader.Name = "tabPageReader";
             this.tabPageReader.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageReader.Size = new System.Drawing.Size(1146, 687);
+            this.tabPageReader.Size = new System.Drawing.Size(1195, 687);
             this.tabPageReader.TabIndex = 2;
             this.tabPageReader.Text = "Độc giả";
-            //
-            // tabPageExit
-            //
-            this.tabPageExit.BackColor = System.Drawing.Color.White;
-            this.tabPageExit.ImageKey = "exit_32x.png";
-            this.tabPageExit.Location = new System.Drawing.Point(4, 39);
-            this.tabPageExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPageExit.Name = "tabPageExit";
-            this.tabPageExit.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPageExit.Size = new System.Drawing.Size(1146, 687);
-            this.tabPageExit.TabIndex = 4;
-            this.tabPageExit.Text = "Thoát";
-            this.tabPageExit.Enter += new System.EventHandler(this.tabPageExit_Enter);
-            //
-            // imageList1
-            //
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "home_32x.png");
-            this.imageList1.Images.SetKeyName(1, "book_32x.png");
-            this.imageList1.Images.SetKeyName(2, "exit_32x.png");
-            this.imageList1.Images.SetKeyName(3, "reader_32x.png");
-            this.imageList1.Images.SetKeyName(4, "return.png");
-            //
-            // tabReturn
-            //
-            this.tabReturn.Controls.Add(this.materialCard10);
-            this.tabReturn.Controls.Add(this.materialCard8);
-            this.tabReturn.ImageKey = "return.png";
-            this.tabReturn.Location = new System.Drawing.Point(4, 39);
-            this.tabReturn.Name = "tabReturn";
-            this.tabReturn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReturn.Size = new System.Drawing.Size(1826, 960);
-            this.tabReturn.TabIndex = 5;
-            this.tabReturn.Text = "Trả sách";
-            this.tabReturn.UseVisualStyleBackColor = true;
-            //
-            // materialCard8
-            //
-            this.materialCard8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard8.Depth = 0;
-            this.materialCard8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard8.Location = new System.Drawing.Point(93, 78);
-            this.materialCard8.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard8.Name = "materialCard8";
-            this.materialCard8.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard8.Size = new System.Drawing.Size(582, 146);
-            this.materialCard8.TabIndex = 0;
-            //
-            // materialCard10
-            //
-            this.materialCard10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard10.Depth = 0;
-            this.materialCard10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard10.Location = new System.Drawing.Point(93, 297);
-            this.materialCard10.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard10.Name = "materialCard10";
-            this.materialCard10.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard10.Size = new System.Drawing.Size(582, 373);
-            this.materialCard10.TabIndex = 1;
-            //
+            // 
             // materialCardReader
-            //
+            // 
             this.materialCardReader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCardReader.Controls.Add(this.materialReaderListView);
             this.materialCardReader.Depth = 0;
@@ -1236,9 +1157,9 @@
             this.materialCardReader.Padding = new System.Windows.Forms.Padding(14);
             this.materialCardReader.Size = new System.Drawing.Size(996, 372);
             this.materialCardReader.TabIndex = 0;
-            //
+            // 
             // materialReaderListView
-            //
+            // 
             this.materialReaderListView.AutoSizeTable = false;
             this.materialReaderListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialReaderListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1263,54 +1184,76 @@
             this.materialReaderListView.TabIndex = 0;
             this.materialReaderListView.UseCompatibleStateImageBehavior = false;
             this.materialReaderListView.View = System.Windows.Forms.View.Details;
-            //
+            // 
             // clmReaderIndex
-            //
+            // 
             this.clmReaderIndex.Text = "STT";
-            //
+            // 
             // clmReaderID
-            //
+            // 
             this.clmReaderID.Text = "Mã sinh viên";
             this.clmReaderID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmReaderID.Width = 150;
-            //
+            // 
             // clmReaderName
-            //
+            // 
             this.clmReaderName.Text = "Họ và tên";
             this.clmReaderName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmReaderName.Width = 250;
-            //
+            // 
             // clmReaderDateOfBirth
-            //
+            // 
             this.clmReaderDateOfBirth.Text = "Ngày sinh";
             this.clmReaderDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmReaderDateOfBirth.Width = 100;
-            //
+            // 
             // clmReaderAddress
-            //
+            // 
             this.clmReaderAddress.Text = "Địa chỉ";
             this.clmReaderAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmReaderAddress.Width = 170;
-            //
+            // 
             // clmReaderEmail
-            //
+            // 
             this.clmReaderEmail.Text = "Email";
             this.clmReaderEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmReaderEmail.Width = 120;
-            //
+            // 
             // clmDateCreated
-            //
+            // 
             this.clmDateCreated.Text = "Ngày tạo";
             this.clmDateCreated.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmDateCreated.Width = 100;
-            //
-            //
+            // 
+            // tabPageExit
+            // 
+            this.tabPageExit.BackColor = System.Drawing.Color.White;
+            this.tabPageExit.ImageKey = "exit_32x.png";
+            this.tabPageExit.Location = new System.Drawing.Point(4, 39);
+            this.tabPageExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPageExit.Name = "tabPageExit";
+            this.tabPageExit.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPageExit.Size = new System.Drawing.Size(1195, 687);
+            this.tabPageExit.TabIndex = 4;
+            this.tabPageExit.Text = "Thoát";
+            this.tabPageExit.Enter += new System.EventHandler(this.tabPageExit_Enter);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "home_32x.png");
+            this.imageList1.Images.SetKeyName(1, "book_32x.png");
+            this.imageList1.Images.SetKeyName(2, "exit_32x.png");
+            this.imageList1.Images.SetKeyName(3, "reader_32x.png");
+            this.imageList1.Images.SetKeyName(4, "return.png");
+            // 
             // Main
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1211, 833);
+            this.ClientSize = new System.Drawing.Size(1321, 833);
             this.Controls.Add(this.materialTabControl1);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
@@ -1321,10 +1264,12 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý thư viện";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.materialTabControl1.ResumeLayout(false);
             this.tabpageHome.ResumeLayout(false);
+            this.materialCardHome2.ResumeLayout(false);
+            this.materialCardHome1.ResumeLayout(false);
+            this.materialCardHome1.PerformLayout();
             this.tabPageBorrow.ResumeLayout(false);
             this.materialCard7.ResumeLayout(false);
             this.materialCard6.ResumeLayout(false);
@@ -1336,11 +1281,6 @@
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
             this.tabReturn.ResumeLayout(false);
-            this.materialCardHome2.ResumeLayout(false);
-            this.materialCardHome1.ResumeLayout(false);
-            this.materialCardHome1.PerformLayout();
-            this.tabPageReader.ResumeLayout(false);
-            this.materialCardReader.ResumeLayout(false);
             this.materialCard9.ResumeLayout(false);
             this.button4_a.ResumeLayout(false);
             this.button4_a.PerformLayout();
@@ -1348,6 +1288,8 @@
             this.materialCard10.PerformLayout();
             this.materialCard8.ResumeLayout(false);
             this.materialCard8.PerformLayout();
+            this.tabPageReader.ResumeLayout(false);
+            this.materialCardReader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
