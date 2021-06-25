@@ -25,25 +25,21 @@ namespace LibraryManager
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-
-
-            //this.label1.BackColor = Color.FromArgb(17, 93, 130);
-            //this.checkedListBox1.BackColor = Color.FromArgb(229, 236, 244);
-            //this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
-            //this.groupBox2.BackColor = Color.FromArgb(229, 236, 244);
             load_database();
         }
 
+        // -----------------------------------------------------------------------------------------------
+        // Home tab
         private void load_database()
         {
             db = new DBConnect();
             DataTable task;
             string query = "SELECT * FROM BOOK";
             task = db.GetDataTable(query);
-            load_DataTable(task);
+            load_DataTableHome(task);
         }
 
-        private void load_DataTable(DataTable dataTable)
+        private void load_DataTableHome(DataTable dataTable)
         {
             int i = 1;
             foreach (DataRow r in dataTable.Rows)
@@ -54,7 +50,7 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["Author"].ToString());
                 listViewItem.SubItems.Add(r["CategoryID"].ToString());
                 i++;
-                materialListView1.Items.Add(listViewItem);
+                materialHomeListView.Items.Add(listViewItem);
             }
         }
 
@@ -111,7 +107,7 @@ namespace LibraryManager
 
         private void DataView_Closed()
         {
-            this.materialListView1.Items.Clear();
+            this.materialHomeListView.Items.Clear();
         }
 
         private void txtbSearch_TextChanged(object sender, EventArgs e)
@@ -123,11 +119,11 @@ namespace LibraryManager
         {
             try
             {
-                DataTable task = db.Search_Book(this.mtbSearch.Text);
+                DataTable task = db.Search_Book(this.mtbHomeSearch.Text);
                 if (task != null)
                 {
                     DataView_Closed();
-                    load_DataTable(task);
+                    load_DataTableHome(task);
                 }
                 else
                 {
@@ -141,14 +137,61 @@ namespace LibraryManager
             }
         }
 
-        private void tabPageExit_Click(object sender, EventArgs e)
-        {
-            //this.Close();
-        }
+        // -----------------------------------------------------------------------------------------------
+        //
+        //
+        // Borrow tab
 
+
+
+
+
+        // Put code here
+
+
+
+
+
+        // -----------------------------------------------------------------------------------------------
+        //
+        //
+        // Reader tab
+
+
+
+
+        // Put code here
+
+
+
+
+
+        // -----------------------------------------------------------------------------------------------
+        //
+        //
+        // Category tab
+
+
+
+
+        // Put code here
+
+
+
+
+
+        // -----------------------------------------------------------------------------------------------
+        //
+        //
+        // Exit tab
         private void tabPageExit_Enter(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
+
+        // -----------------------------------------------------------------------------------------------
+
     }
 }
