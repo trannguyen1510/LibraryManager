@@ -191,7 +191,7 @@ namespace LibraryManager
         }
 
       
-        private void materialButton2_Click(object sender, EventArgs e)
+        private void cho_muon_Click(object sender, EventArgs e)
         {
             DBConnect db = new DBConnect();
             string masach = textmasach.Text;//Ma sach
@@ -216,7 +216,7 @@ namespace LibraryManager
                 {
                     //Lấy số sách mà sinh viên đó mượn
                     string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + id + " AND Status=1";
-                    DataTable kq1 = db.GetDataTable(sql1);
+                    DataTable kq1 = db.GetDataTable(sql1);     //   ------------------------> Lỗi status không có ở đây, vì ở bảng BOOK_BORROW không có thuộc tính Status
                     int num_book = kq1.Rows.Count;
 
                     if (num_book <= 3)//Nếu mượn và sl mượn <=3 thì 
@@ -226,7 +226,7 @@ namespace LibraryManager
 
                         bool kq2 = db.Insert(sql2);
                         //Xuất ra bảng: lay het cac ma sach con dang muon 
-                        string query = "SELECT* FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE b.Status = '1' and UserID=" + id;
+                        string query = "SELECT* FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE Status = '1' and UserID= " + id;
                         DataTable Data2 = db.GetDataTable(query);
 
                         //string[] row = new string[] { Data.Rows[0][0].ToString(), Data.Rows[0][1].ToString(), Data.Rows[0][2].ToString(), Data.Rows[0][3].ToString() };
@@ -291,7 +291,7 @@ namespace LibraryManager
         // Exit tab
         private void tabPageExit_Enter(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void ngaytra_Click(object sender, EventArgs e)

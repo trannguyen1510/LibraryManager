@@ -1270,7 +1270,7 @@
             this.cho_muon.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.cho_muon.UseAccentColor = false;
             this.cho_muon.UseVisualStyleBackColor = false;
-            this.cho_muon.Click += new System.EventHandler(this.materialButton2_Click);
+            this.cho_muon.Click += new System.EventHandler(this.cho_muon_Click);
             //
             // Main
             //
