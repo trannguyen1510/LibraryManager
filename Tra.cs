@@ -173,12 +173,5 @@ namespace LibraryManager
                 throw new Exception(ex.Message);
             }
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            QL_MUON_TRA m = new QL_MUON_TRA();
-
-            m.Show();
-        }
     }
 }
