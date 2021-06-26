@@ -25,21 +25,22 @@ namespace LibraryManager
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue300, Primary.Blue500, Primary.Blue300, Accent.LightBlue200, TextShade.WHITE);
-            load_database();
+            load_database_Home();
         }
 
         // -----------------------------------------------------------------------------------------------
         // Home tab
-        private void load_database()
+        private void load_database_Home()
         {
             db = new DBConnect();
             DataTable task;
             string query = "SELECT * FROM BOOK";
             task = db.GetDataTable(query);
-            load_DataTableHome(task);
+            materialHomeListView.Items.Clear();   // Clear old data
+            load_DataTable_Home(task);
         }
 
-        private void load_DataTableHome(DataTable dataTable)
+        private void load_DataTable_Home(DataTable dataTable)
         {
             int i = 1;
             foreach (DataRow r in dataTable.Rows)
@@ -54,6 +55,11 @@ namespace LibraryManager
             }
         }
 
+        private void tabpageHome_Enter(object sender, EventArgs e)
+        {
+            load_database_Home();   // Refresh data  table
+        }
+
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             //if (e.NewValue == CheckState.Checked && checkedListBox1.CheckedItems.Count > 0)
@@ -62,12 +68,6 @@ namespace LibraryManager
             //    checkedListBox1.SetItemChecked(checkedListBox1.CheckedIndices[0], false);
             //    checkedListBox1.ItemCheck += checkedListBox1_ItemCheck;
             //}
-        }
-
-        private void btnReservation_Click(object sender, EventArgs e)
-        {
-            QL_MUON_TRA muonTra = new QL_MUON_TRA();
-            muonTra.Show();
         }
 
         private void listView1_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
@@ -94,7 +94,7 @@ namespace LibraryManager
                 if (task != null)
                 {
                     DataView_Closed();
-                    load_DataTableHome(task);
+                    load_DataTable_Home(task);
                 }
                 else
                 {
@@ -261,8 +261,38 @@ namespace LibraryManager
         //
         //
         // Reader tab
+        private void load_DataTable_Reader(DataTable dataTable)
+        {
+            int i = 1;
+            foreach (DataRow r in dataTable.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(i.ToString());
+                listViewItem.SubItems.Add(r["ID"].ToString());
+                listViewItem.SubItems.Add(r["Fullname"].ToString());
+                listViewItem.SubItems.Add(r["DateOfBirth"].ToString());
+                listViewItem.SubItems.Add(r["Address"].ToString());
+                listViewItem.SubItems.Add(r["Email"].ToString());
+                listViewItem.SubItems.Add(r["DateCreated"].ToString());
+                i++;
+                materialReaderListView.Items.Add(listViewItem);
+            }
+        }
+
+        private void load_database_Reader()
+        {
+            db = new DBConnect();
+            DataTable task;
+            string query = "SELECT * FROM READER";
+            task = db.GetDataTable(query);
+            materialReaderListView.Items.Clear();   // Clear old data
+            load_DataTable_Reader(task);
+        }
 
 
+        private void tabPageReader_Enter(object sender, EventArgs e)
+        {
+            load_database_Reader();   // Refresh data  table
+        }
 
 
         // Put code here
@@ -338,7 +368,5 @@ namespace LibraryManager
         {
 
         }
-
-      
     }
 }
