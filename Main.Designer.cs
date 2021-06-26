@@ -799,12 +799,12 @@
             this.materialCard9.Controls.Add(this.materialListView3);
             this.materialCard9.Depth = 0;
             this.materialCard9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard9.Location = new System.Drawing.Point(513, 189);
+            this.materialCard9.Location = new System.Drawing.Point(507, 115);
             this.materialCard9.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard9.Name = "materialCard9";
             this.materialCard9.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard9.Size = new System.Drawing.Size(708, 378);
+            this.materialCard9.Size = new System.Drawing.Size(681, 378);
             this.materialCard9.TabIndex = 2;
             // 
             // materialListView3
@@ -875,12 +875,12 @@
             this.button4_a.Controls.Add(this.materialLabel2);
             this.button4_a.Depth = 0;
             this.button4_a.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4_a.Location = new System.Drawing.Point(513, 27);
+            this.button4_a.Location = new System.Drawing.Point(505, 5);
             this.button4_a.Margin = new System.Windows.Forms.Padding(14);
             this.button4_a.MouseState = MaterialSkin.MouseState.HOVER;
             this.button4_a.Name = "button4_a";
             this.button4_a.Padding = new System.Windows.Forms.Padding(14);
-            this.button4_a.Size = new System.Drawing.Size(708, 146);
+            this.button4_a.Size = new System.Drawing.Size(683, 98);
             this.button4_a.TabIndex = 1;
             // 
             // button4_aa
@@ -890,7 +890,7 @@
             this.button4_aa.Depth = 0;
             this.button4_aa.HighEmphasis = true;
             this.button4_aa.Icon = null;
-            this.button4_aa.Location = new System.Drawing.Point(496, 50);
+            this.button4_aa.Location = new System.Drawing.Point(537, 35);
             this.button4_aa.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button4_aa.MouseState = MaterialSkin.MouseState.HOVER;
             this.button4_aa.Name = "button4_aa";
@@ -908,7 +908,7 @@
             this.textBox7_a.Depth = 0;
             this.textBox7_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBox7_a.LeadingIcon = null;
-            this.textBox7_a.Location = new System.Drawing.Point(157, 36);
+            this.textBox7_a.Location = new System.Drawing.Point(176, 22);
             this.textBox7_a.MaxLength = 50;
             this.textBox7_a.MouseState = MaterialSkin.MouseState.OUT;
             this.textBox7_a.Multiline = false;
@@ -923,7 +923,7 @@
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(17, 61);
+            this.materialLabel2.Location = new System.Drawing.Point(13, 51);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(134, 19);
@@ -945,7 +945,7 @@
             this.materialCard10.Controls.Add(this.materialLabel3);
             this.materialCard10.Depth = 0;
             this.materialCard10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard10.Location = new System.Drawing.Point(31, 190);
+            this.materialCard10.Location = new System.Drawing.Point(31, 115);
             this.materialCard10.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard10.Name = "materialCard10";
@@ -1105,12 +1105,12 @@
             this.materialCard8.Controls.Add(this.button1_a);
             this.materialCard8.Depth = 0;
             this.materialCard8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard8.Location = new System.Drawing.Point(31, 27);
+            this.materialCard8.Location = new System.Drawing.Point(31, 5);
             this.materialCard8.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard8.Name = "materialCard8";
             this.materialCard8.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard8.Size = new System.Drawing.Size(463, 146);
+            this.materialCard8.Size = new System.Drawing.Size(463, 97);
             this.materialCard8.TabIndex = 0;
             // 
             // materialLabel1
@@ -1118,7 +1118,7 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(17, 61);
+            this.materialLabel1.Location = new System.Drawing.Point(17, 51);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(94, 19);
@@ -1131,7 +1131,7 @@
             this.textBox1_a.Depth = 0;
             this.textBox1_a.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBox1_a.LeadingIcon = null;
-            this.textBox1_a.Location = new System.Drawing.Point(134, 30);
+            this.textBox1_a.Location = new System.Drawing.Point(134, 22);
             this.textBox1_a.MaxLength = 50;
             this.textBox1_a.MouseState = MaterialSkin.MouseState.OUT;
             this.textBox1_a.Multiline = false;

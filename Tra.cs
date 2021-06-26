@@ -150,15 +150,15 @@ namespace LibraryManager
                 else
                 {
                     //Kiem tra no co trong sach muon hay khong 
-                    string query = "SELECT * from BOOK_BORROW where UserID = " + mssv +" AND BookID= "+masach;
+                    string query = "SELECT * from BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                     Data = db.GetDataTable(query);
                     if (Data != null)//Neu quyen sach dang duoc muon
                     {
-                       // Xoa quyen sach ra khoi muon sach
-                       string delete= "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
+                        // Xoa quyen sach ra khoi muon sach
+                        string delete = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                         Data2 = db.GetDataTable(delete);
                         //Hiển thị lại dữ liệu
-                        load_dgv1(Data2); 
+                        load_dgv1(Data2);
                     }
                     else
                     {

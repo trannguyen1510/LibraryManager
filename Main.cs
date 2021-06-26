@@ -231,6 +231,7 @@ namespace LibraryManager
                         //Xuất ra bảng: lay het cac ma sach con dang muon 
                         string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id; //Status = '1' and
                          DataTable Data2 = db.GetDataTable(query);
+
                         load_DataTable_BR(Data2);
 
                     }
@@ -308,7 +309,8 @@ namespace LibraryManager
                         textBox6_a.Text = Table.Rows[0][2].ToString();  //Ngay sinh
                         textBox5_a.Text = Table.Rows[0][3].ToString();  //Dia chi
                         textBox3_a.Text = Table.Rows[0][4].ToString();  //Email
-                         //Hien thi thong tin muon sach sinh vien ra bang
+                                                                        //Hien thi thong tin muon sach sinh vien ra bang
+                       
                         load_DataTable_Search(Data);
                     }
                     else
@@ -327,7 +329,7 @@ namespace LibraryManager
         private void load_DataTable_Return(DataTable dataTable)
         {
             int i = 1;
-            materialListView3.Items.Clear();   // Clear old data
+           
             foreach (DataRow r in dataTable.Rows)
             {
                 ListViewItem listViewItem = new ListViewItem(i.ToString());
@@ -371,6 +373,7 @@ namespace LibraryManager
                         string delete = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                         Data2 = db.GetDataTable(delete);
                         //Hiển thị lại dữ liệu
+                       // materialListView3.Items.Clear();   // Clear old data
                         load_DataTable_Return(Data2);
                     }
                     else
@@ -387,7 +390,7 @@ namespace LibraryManager
             }
         }
 
-
+        // materialListView3.Items.Clear();   // Clear old data
 
 
 
