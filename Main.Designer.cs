@@ -116,6 +116,7 @@
             this.clmDateCreated = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cho_muon = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabpageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
@@ -174,7 +175,7 @@
             this.materialCardHome2.Controls.Add(this.materialHomeListView);
             this.materialCardHome2.Depth = 0;
             this.materialCardHome2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardHome2.Location = new System.Drawing.Point(51, 144);
+            this.materialCardHome2.Location = new System.Drawing.Point(161, 153);
             this.materialCardHome2.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardHome2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardHome2.Name = "materialCardHome2";
@@ -245,7 +246,7 @@
             this.materialCardHome1.Controls.Add(this.materialComboBoxCategory);
             this.materialCardHome1.Depth = 0;
             this.materialCardHome1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardHome1.Location = new System.Drawing.Point(173, 17);
+            this.materialCardHome1.Location = new System.Drawing.Point(292, 26);
             this.materialCardHome1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardHome1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardHome1.Name = "materialCardHome1";
@@ -314,6 +315,7 @@
             // tabPageBorrow
             //
             this.tabPageBorrow.BackColor = System.Drawing.Color.White;
+            this.tabPageBorrow.Controls.Add(this.cho_muon);
             this.tabPageBorrow.Controls.Add(this.materialCard7);
             this.tabPageBorrow.Controls.Add(this.materialCard6);
             this.tabPageBorrow.Controls.Add(this.materialCard5);
@@ -334,12 +336,12 @@
             this.materialCard7.Controls.Add(this.materialListView2);
             this.materialCard7.Depth = 0;
             this.materialCard7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard7.Location = new System.Drawing.Point(52, 380);
+            this.materialCard7.Location = new System.Drawing.Point(52, 405);
             this.materialCard7.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard7.Name = "materialCard7";
             this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard7.Size = new System.Drawing.Size(1073, 217);
+            this.materialCard7.Size = new System.Drawing.Size(1073, 192);
             this.materialCard7.TabIndex = 5;
             //
             // materialListView2
@@ -362,7 +364,7 @@
             this.materialListView2.MouseState = MaterialSkin.MouseState.OUT;
             this.materialListView2.Name = "materialListView2";
             this.materialListView2.OwnerDraw = true;
-            this.materialListView2.Size = new System.Drawing.Size(1024, 175);
+            this.materialListView2.Size = new System.Drawing.Size(1036, 147);
             this.materialListView2.TabIndex = 2;
             this.materialListView2.UseCompatibleStateImageBehavior = false;
             this.materialListView2.View = System.Windows.Forms.View.Details;
@@ -382,13 +384,13 @@
             //
             this.Column5.Text = "Ngày mượn";
             this.Column5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Column5.Width = 150;
+            this.Column5.Width = 200;
             //
             // Column6
             //
             this.Column6.Text = "Ngày hẹn trả";
             this.Column6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Column6.Width = 150;
+            this.Column6.Width = 200;
             //
             // Column7
             //
@@ -404,7 +406,7 @@
             this.materialCard6.Controls.Add(this.madg);
             this.materialCard6.Depth = 0;
             this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard6.Location = new System.Drawing.Point(577, 19);
+            this.materialCard6.Location = new System.Drawing.Point(577, 11);
             this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard6.Name = "materialCard6";
@@ -415,6 +417,7 @@
             // materialButton1
             //
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton1.Depth = 0;
             this.materialButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -429,7 +432,8 @@
             this.materialButton1.Text = "Tìm";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.UseVisualStyleBackColor = false;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             //
             // textBox3
             //
@@ -467,7 +471,7 @@
             this.materialCard5.Controls.Add(this.masach);
             this.materialCard5.Depth = 0;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard5.Location = new System.Drawing.Point(52, 19);
+            this.materialCard5.Location = new System.Drawing.Point(52, 10);
             this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
@@ -510,6 +514,7 @@
             this.button1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.button1.UseAccentColor = false;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             //
             // masach
             //
@@ -536,7 +541,7 @@
             this.materialCard4.Controls.Add(this.mas);
             this.materialCard4.Depth = 0;
             this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(577, 139);
+            this.materialCard4.Location = new System.Drawing.Point(577, 128);
             this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
@@ -654,7 +659,7 @@
             this.materialCard3.Controls.Add(this.tensach);
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(52, 139);
+            this.materialCard3.Location = new System.Drawing.Point(52, 128);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
@@ -1246,6 +1251,27 @@
             this.imageList1.Images.SetKeyName(3, "reader_32x.png");
             this.imageList1.Images.SetKeyName(4, "return.png");
             //
+            // cho_muon
+            //
+            this.cho_muon.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.cho_muon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cho_muon.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.cho_muon.Depth = 0;
+            this.cho_muon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.cho_muon.HighEmphasis = true;
+            this.cho_muon.Icon = null;
+            this.cho_muon.Location = new System.Drawing.Point(1026, 360);
+            this.cho_muon.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cho_muon.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cho_muon.Name = "cho_muon";
+            this.cho_muon.Size = new System.Drawing.Size(99, 36);
+            this.cho_muon.TabIndex = 10;
+            this.cho_muon.Text = "Cho mượn";
+            this.cho_muon.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.cho_muon.UseAccentColor = false;
+            this.cho_muon.UseVisualStyleBackColor = false;
+            this.cho_muon.Click += new System.EventHandler(this.materialButton2_Click);
+            //
             // Main
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1269,6 +1295,7 @@
             this.materialCardHome1.ResumeLayout(false);
             this.materialCardHome1.PerformLayout();
             this.tabPageBorrow.ResumeLayout(false);
+            this.tabPageBorrow.PerformLayout();
             this.materialCard7.ResumeLayout(false);
             this.materialCard6.ResumeLayout(false);
             this.materialCard6.PerformLayout();
@@ -1379,5 +1406,6 @@
         private System.Windows.Forms.ColumnHeader Column3_a;
         private System.Windows.Forms.ColumnHeader Column6_a;
         private System.Windows.Forms.ColumnHeader Column5_a;
+        private MaterialSkin.Controls.MaterialButton cho_muon;
     }
 }
