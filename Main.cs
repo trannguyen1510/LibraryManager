@@ -26,6 +26,8 @@ namespace LibraryManager
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue300, Primary.Blue500, Primary.Blue300, Accent.LightBlue200, TextShade.WHITE);
             load_database_Home();
+
+
         }
 
         // -----------------------------------------------------------------------------------------------
@@ -177,6 +179,7 @@ namespace LibraryManager
         private void load_DataTable_BR(DataTable dataTable)
         {
             int i = 1;
+
             foreach (DataRow r in dataTable.Rows)
             {
                 ListViewItem listViewItem = new ListViewItem(i.ToString());
@@ -186,8 +189,9 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["ReturnDay"].ToString());
                 listViewItem.SubItems.Add(r["Status"].ToString());
                 i++;
-                materialHomeListView.Items.Add(listViewItem);
+                materialListView2.Items.Add(listViewItem);
             }
+            
         }
 
       
@@ -215,23 +219,18 @@ namespace LibraryManager
                 else
                 {
                     //Lấy số sách mà sinh viên đó mượn
-                    string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + id + " AND Status=1";
-                    DataTable kq1 = db.GetDataTable(sql1);     //   ------------------------> Lỗi status không có ở đây, vì ở bảng BOOK_BORROW không có thuộc tính Status
+                    string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + id ;
+                    DataTable kq1 = db.GetDataTable(sql1);     
                     int num_book = kq1.Rows.Count;
 
                     if (num_book <= 3)//Nếu mượn và sl mượn <=3 thì 
                     {
                         //Lưu vào csdl
-                        string sql2 = "INSERT INTO BOOK_BORROW VALUES(" + id + "," + "'" + masach + "'" + "," + "'" + NgayMuon + "'" + "," + "'" + NgayTra + "'" + ",1)";
-
+                        string sql2 = "INSERT INTO BOOK_BORROW VALUES(" + id + "," + "'" + masach + "'" + "," + "'" + NgayMuon + "'" + "," + "'" + NgayTra + "'" + ")";
                         bool kq2 = db.Insert(sql2);
                         //Xuất ra bảng: lay het cac ma sach con dang muon 
-                        string query = "SELECT* FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE Status = '1' and UserID= " + id;
-                        DataTable Data2 = db.GetDataTable(query);
-
-                        //string[] row = new string[] { Data.Rows[0][0].ToString(), Data.Rows[0][1].ToString(), Data.Rows[0][2].ToString(), Data.Rows[0][3].ToString() };
-
-                        // dataGridView1.Rows.Add(row);
+                        string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id; //Status = '1' and
+                         DataTable Data2 = db.GetDataTable(query);
                         load_DataTable_BR(Data2);
 
                     }
@@ -251,7 +250,142 @@ namespace LibraryManager
 
 
 
-        // Put code here
+        // end borrow
+
+        //-------------------------------------------------------------------------------------------------------------------
+        //
+        //
+        //
+        //  return 
+        private void load_DataTable_Search(DataTable dataTable)
+        {
+            int i = 1;
+           
+            foreach (DataRow r in dataTable.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(i.ToString());
+                listViewItem.SubItems.Add(r["UserID"].ToString());
+                listViewItem.SubItems.Add(r["BookID"].ToString());
+                listViewItem.SubItems.Add(r["BorrowDay"].ToString());
+                listViewItem.SubItems.Add(r["ReturnDay"].ToString());
+                listViewItem.SubItems.Add(r["Status"].ToString());
+                i++;
+                materialListView3.Items.Add(listViewItem);
+            }
+
+        }
+        private void button1_a_Click(object sender, EventArgs e)
+        {
+            //tim
+            //Nhap ma sinh vien--> Hien thi ra thong tin sinh vien vaf cac cuon sach da muon
+            //Ho va ten 
+            //Dia chi
+            //Email
+            //MSSV
+            //Ngay sinh
+
+            DBConnect db = new DBConnect();
+            DataTable Table;
+            DataTable Data;
+            string id = textBox1_a.Text;// lay ma doc gia
+            try
+            {
+                if (string.IsNullOrWhiteSpace(id))
+                {
+                    MessageBox.Show("vui lòng nhập mã số");
+                }
+                else
+                {
+                    string query = "SELECT * FROM READER where ID = " + id;
+                    string query2 = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id;
+                    Table = db.GetDataTable(query);
+                    Data = db.GetDataTable(query2);
+                    if (Table != null)
+                    {
+                        //HIen thi thong tin sinh vien
+                        textBox4_a.Text = Table.Rows[0][0].ToString();  //MSSV             
+                        textBox2_a.Text = Table.Rows[0][1].ToString();  //Ho va ten
+                        textBox6_a.Text = Table.Rows[0][2].ToString();  //Ngay sinh
+                        textBox5_a.Text = Table.Rows[0][3].ToString();  //Dia chi
+                        textBox3_a.Text = Table.Rows[0][4].ToString();  //Email
+                         //Hien thi thong tin muon sach sinh vien ra bang
+                        load_DataTable_Search(Data);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhap sai");
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //  Block of code to handle errors
+                throw new Exception(ex.Message);
+            }
+        }
+        private void load_DataTable_Return(DataTable dataTable)
+        {
+            int i = 1;
+            materialListView3.Items.Clear();   // Clear old data
+            foreach (DataRow r in dataTable.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(i.ToString());
+                listViewItem.SubItems.Add(r["UserID"].ToString());
+                listViewItem.SubItems.Add(r["BookID"].ToString());
+                listViewItem.SubItems.Add(r["BorrowDay"].ToString());
+                listViewItem.SubItems.Add(r["ReturnDay"].ToString());
+                listViewItem.SubItems.Add(r["Status"].ToString());
+                i++;
+                materialListView3.Items.Add(listViewItem);
+            }
+
+        }
+        private void button4_aa_Click(object sender, EventArgs e)
+        {
+            ///Nut tra
+             //Lay ma sach can tra
+            //Kiem tra no co trong sach muon hay khong 
+            //xóa dữ liệu trong csdl
+            //Hiển thị lại dữ liệu
+            DBConnect db = new DBConnect();
+            DataTable Data2;
+            DataTable Data;
+            string masach = textBox7_a.Text; // lay ma sach can tra
+            string mssv = textBox1_a.Text;   //Lay mssv
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(masach))
+                {
+                    MessageBox.Show("vui lòng nhập mã số sach tra");
+                }
+                else
+                {
+                    //Kiem tra no co trong sach muon hay khong 
+                    string query = "SELECT * from BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
+                    Data = db.GetDataTable(query);
+                    if (Data != null)//Neu quyen sach dang duoc muon
+                    {
+                        // Xoa quyen sach ra khoi muon sach
+                        string delete = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
+                        Data2 = db.GetDataTable(delete);
+                        //Hiển thị lại dữ liệu
+                        load_DataTable_Return(Data2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhap sai");
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //  Block of code to handle errors
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 
@@ -349,15 +483,9 @@ namespace LibraryManager
 
         }
 
-        private void button1_a_Click(object sender, EventArgs e)
-        {
+ 
 
-        }
-
-        private void button4_aa_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void textBox5_a_TextChanged(object sender, EventArgs e)
         {
