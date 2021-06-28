@@ -115,7 +115,17 @@ namespace LibraryManager
         //
         // Borrow tab
 
-        private void button1_Click(object sender, EventArgs e)
+        //CHECK QUÁ HẠN 
+        public double Check_Date(string date_br, string date_rt)
+        {
+            DateTime muon = Convert.ToDateTime(date_br);
+            DateTime tra = Convert.ToDateTime(date_rt);
+            double sl; 
+            sl = (tra - muon).TotalDays;
+            return sl;
+        }
+
+        private void button1_Click(object sender, EventArgs e)//Borrow_search_BOOK_ID
         {
             DBConnect db = new DBConnect();
             DataTable task;
@@ -128,7 +138,7 @@ namespace LibraryManager
             {
                 string query = "SELECT * FROM BOOK where ID = " + maso;
                 task = db.GetDataTable(query);
-                if (task != null)
+                if (task != null)//Kiêmr tra sách có tồn tại hay ko
                 {
                     texttensach.Text = task.Rows[0][1].ToString();
                     comboBox1.Text = task.Rows[0][2].ToString();
@@ -136,12 +146,12 @@ namespace LibraryManager
                 }
                 else
                 {
-                    MessageBox.Show("Nhap sai");
+                    MessageBox.Show("Sách không tồn tại");
                     return;
                 }
             }
         }
-
+        //BORROW_SEARCH_USER_ID
         private void materialButton1_Click(object sender, EventArgs e)
         {
             DBConnect db = new DBConnect();
@@ -157,14 +167,14 @@ namespace LibraryManager
                 {
                     string query = "SELECT * FROM READER where ID = " + id;
                     temp = db.GetDataTable(query);
-                    if (temp != null)
+                    if (temp != null)// Doc gia co ton tai hay khong
                     {
                         textBox2.Text = temp.Rows[0][1].ToString();//họ tên
                         textBox5.Text = temp.Rows[0][4].ToString();//Email
                     }
-                    else
+                    else//Neu doc gia khoong ton tai
                     {
-                        MessageBox.Show("Nhap sai");
+                        MessageBox.Show("Độc giả không tồn tại!!");
                         return;
                     }
                 }
@@ -175,7 +185,7 @@ namespace LibraryManager
                 throw new Exception(ex.Message);
             }
         }
-
+        //Hiển thị ra dataGV_BORROW
         private void load_DataTable_BR(DataTable dataTable)
         {
             int i = 1;
@@ -190,11 +200,10 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["Status"].ToString());
                 i++;
                 materialListView2.Items.Add(listViewItem);
-            }
-            
-        }
+            }            
+        }      
 
-      
+        //Hàm mượn chính 
         private void cho_muon_Click(object sender, EventArgs e)
         {
             DBConnect db = new DBConnect();
@@ -203,37 +212,50 @@ namespace LibraryManager
             string tensach = texttensach.Text;// Teen sach
             string HoTen = textBox2.Text;  //Ho ten
             string Email = textBox5.Text;  //email
-            string NgayMuon = dateTimePicker2.Text; //Ngay muon 
-            string NgayTra = dateTimePicker1.Text;  //Ngay Tra     
-            try
+            string NgayMuon = dateTimePicker2.Value.ToString(); //Ngay muon 
+            string NgayTra = dateTimePicker1.Value.ToString();  //Ngay Tra     
+            try//ys oong laf sao nãy tui thấy ở trên list có 2 cái nó trùng cả id sách và id user
             {
-                //Kiểm tra xem quyển sách muốn mượn đã từng mượn chưa 
-                string sql = "SELECT * FROM BOOK_BORROW where UserID = " + id + " AND BooKID=" + "'" + masach + "'";
-                DataTable kq = db.GetDataTable(sql); // =null nêus quyển sách chưa được mượn
+                //Kiểm tra xem quyển sách muốn mượn đã từng mượn chưa -->Tránh mượn trùng 
+                //Vaf tình trạng quyển sách có ==0 (chưa mượn) hay chưa 
+                string sql = "SELECT * FROM BOOK_BORROW bb join BOOK b on bb.BookID=b.ID where bb.UserID = " + id + " AND bb.BooKID=" + "'" + masach + "'" ;
+                DataTable kq = db.GetDataTable(sql); // = null nêus quyển sách chưa được mượn
 
                 if (kq != null)
                 {
-                    MessageBox.Show("Bạn mượn trùng sách!!!");
+                    MessageBox.Show("Bạn mượn trùng sách hoặc sách đã được người khác mượn!!!");
                     return;
                 }
                 else
                 {
                     //Lấy số sách mà sinh viên đó mượn
-                    string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + id ;
-                    DataTable kq1 = db.GetDataTable(sql1);     
+                    string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + id;
+                    DataTable kq1 = db.GetDataTable(sql1);
                     int num_book = kq1.Rows.Count;
 
-                    if (num_book <= 3)//Nếu mượn và sl mượn <=3 thì 
+                    if (num_book <= 3)//Nếu mượn và sl mượn <=3 và KHÔNG QUÁ HẠN  thì mới tính tiếp
                     {
-                        //Lưu vào csdl
+                        //Lưu vào csdl thông tin người mượn và mã sách 
                         string sql2 = "INSERT INTO BOOK_BORROW VALUES(" + id + "," + "'" + masach + "'" + "," + "'" + NgayMuon + "'" + "," + "'" + NgayTra + "'" + ")";
                         bool kq2 = db.Insert(sql2);
-                        //Xuất ra bảng: lay het cac ma sach con dang muon 
-                        string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id; //Status = '1' and
-                         DataTable Data2 = db.GetDataTable(query);
-                        materialListView2.Items.Clear();
-                        load_DataTable_BR(Data2);
+                        //Lưu vào csdl BOOK.Status==1 --> update đã được mượn
+                        string sql3 = " UPDATE BOOK SET Status = 1 WHERE ID=" + masach;
+                        bool kq3 = db.Update(sql3);
 
+                        // Neu chen vaf cap nhat thanh cong thif xuat ra grid 
+                        if (kq2 == true && kq3 == true)
+                        {
+                            //Xuất ra bảng: lay het cac ma sach con dang muon 
+                            string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id; //Status = '1' and
+                            DataTable Data2 = db.GetDataTable(query);
+                            materialListView2.Items.Clear();
+                            load_DataTable_BR(Data2);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Chèn thông tin mượn hoặc cập nhật sách không thành công");
+                            return;
+                        }
                     }
                     else
                     {
@@ -246,7 +268,6 @@ namespace LibraryManager
             {
                 throw new Exception(err.Message);
             }
-
         }
 
 
@@ -258,10 +279,15 @@ namespace LibraryManager
         //
         //
         //  return 
+      
+
         private void load_DataTable_Search(DataTable dataTable)
         {
-            int i = 1;
-           
+            int i = 0;
+            if (dataTable == null)
+            {
+                return;
+            }
             foreach (DataRow r in dataTable.Rows)
             {
                 ListViewItem listViewItem = new ListViewItem(i.ToString());
@@ -327,8 +353,11 @@ namespace LibraryManager
         }
         private void load_DataTable_Return(DataTable dataTable)
         {
-            int i = 1;
-           
+            int i = 0;
+            if (dataTable == null)
+            {
+                return;
+            }
             foreach (DataRow r in dataTable.Rows)
             {
                 ListViewItem listViewItem = new ListViewItem(i.ToString());
@@ -340,7 +369,6 @@ namespace LibraryManager
                 i++;
                 materialListView3.Items.Add(listViewItem);
             }
-
         }
         private void button4_aa_Click(object sender, EventArgs e)
         {
@@ -350,11 +378,13 @@ namespace LibraryManager
             //xóa dữ liệu trong csdl
             //Hiển thị lại dữ liệu
             DBConnect db = new DBConnect();
-            DataTable Data2;
+            bool Data2;
             DataTable Data3;
             DataTable Data;
             string masach = textBox7_a.Text; // lay ma sach can tra
             string mssv = textBox1_a.Text;   //Lay mssv
+            //Lấy ngày trả
+            string ngay_tra = date.Value.ToString();// 
 
             try
             {
@@ -367,16 +397,87 @@ namespace LibraryManager
                     //Kiem tra no co trong sach muon hay khong 
                     string query = "SELECT * from BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                     Data = db.GetDataTable(query);
-                    if (Data != null)//Neu quyen sach dang duoc muon
+
+                    // Lay ngay muon tra cua quyen sach tinh qua han
+                    string QuaHan = "SELECT BorrowDay FROM BOOK_BORROW WHERE UserID = " + mssv + " AND BookID= " + masach;
+                    DataTable QH = db.GetDataTable(QuaHan);
+                    double dem;
+                    string date_br;
+                    if (QH != null && QH.Rows.Count != 0)
                     {
-                        // Xoa quyen sach ra khoi muon sach
-                        string delete = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
-                        Data2 = db.GetDataTable(delete);
-                        //Hiển thị lại dữ liệu
-                        materialListView3.Items.Clear();   // Clear old data
-                        string data_new = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + mssv;
-                        Data3 = db.GetDataTable(data_new);
-                        load_DataTable_Return(Data3);
+                        //Ngày mượn
+                        date_br = QH.Rows[0]["BorrowDay"].ToString();
+                        dem = Check_Date(date_br, ngay_tra);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không co muon sach nao !!");
+                        return;
+                    }     
+                  
+
+
+
+                    string Xoa;
+                    string sql_update;
+                    bool result_ne;
+
+                    if (Data != null)//Neu quyen sach dang duoc muon 
+                    {
+                       if (dem <= 7)// và dem <= 7-- > Muon trong so ngay quy dinh
+                        {
+                            // Xoa quyen sach ra khoi muon sach
+                            Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
+                            Data2 = db.Delete(Xoa);
+
+                            //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi                       
+                            sql_update = " UPDATE BOOK SET Status = 0 WHERE ID=" + masach;
+                            result_ne = db.Update(sql_update);
+
+                            if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách 
+                            {
+                                //Hiển thị lại dữ liệu
+                                materialListView3.Items.Clear();   // Clear old data
+                                string data_new = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + mssv;
+                                Data3 = db.GetDataTable(data_new);
+                                load_DataTable_Return(Data3);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa không thành công hoặc sách đã được mượn rồi ");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            //Nếu số ngày mượn  > 7 ngày vẫn xóa nhưng  --> tính phạt 
+
+                            //VẪN XÓA 
+                            // Xoa quyen sach ra khoi muon sach
+                            Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
+                            Data2 = db.Delete(Xoa);
+
+                            //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi                       
+                            sql_update = " UPDATE BOOK SET Status = 0 WHERE ID=" + masach;
+                            result_ne = db.Update(sql_update);
+
+                            if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách 
+                            {
+                                //Hiển thị lại dữ liệu
+                                materialListView3.Items.Clear();   // Clear old data
+                                string data_new = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + mssv;
+                                Data3 = db.GetDataTable(data_new);
+                                load_DataTable_Return(Data3);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa không thành công hoặc sách đã được mượn rồi ");
+                                return;
+                            }
+                            ///XUẤT PHẠT
+                            MessageBox.Show("Quá hạn : " + dem + "ngay. Bạn bị phạt!!!");
+                            return;
+                        }                       
                     }
                     else
                     {

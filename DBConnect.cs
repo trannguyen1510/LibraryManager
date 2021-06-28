@@ -16,7 +16,7 @@ namespace LibraryManager
         string connectionString;
         private string path;
         private SQLiteDataReader reader;
-        private SQLiteCommand cmd;
+        private SQLiteCommand cmd;// d
 
         public SQLiteConnection Connection { get => connection; set => connection = value; }
         public object Messagebox { get; private set; }
@@ -126,15 +126,69 @@ namespace LibraryManager
         }
 
         //Update statement
-        public void Update()
+        public bool Update(string query)
         {
-
+            bool result;
+            try
+            {
+                OpenConnection(this.Connection);
+                if (Connection.State == ConnectionState.Open)
+                {
+                    cmd = Connection.CreateCommand();
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();  //Thuc hien update vao csdl
+                    connection.Close();
+                    result= true;
+                }
+                else
+                {
+                    MessageBox.Show("Connection Failed");
+                    result = false;
+                }
+            }
+            catch (Exception e)
+            {
+                result = false;
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
 
         //Delete statement
-        public void Delete()
+        public bool Delete(string query)
         {
-
+            bool result;
+            try
+            {
+                OpenConnection(this.Connection);
+                if (Connection.State == ConnectionState.Open)
+                {
+                    cmd = Connection.CreateCommand();
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();  //Thuc hien update vao csdl
+                    connection.Close();
+                    result = true;
+                }
+                else
+                {
+                    MessageBox.Show("Connection Failed");
+                    result = false;
+                }
+            }
+            catch (Exception e)
+            {
+                result = false;
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
 
         //Select statement
