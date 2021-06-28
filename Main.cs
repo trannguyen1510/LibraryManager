@@ -352,6 +352,7 @@ namespace LibraryManager
             //Hiển thị lại dữ liệu
             DBConnect db = new DBConnect();
             DataTable Data2;
+            DataTable Data3;
             DataTable Data;
             string masach = textBox7_a.Text; // lay ma sach can tra
             string mssv = textBox1_a.Text;   //Lay mssv
@@ -373,8 +374,10 @@ namespace LibraryManager
                         string delete = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                         Data2 = db.GetDataTable(delete);
                         //Hiển thị lại dữ liệu
-                       // materialListView3.Items.Clear();   // Clear old data
-                        load_DataTable_Return(Data2);
+                        materialListView3.Items.Clear();   // Clear old data
+                        string data_new = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + mssv;
+                        Data3 = db.GetDataTable(data_new);
+                        load_DataTable_Return(Data3);
                     }
                     else
                     {
