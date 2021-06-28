@@ -48,6 +48,7 @@
             this.cho_muon = new MaterialSkin.Controls.MaterialButton();
             this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
             this.materialListView2 = new MaterialSkin.Controls.MaterialListView();
+            this.STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Column1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Column2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Column5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -80,6 +81,7 @@
             this.tabReturn = new System.Windows.Forms.TabPage();
             this.materialCard9 = new MaterialSkin.Controls.MaterialCard();
             this.materialListView3 = new MaterialSkin.Controls.MaterialListView();
+            this.STT1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Column4_a = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Column1_a = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Column2_a = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -117,8 +119,6 @@
             this.clmDateCreated = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.STT1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl1.SuspendLayout();
             this.tabpageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
@@ -212,6 +212,7 @@
             this.materialHomeListView.TabIndex = 0;
             this.materialHomeListView.UseCompatibleStateImageBehavior = false;
             this.materialHomeListView.View = System.Windows.Forms.View.Details;
+            this.materialHomeListView.DoubleClick += new System.EventHandler(this.materialHomeListView_DoubleClick);
             // 
             // clmHomeIndex
             // 
@@ -393,6 +394,10 @@
             this.materialListView2.TabIndex = 2;
             this.materialListView2.UseCompatibleStateImageBehavior = false;
             this.materialListView2.View = System.Windows.Forms.View.Details;
+            // 
+            // STT
+            // 
+            this.STT.Text = "STT";
             // 
             // Column1
             // 
@@ -580,7 +585,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(210, 174);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker1.TabIndex = 14;
             // 
             // dateTimePicker2
@@ -589,7 +594,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(210, 133);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker2.TabIndex = 13;
             // 
             // ngaytra
@@ -833,6 +838,10 @@
             this.materialListView3.TabIndex = 0;
             this.materialListView3.UseCompatibleStateImageBehavior = false;
             this.materialListView3.View = System.Windows.Forms.View.Details;
+            // 
+            // STT1
+            // 
+            this.STT1.Text = "STT";
             // 
             // Column4_a
             // 
@@ -1278,17 +1287,9 @@
             this.imageList1.Images.SetKeyName(3, "reader_32x.png");
             this.imageList1.Images.SetKeyName(4, "return.png");
             // 
-            // STT
-            // 
-            this.STT.Text = "STT";
-            // 
-            // STT1
-            // 
-            this.STT1.Text = "STT";
-            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1321, 833);
