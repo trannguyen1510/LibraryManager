@@ -178,11 +178,9 @@
             this.materialLabelDetailStatus = new MaterialSkin.Controls.MaterialLabel();
             this.materialTextBoxDetailStatus = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabelDetailReaderID = new MaterialSkin.Controls.MaterialLabel();
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabelDetailBook = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabelDetailReaderName = new MaterialSkin.Controls.MaterialLabel();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialButtonDetailBorrow = new MaterialSkin.Controls.MaterialButton();
             this.materialButtonDetailReturn = new MaterialSkin.Controls.MaterialButton();
             this.materialButtonHomeReload = new MaterialSkin.Controls.MaterialButton();
@@ -1991,11 +1989,11 @@
             this.materialCardDetail1.Controls.Add(this.materialButtonDetailReturn);
             this.materialCardDetail1.Controls.Add(this.materialButtonDetailBorrow);
             this.materialCardDetail1.Controls.Add(this.materialLabelDetailReaderName);
-            this.materialCardDetail1.Controls.Add(this.materialTextBox2);
+         
             this.materialCardDetail1.Controls.Add(this.materialLabel9);
             this.materialCardDetail1.Controls.Add(this.materialLabelDetailBook);
             this.materialCardDetail1.Controls.Add(this.materialLabelDetailReaderID);
-            this.materialCardDetail1.Controls.Add(this.materialTextBox1);
+         
             this.materialCardDetail1.Controls.Add(this.materialLabelDetailStatus);
             this.materialCardDetail1.Controls.Add(this.materialTextBoxDetailStatus);
             this.materialCardDetail1.Controls.Add(this.materialLabelDetailCategory);
@@ -2168,22 +2166,7 @@
             this.materialLabelDetailReaderID.TabIndex = 11;
             this.materialLabelDetailReaderID.Text = "Mã số";
             // 
-            // materialTextBox1
-            // 
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(908, 155);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(282, 50);
-            this.materialTextBox1.TabIndex = 10;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
-            // 
+     
             // materialLabelDetailBook
             // 
             this.materialLabelDetailBook.AutoSize = true;
@@ -2219,22 +2202,7 @@
             this.materialLabelDetailReaderName.Size = new System.Drawing.Size(68, 19);
             this.materialLabelDetailReaderName.TabIndex = 15;
             this.materialLabelDetailReaderName.Text = "Họ và tên";
-            // 
-            // materialTextBox2
-            // 
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox2.LeadingIcon = null;
-            this.materialTextBox2.Location = new System.Drawing.Point(908, 271);
-            this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox2.Multiline = false;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.Size = new System.Drawing.Size(282, 50);
-            this.materialTextBox2.TabIndex = 14;
-            this.materialTextBox2.Text = "";
-            this.materialTextBox2.TrailingIcon = null;
+          
             // 
             // materialButtonDetailBorrow
             // 
