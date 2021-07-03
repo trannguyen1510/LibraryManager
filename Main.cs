@@ -17,7 +17,6 @@ namespace LibraryManager
     {
         DBConnect db;
         private readonly MaterialSkinManager materialSkinManager;
-        private int check = 0;
         public Main()
         {
             InitializeComponent();
@@ -94,7 +93,7 @@ namespace LibraryManager
 
         private void DataView_Closed()
         {
-            this.materialHomeListView.Items.Clear();
+            materialHomeListView.Items.Clear();
         }
 
         private void txtbSearch_TextChanged(object sender, EventArgs e)
@@ -116,29 +115,37 @@ namespace LibraryManager
                 {
                     MessageBox.Show("Không có sách cần tìm");
                 }
-                check = 1;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
 
         private void materialHomeListView_DoubleClick(object sender, EventArgs e)
         {
             materialTabControl1.SelectedTab = tabPageDetail;
-            materialTextBoxDetailID.Text = materialHomeListView.SelectedItems[0].SubItems[1].Text;
+            string book_id = materialHomeListView.SelectedItems[0].SubItems[1].Text;
+            materialTextBoxDetailID.Text = book_id;
             materialTextBoxDetailTitle.Text = materialHomeListView.SelectedItems[0].SubItems[2].Text;
             materialTextBoxDetailAuthor.Text = materialHomeListView.SelectedItems[0].SubItems[3].Text;
             materialTextBoxDetailCategory.Text = materialHomeListView.SelectedItems[0].SubItems[4].Text;
+            materialTextBoxDetailStatus.Text = materialHomeListView.SelectedItems[0].SubItems[5].Text;
             if (materialHomeListView.SelectedItems[0].SubItems[5].Text == "Còn")
             {
-                materialTextBoxDetailStatus.Text = "Chưa được mượn";
+                materialTextBoxDetailReaderID.Text = "";
+                materialTextBoxDetailReaderName.Text = "";
             }
             else
             {
-                materialTextBoxDetailStatus.Text = "Đã mượn";
+                string reader_id = db.GetReaderID(book_id);
+                if (reader_id != "")
+                {
+                    DataTable task2 = db.Search_Reader(reader_id);
+                    DataRow row2 = task2.Rows[0];
+                    materialTextBoxDetailReaderID.Text = row2["ID"].ToString();
+                    materialTextBoxDetailReaderName.Text = row2["FullName"].ToString();
+                }
             }
         }
 
@@ -219,6 +226,7 @@ namespace LibraryManager
                     {
                         textBox2.Text = temp.Rows[0][1].ToString();//họ tên
                         textBox5.Text = temp.Rows[0][4].ToString();//Email
+                        load_database_BR();
                     }
                     else//Neu doc gia khoong ton tai
                     {
@@ -245,11 +253,29 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["BOOkID"].ToString());
                 listViewItem.SubItems.Add(r["BorrowDay"].ToString());
                 listViewItem.SubItems.Add(r["ReturnDay"].ToString());
-                listViewItem.SubItems.Add(r["Status"].ToString());
+                if (r["Status"].ToString() == "0")
+                    listViewItem.SubItems.Add("Còn");
+                else
+                    listViewItem.SubItems.Add("Đã mượn");
                 i++;
                 materialListView2.Items.Add(listViewItem);
             }            
-        }      
+        }
+
+        private void load_database_BR()
+        {
+            db = new DBConnect();
+            string id = textBox3.Text;
+            if (id != "")
+            {
+                string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id;
+                DataTable task = db.GetDataTable(query);
+                materialListView2.Items.Clear();   // Clear old data
+                load_DataTable_BR(task);
+            }
+            else
+                MessageBox.Show("Không có độc giả cần tìm");
+        }
 
         //Hàm mượn chính 
         private void cho_muon_Click(object sender, EventArgs e)
@@ -260,8 +286,8 @@ namespace LibraryManager
             string tensach = texttensach.Text;// Teen sach
             string HoTen = textBox2.Text;  //Ho ten
             string Email = textBox5.Text;  //email
-            string NgayMuon = dateTimePicker2.Value.ToString(); //Ngay muon 
-            string NgayTra = dateTimePicker1.Value.ToString();  //Ngay Tra     
+            string NgayMuon = dateTimePicker2.Value.ToShortDateString(); //Ngay muon 
+            string NgayTra = dateTimePicker1.Value.ToShortDateString();  //Ngay Tra     
             try//ys oong laf sao nãy tui thấy ở trên list có 2 cái nó trùng cả id sách và id user
             {
                 //Kiểm tra xem quyển sách muốn mượn đã từng mượn chưa -->Tránh mượn trùng 
@@ -277,7 +303,7 @@ namespace LibraryManager
                 else
                 {
                     //Lấy số sách mà sinh viên đó mượn
-                    string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + id;
+                    string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + textBox3.Text;
                     DataTable kq1 = db.GetDataTable(sql1);
                     int num_book = kq1.Rows.Count;
 
@@ -298,6 +324,7 @@ namespace LibraryManager
                             DataTable Data2 = db.GetDataTable(query);
                             materialListView2.Items.Clear();
                             load_DataTable_BR(Data2);
+                            MessageBox.Show("Đặt mượn thành công");
                         }
                         else
                         {
@@ -318,7 +345,37 @@ namespace LibraryManager
             }
         }
 
+        private void materialListView2_Click(object sender, EventArgs e)
+        {
+            string id = materialListView2.SelectedItems[0].SubItems[2].Text;
+            DataTable task = db.Search_Book(id);
+            DataRow dataRow = task.Rows[0];
+            textmasach.Text = id;
+            texttensach.Text = dataRow["Title"].ToString();
+            comboBox1.Text = dataRow["Name"].ToString();
+            texttacgia.Text = dataRow["Author"].ToString();
+            dateTimePicker2.Value = Convert.ToDateTime(materialListView2.SelectedItems[0].SubItems[3].Text);
+            dateTimePicker1.Value = Convert.ToDateTime(materialListView2.SelectedItems[0].SubItems[4].Text);
+        }
 
+        private void materialListView2_DoubleClick(object sender, EventArgs e)
+        {
+            string book_id = materialListView2.SelectedItems[0].SubItems[2].Text;
+            DataTable task = db.Search_Book(book_id);
+            DataRow row = task.Rows[0];
+            materialTabControl1.SelectedTab = tabPageDetail;
+            materialTextBoxDetailID.Text = book_id;
+            materialTextBoxDetailTitle.Text = row["Title"].ToString();
+            materialTextBoxDetailAuthor.Text = row["Author"].ToString();
+            materialTextBoxDetailCategory.Text = row["Name"].ToString();
+            materialTextBoxDetailStatus.Text = row["Status"].ToString();
+
+            string reader_id = materialListView2.SelectedItems[0].SubItems[1].Text;
+            DataTable task2 = db.Search_Reader(reader_id);
+            DataRow row2 = task2.Rows[0];
+            materialTextBoxDetailReaderID.Text = row2["ID"].ToString();
+            materialTextBoxDetailReaderName.Text = row2["FullName"].ToString();
+        }
 
         // end borrow
 
@@ -326,8 +383,8 @@ namespace LibraryManager
         //
         //
         //
-        //  return 
-      
+        //  return tab
+
 
         private void load_DataTable_Search(DataTable dataTable)
         {
@@ -432,7 +489,7 @@ namespace LibraryManager
             string masach = textBox7_a.Text; // lay ma sach can tra
             string mssv = textBox1_a.Text;   //Lay mssv
             //Lấy ngày trả
-            string ngay_tra = date.Value.ToString();// 
+            string ngay_tra = date.Value.ToString();//
 
             try
             {
@@ -489,6 +546,7 @@ namespace LibraryManager
                                 string data_new = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + mssv;
                                 Data3 = db.GetDataTable(data_new);
                                 load_DataTable_Return(Data3);
+                                MessageBox.Show("Trả sách thành công");
                             }
                             else
                             {
@@ -541,7 +599,11 @@ namespace LibraryManager
             }
         }
 
-
+        private void materialListView3_Click(object sender, EventArgs e)
+        {
+            string id = materialListView3.SelectedItems[0].SubItems[2].Text;
+            textBox7_a.Text = id;
+        }
 
 
         // -----------------------------------------------------------------------------------------------
@@ -571,7 +633,7 @@ namespace LibraryManager
             DataTable task;
             string query = "SELECT * FROM READER";
             task = db.GetDataTable(query);
-            materialReaderListView.Items.Clear();   // Clear old data
+            DataReaderView_Closed();   // Clear old data
             load_DataTable_Reader(task);
         }
 
@@ -581,22 +643,106 @@ namespace LibraryManager
             load_database_Reader();   // Refresh data  table
         }
 
+        private void DataReaderView_Closed()
+        {
+            materialReaderListView.Items.Clear();
+        }
 
-        // Put code here
+        private void materialButtonReaderSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable task = db.Search_Reader(materialTextBoxReaderID.Text);
+                if (task != null)
+                {
+                    DataReaderView_Closed();
+                    load_DataTable_Reader(task);
 
+                    DataRow dataRow = task.Rows[0];
+                    materialTextBoxReaderID.Text = dataRow["ID"].ToString();
+                    materialTextBoxReaderName.Text = dataRow["FullName"].ToString();
+                    dateTimePickerReader.Value = Convert.ToDateTime(dataRow["DateOfBirth"]);
+                    materialTextBoxReaderAddress.Text = dataRow["Address"].ToString();
+                    materialTextBoxReaderEmail.Text = dataRow["Email"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Không có độc giả cần tìm");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
 
+            }
+        }
 
+        private void Reader_ClearAll()
+        {
+            materialTextBoxReaderID.Text = "";
+            materialTextBoxReaderName.Text = "";
+            dateTimePickerReader.Value = DateTime.Now;
+            materialTextBoxReaderAddress.Text = "";
+            materialTextBoxReaderEmail.Text = "";
+        }
 
+        private void materialButtonReaderReload_Click(object sender, EventArgs e)
+        {
+            load_database_Reader();
+            Reader_ClearAll();
+
+        }
+
+        private void materialButtonReaderAdd_Click(object sender, EventArgs e)
+        {
+            string id = materialTextBoxReaderID.Text;
+            string name = materialTextBoxReaderName.Text;
+            string datetime = dateTimePickerReader.Value.ToShortDateString();
+            string address = materialTextBoxReaderAddress.Text;
+            string email = materialTextBoxReaderEmail.Text;
+            string datecreate = dateTimePickerReader2.Value.ToShortDateString();
+
+            if (db.CheckID(id, "READER"))
+            {
+                MessageBox.Show("Trùng mã số");
+            }
+            else
+            {
+                string query = $"INSERT INTO READER VALUES({id}, '{name}', '{datetime}', '{address}', '{email}', '{datecreate}')";
+                bool reader_insert = db.Insert(query);
+                if (reader_insert)
+                {
+                    MessageBox.Show("Thêm thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm không thành công");
+                }
+                materialButtonReaderReload_Click(sender, e);
+            }
+        }
+
+        private void materialReaderListView_Click(object sender, EventArgs e)
+        {
+            materialTextBoxReaderID.Text = materialReaderListView.SelectedItems[0].SubItems[1].Text;
+            materialTextBoxReaderName.Text = materialReaderListView.SelectedItems[0].SubItems[2].Text;
+            dateTimePickerReader.Value = Convert.ToDateTime(materialReaderListView.SelectedItems[0].SubItems[3].Text);
+            materialTextBoxReaderAddress.Text = materialReaderListView.SelectedItems[0].SubItems[4].Text;
+            materialTextBoxReaderEmail.Text = materialReaderListView.SelectedItems[0].SubItems[5].Text;
+            dateTimePickerReader2.Value = Convert.ToDateTime(materialReaderListView.SelectedItems[0].SubItems[6].Text);
+        }
+
+        private void materialButtonReaderEdit_Click(object sender, EventArgs e)
+        {
+            string id = materialReaderListView.SelectedItems[0].SubItems[1].Text;
+            string check_query = $"select * from book_borrow where UserID = {id}";
+        }
 
         // -----------------------------------------------------------------------------------------------
         //
         //
         // Category tab
 
-
-
-
-        // Put code here
 
 
 
