@@ -221,5 +221,12 @@ namespace LibraryManager
             DataTable task = GetDataTable(query);
             return task;
         }
+
+        public DataTable Search_Reader(string code)
+        {
+            string query = $"SELECT * FROM READER WHERE ID = {code}";
+            DataTable task = GetDataTable(query);
+            return task;
+        }
     }
 }
