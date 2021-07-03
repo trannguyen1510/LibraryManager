@@ -132,6 +132,7 @@
             this.textBox1_a = new MaterialSkin.Controls.MaterialTextBox();
             this.button1_a = new MaterialSkin.Controls.MaterialButton();
             this.tabPageReader = new System.Windows.Forms.TabPage();
+            this.materialButtonReaderReload = new MaterialSkin.Controls.MaterialButton();
             this.materialCardReaderInfo = new MaterialSkin.Controls.MaterialCard();
             this.materialButtonReaderSearch = new MaterialSkin.Controls.MaterialButton();
             this.dateTimePickerReader = new System.Windows.Forms.DateTimePicker();
@@ -156,7 +157,9 @@
             this.clmDateCreated = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.materialButtonReaderReload = new MaterialSkin.Controls.MaterialButton();
+            this.dateTimePickerReader2 = new System.Windows.Forms.DateTimePicker();
+            this.materialLabelReaderDateCreate = new MaterialSkin.Controls.MaterialLabel();
+            this.materialButtonReaderEdit = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
@@ -536,7 +539,7 @@
             // 
             this.materialTextBoxDetailReaderID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBoxDetailReaderID.Depth = 0;
-            this.materialTextBoxDetailReaderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBoxDetailReaderID.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxDetailReaderID.LeadingIcon = null;
             this.materialTextBoxDetailReaderID.Location = new System.Drawing.Point(748, 164);
             this.materialTextBoxDetailReaderID.MaxLength = 50;
@@ -768,6 +771,7 @@
             this.materialListView2.TabIndex = 2;
             this.materialListView2.UseCompatibleStateImageBehavior = false;
             this.materialListView2.View = System.Windows.Forms.View.Details;
+            this.materialListView2.Click += new System.EventHandler(this.materialListView2_Click);
             this.materialListView2.DoubleClick += new System.EventHandler(this.materialListView2_DoubleClick);
             // 
             // STT
@@ -1213,6 +1217,7 @@
             this.materialListView3.TabIndex = 0;
             this.materialListView3.UseCompatibleStateImageBehavior = false;
             this.materialListView3.View = System.Windows.Forms.View.Details;
+            this.materialListView3.Click += new System.EventHandler(this.materialListView3_Click);
             // 
             // STT1
             // 
@@ -1566,6 +1571,7 @@
             // tabPageReader
             // 
             this.tabPageReader.BackColor = System.Drawing.Color.White;
+            this.tabPageReader.Controls.Add(this.materialButtonReaderEdit);
             this.tabPageReader.Controls.Add(this.materialButtonReaderReload);
             this.tabPageReader.Controls.Add(this.materialCardReaderInfo);
             this.tabPageReader.Controls.Add(this.materialButtonReaderAdd);
@@ -1580,9 +1586,31 @@
             this.tabPageReader.Text = "Độc giả";
             this.tabPageReader.Enter += new System.EventHandler(this.tabPageReader_Enter);
             // 
+            // materialButtonReaderReload
+            // 
+            this.materialButtonReaderReload.AutoSize = false;
+            this.materialButtonReaderReload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonReaderReload.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonReaderReload.Depth = 0;
+            this.materialButtonReaderReload.HighEmphasis = true;
+            this.materialButtonReaderReload.Icon = global::LibraryManager.Properties.Resources.reload_32x;
+            this.materialButtonReaderReload.ImageKey = "(none)";
+            this.materialButtonReaderReload.Location = new System.Drawing.Point(1108, 17);
+            this.materialButtonReaderReload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonReaderReload.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonReaderReload.Name = "materialButtonReaderReload";
+            this.materialButtonReaderReload.Size = new System.Drawing.Size(40, 36);
+            this.materialButtonReaderReload.TabIndex = 21;
+            this.materialButtonReaderReload.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonReaderReload.UseAccentColor = false;
+            this.materialButtonReaderReload.UseVisualStyleBackColor = true;
+            this.materialButtonReaderReload.Click += new System.EventHandler(this.materialButtonReaderReload_Click);
+            // 
             // materialCardReaderInfo
             // 
             this.materialCardReaderInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCardReaderInfo.Controls.Add(this.dateTimePickerReader2);
+            this.materialCardReaderInfo.Controls.Add(this.materialLabelReaderDateCreate);
             this.materialCardReaderInfo.Controls.Add(this.materialButtonReaderSearch);
             this.materialCardReaderInfo.Controls.Add(this.dateTimePickerReader);
             this.materialCardReaderInfo.Controls.Add(this.materialTextBoxReaderEmail);
@@ -1601,7 +1629,7 @@
             this.materialCardReaderInfo.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardReaderInfo.Name = "materialCardReaderInfo";
             this.materialCardReaderInfo.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardReaderInfo.Size = new System.Drawing.Size(996, 181);
+            this.materialCardReaderInfo.Size = new System.Drawing.Size(996, 245);
             this.materialCardReaderInfo.TabIndex = 2;
             // 
             // materialButtonReaderSearch
@@ -1637,12 +1665,12 @@
             this.materialTextBoxReaderEmail.Depth = 0;
             this.materialTextBoxReaderEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxReaderEmail.LeadingIcon = null;
-            this.materialTextBoxReaderEmail.Location = new System.Drawing.Point(821, 96);
+            this.materialTextBoxReaderEmail.Location = new System.Drawing.Point(754, 167);
             this.materialTextBoxReaderEmail.MaxLength = 50;
             this.materialTextBoxReaderEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxReaderEmail.Multiline = false;
             this.materialTextBoxReaderEmail.Name = "materialTextBoxReaderEmail";
-            this.materialTextBoxReaderEmail.Size = new System.Drawing.Size(157, 50);
+            this.materialTextBoxReaderEmail.Size = new System.Drawing.Size(190, 50);
             this.materialTextBoxReaderEmail.TabIndex = 9;
             this.materialTextBoxReaderEmail.Text = "";
             this.materialTextBoxReaderEmail.TrailingIcon = null;
@@ -1652,7 +1680,7 @@
             this.materialLabelReaderEmail.AutoSize = true;
             this.materialLabelReaderEmail.Depth = 0;
             this.materialLabelReaderEmail.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelReaderEmail.Location = new System.Drawing.Point(757, 111);
+            this.materialLabelReaderEmail.Location = new System.Drawing.Point(690, 182);
             this.materialLabelReaderEmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelReaderEmail.Name = "materialLabelReaderEmail";
             this.materialLabelReaderEmail.Size = new System.Drawing.Size(41, 19);
@@ -1665,12 +1693,12 @@
             this.materialTextBoxReaderAddress.Depth = 0;
             this.materialTextBoxReaderAddress.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxReaderAddress.LeadingIcon = null;
-            this.materialTextBoxReaderAddress.Location = new System.Drawing.Point(452, 96);
+            this.materialTextBoxReaderAddress.Location = new System.Drawing.Point(85, 167);
             this.materialTextBoxReaderAddress.MaxLength = 50;
             this.materialTextBoxReaderAddress.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxReaderAddress.Multiline = false;
             this.materialTextBoxReaderAddress.Name = "materialTextBoxReaderAddress";
-            this.materialTextBoxReaderAddress.Size = new System.Drawing.Size(278, 50);
+            this.materialTextBoxReaderAddress.Size = new System.Drawing.Size(571, 50);
             this.materialTextBoxReaderAddress.TabIndex = 7;
             this.materialTextBoxReaderAddress.Text = "";
             this.materialTextBoxReaderAddress.TrailingIcon = null;
@@ -1680,7 +1708,7 @@
             this.materialLabelReaderAddress.AutoSize = true;
             this.materialLabelReaderAddress.Depth = 0;
             this.materialLabelReaderAddress.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelReaderAddress.Location = new System.Drawing.Point(381, 111);
+            this.materialLabelReaderAddress.Location = new System.Drawing.Point(14, 182);
             this.materialLabelReaderAddress.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelReaderAddress.Name = "materialLabelReaderAddress";
             this.materialLabelReaderAddress.Size = new System.Drawing.Size(50, 19);
@@ -1763,16 +1791,17 @@
             this.materialButtonReaderAdd.Depth = 0;
             this.materialButtonReaderAdd.HighEmphasis = true;
             this.materialButtonReaderAdd.Icon = null;
-            this.materialButtonReaderAdd.Location = new System.Drawing.Point(1065, 89);
+            this.materialButtonReaderAdd.Location = new System.Drawing.Point(1065, 87);
             this.materialButtonReaderAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonReaderAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonReaderAdd.Name = "materialButtonReaderAdd";
-            this.materialButtonReaderAdd.Size = new System.Drawing.Size(87, 36);
+            this.materialButtonReaderAdd.Size = new System.Drawing.Size(122, 36);
             this.materialButtonReaderAdd.TabIndex = 1;
             this.materialButtonReaderAdd.Text = "Thêm";
             this.materialButtonReaderAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButtonReaderAdd.UseAccentColor = false;
             this.materialButtonReaderAdd.UseVisualStyleBackColor = true;
+            this.materialButtonReaderAdd.Click += new System.EventHandler(this.materialButtonReaderAdd_Click);
             // 
             // materialCardReader
             // 
@@ -1780,12 +1809,12 @@
             this.materialCardReader.Controls.Add(this.materialReaderListView);
             this.materialCardReader.Depth = 0;
             this.materialCardReader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardReader.Location = new System.Drawing.Point(51, 226);
+            this.materialCardReader.Location = new System.Drawing.Point(51, 274);
             this.materialCardReader.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardReader.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardReader.Name = "materialCardReader";
             this.materialCardReader.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardReader.Size = new System.Drawing.Size(996, 290);
+            this.materialCardReader.Size = new System.Drawing.Size(996, 242);
             this.materialCardReader.TabIndex = 0;
             // 
             // materialReaderListView
@@ -1810,10 +1839,11 @@
             this.materialReaderListView.MouseState = MaterialSkin.MouseState.OUT;
             this.materialReaderListView.Name = "materialReaderListView";
             this.materialReaderListView.OwnerDraw = true;
-            this.materialReaderListView.Size = new System.Drawing.Size(962, 338);
+            this.materialReaderListView.Size = new System.Drawing.Size(962, 208);
             this.materialReaderListView.TabIndex = 0;
             this.materialReaderListView.UseCompatibleStateImageBehavior = false;
             this.materialReaderListView.View = System.Windows.Forms.View.Details;
+            this.materialReaderListView.Click += new System.EventHandler(this.materialReaderListView_Click);
             // 
             // clmReaderIndex
             // 
@@ -1880,25 +1910,44 @@
             this.imageList1.Images.SetKeyName(5, "detail_32x.png");
             this.imageList1.Images.SetKeyName(6, "reload_32x.png");
             // 
-            // materialButtonReaderReload
+            // dateTimePickerReader2
             // 
-            this.materialButtonReaderReload.AutoSize = false;
-            this.materialButtonReaderReload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButtonReaderReload.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButtonReaderReload.Depth = 0;
-            this.materialButtonReaderReload.HighEmphasis = true;
-            this.materialButtonReaderReload.Icon = global::LibraryManager.Properties.Resources.reload_32x;
-            this.materialButtonReaderReload.ImageKey = "(none)";
-            this.materialButtonReaderReload.Location = new System.Drawing.Point(1091, 39);
-            this.materialButtonReaderReload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButtonReaderReload.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonReaderReload.Name = "materialButtonReaderReload";
-            this.materialButtonReaderReload.Size = new System.Drawing.Size(40, 36);
-            this.materialButtonReaderReload.TabIndex = 21;
-            this.materialButtonReaderReload.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonReaderReload.UseAccentColor = false;
-            this.materialButtonReaderReload.UseVisualStyleBackColor = true;
-            this.materialButtonReaderReload.Click += new System.EventHandler(this.materialButtonReaderReload_Click);
+            this.dateTimePickerReader2.Location = new System.Drawing.Point(498, 109);
+            this.dateTimePickerReader2.Name = "dateTimePickerReader2";
+            this.dateTimePickerReader2.Size = new System.Drawing.Size(233, 20);
+            this.dateTimePickerReader2.TabIndex = 12;
+            // 
+            // materialLabelReaderDateCreate
+            // 
+            this.materialLabelReaderDateCreate.AutoSize = true;
+            this.materialLabelReaderDateCreate.Depth = 0;
+            this.materialLabelReaderDateCreate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabelReaderDateCreate.Location = new System.Drawing.Point(399, 110);
+            this.materialLabelReaderDateCreate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabelReaderDateCreate.Name = "materialLabelReaderDateCreate";
+            this.materialLabelReaderDateCreate.Size = new System.Drawing.Size(65, 19);
+            this.materialLabelReaderDateCreate.TabIndex = 11;
+            this.materialLabelReaderDateCreate.Text = "Ngày tạo";
+            // 
+            // materialButtonReaderEdit
+            // 
+            this.materialButtonReaderEdit.AutoSize = false;
+            this.materialButtonReaderEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonReaderEdit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonReaderEdit.Depth = 0;
+            this.materialButtonReaderEdit.HighEmphasis = true;
+            this.materialButtonReaderEdit.Icon = null;
+            this.materialButtonReaderEdit.Location = new System.Drawing.Point(1065, 156);
+            this.materialButtonReaderEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonReaderEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonReaderEdit.Name = "materialButtonReaderEdit";
+            this.materialButtonReaderEdit.Size = new System.Drawing.Size(122, 36);
+            this.materialButtonReaderEdit.TabIndex = 22;
+            this.materialButtonReaderEdit.Text = "Chỉnh sửa";
+            this.materialButtonReaderEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonReaderEdit.UseAccentColor = false;
+            this.materialButtonReaderEdit.UseVisualStyleBackColor = true;
+            this.materialButtonReaderEdit.Click += new System.EventHandler(this.materialButtonReaderEdit_Click);
             // 
             // Main
             // 
@@ -2080,5 +2129,8 @@
         private MaterialSkin.Controls.MaterialButton materialButtonReaderAdd;
         private MaterialSkin.Controls.MaterialButton materialButtonReaderSearch;
         private MaterialSkin.Controls.MaterialButton materialButtonReaderReload;
+        private System.Windows.Forms.DateTimePicker dateTimePickerReader2;
+        private MaterialSkin.Controls.MaterialLabel materialLabelReaderDateCreate;
+        private MaterialSkin.Controls.MaterialButton materialButtonReaderEdit;
     }
 }

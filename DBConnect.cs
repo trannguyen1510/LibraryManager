@@ -110,7 +110,7 @@ namespace LibraryManager
                     cmd = Connection.CreateCommand();
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();  //Thuc hien chen vao csdl
-                    connection.Close();
+                    Connection.Close();
                     return true;
                 }
                 else
@@ -137,7 +137,7 @@ namespace LibraryManager
                     cmd = Connection.CreateCommand();
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();  //Thuc hien update vao csdl
-                    connection.Close();
+                    Connection.Close();
                     result= true;
                 }
                 else
@@ -170,7 +170,7 @@ namespace LibraryManager
                     cmd = Connection.CreateCommand();
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();  //Thuc hien update vao csdl
-                    connection.Close();
+                    Connection.Close();
                     result = true;
                 }
                 else
@@ -228,5 +228,24 @@ namespace LibraryManager
             DataTable task = GetDataTable(query);
             return task;
         }
+
+        public bool CheckID(string id, string table)
+        {
+            string query = $"SELECT id FROM {table} WHERE id = {id}";
+            DataTable task = GetDataTable(query);
+            if (task == null)
+                return false;
+            return true;
+        }
+
+        public string GetReaderID(string id)
+        {
+            string query = $"SELECT UserID FROM BOOK_BORROW WHERE BookID = {id}";
+            DataTable task = GetDataTable(query);
+            if (task == null)
+                return "";
+            return task.Rows[0]["UserID"].ToString();
+        }
+
     }
 }
