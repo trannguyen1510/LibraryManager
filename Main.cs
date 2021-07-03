@@ -795,5 +795,10 @@ namespace LibraryManager
         {
 
         }
+
+        private void materialLabelDetailBook_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
