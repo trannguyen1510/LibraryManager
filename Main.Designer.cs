@@ -119,8 +119,11 @@
             this.clmDateCreated = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+<<<<<<< HEAD
             this.date = new System.Windows.Forms.DateTimePicker();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+=======
+>>>>>>> main
             this.materialTabControl1.SuspendLayout();
             this.tabpageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
@@ -214,6 +217,7 @@
             this.materialHomeListView.TabIndex = 0;
             this.materialHomeListView.UseCompatibleStateImageBehavior = false;
             this.materialHomeListView.View = System.Windows.Forms.View.Details;
+            this.materialHomeListView.DoubleClick += new System.EventHandler(this.materialHomeListView_DoubleClick);
             // 
             // clmHomeIndex
             // 
@@ -588,7 +592,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(210, 174);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker1.TabIndex = 14;
             // 
             // dateTimePicker2
@@ -597,7 +601,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(210, 133);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker2.TabIndex = 13;
             // 
             // ngaytra
@@ -1290,6 +1294,7 @@
             this.imageList1.Images.SetKeyName(3, "reader_32x.png");
             this.imageList1.Images.SetKeyName(4, "return.png");
             // 
+<<<<<<< HEAD
             // date
             // 
             this.date.Location = new System.Drawing.Point(176, 100);
@@ -1309,9 +1314,11 @@
             this.materialLabel8.TabIndex = 5;
             this.materialLabel8.Text = "Ngày trả:";
             // 
+=======
+>>>>>>> main
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1321, 833);

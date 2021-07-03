@@ -110,6 +110,19 @@ namespace LibraryManager
             }
         }
 
+        private void materialHomeListView_DoubleClick(object sender, EventArgs e)
+        {
+            string val = "";
+            for (int i = 0; i < 5; i ++)
+                {
+                val += materialHomeListView.SelectedItems[0].SubItems[i].Text;
+                val += " ";
+                }
+            materialTabControl1.SelectedTab = tabPageBorrow;
+            textmasach.Text = materialHomeListView.SelectedItems[0].SubItems[1].Text;
+            button1_Click(sender, e);
+        }
+
         // -----------------------------------------------------------------------------------------------
         //
         //
