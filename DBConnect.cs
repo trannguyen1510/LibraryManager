@@ -217,10 +217,8 @@ namespace LibraryManager
 
         public DataTable Search_Book(string code)
         {
-            string query = $"SELECT * FROM BOOK B WHERE B.ID = {code}";
-            DataTable task = new DataTable();
-            task = this.GetDataTable(query);
-
+            string query = $"SELECT B.ID, Title, Author, Name, Status FROM BOOK B JOIN CATEGORY C WHERE CategoryID = C.ID AND B.ID = {code}";
+            DataTable task = GetDataTable(query);
             return task;
         }
     }
