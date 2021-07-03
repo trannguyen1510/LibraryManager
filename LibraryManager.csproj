@@ -114,5 +114,8 @@
   <ItemGroup>
     <None Include="References\logo-uit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="References\reload_32x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

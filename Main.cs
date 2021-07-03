@@ -17,6 +17,7 @@ namespace LibraryManager
     {
         DBConnect db;
         private readonly MaterialSkinManager materialSkinManager;
+        private int check = 0;
         public Main()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace LibraryManager
         {
             db = new DBConnect();
             DataTable task;
-            string query = "SELECT * FROM BOOK";
+            string query = "SELECT B.ID, Title, Author, Name, Status FROM BOOK B JOIN CATEGORY C WHERE CategoryID = C.ID";
             task = db.GetDataTable(query);
             materialHomeListView.Items.Clear();   // Clear old data
             load_DataTable_Home(task);
@@ -51,7 +52,15 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["ID"].ToString());
                 listViewItem.SubItems.Add(r["Title"].ToString());
                 listViewItem.SubItems.Add(r["Author"].ToString());
-                listViewItem.SubItems.Add(r["CategoryID"].ToString());
+                listViewItem.SubItems.Add(r["Name"].ToString());
+                if (r["Status"].ToString() == "0")
+                {
+                    listViewItem.SubItems.Add("Còn");
+                }
+                else
+                {
+                    listViewItem.SubItems.Add("Đã mượn");
+                }
                 i++;
                 materialHomeListView.Items.Add(listViewItem);
             }
@@ -59,7 +68,12 @@ namespace LibraryManager
 
         private void tabpageHome_Enter(object sender, EventArgs e)
         {
-            load_database_Home();   // Refresh data  table
+
+        }
+
+        private void materialButtonHomeReload_Click(object sender, EventArgs e)
+        {
+            load_database_Home(); // Refresh data  table
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -92,7 +106,7 @@ namespace LibraryManager
         {
             try
             {
-                DataTable task = db.Search_Book(this.mtbHomeSearch.Text);
+                DataTable task = db.Search_Book(mtbHomeSearch.Text);
                 if (task != null)
                 {
                     DataView_Closed();
@@ -102,6 +116,7 @@ namespace LibraryManager
                 {
                     MessageBox.Show("Không có sách cần tìm");
                 }
+                check = 1;
             }
             catch (Exception ex)
             {
@@ -112,15 +127,35 @@ namespace LibraryManager
 
         private void materialHomeListView_DoubleClick(object sender, EventArgs e)
         {
-            string val = "";
-            for (int i = 0; i < 5; i ++)
-                {
-                val += materialHomeListView.SelectedItems[0].SubItems[i].Text;
-                val += " ";
-                }
+            materialTabControl1.SelectedTab = tabPageDetail;
+            materialTextBoxDetailID.Text = materialHomeListView.SelectedItems[0].SubItems[1].Text;
+            materialTextBoxDetailTitle.Text = materialHomeListView.SelectedItems[0].SubItems[2].Text;
+            materialTextBoxDetailAuthor.Text = materialHomeListView.SelectedItems[0].SubItems[3].Text;
+            materialTextBoxDetailCategory.Text = materialHomeListView.SelectedItems[0].SubItems[4].Text;
+            if (materialHomeListView.SelectedItems[0].SubItems[5].Text == "Còn")
+            {
+                materialTextBoxDetailStatus.Text = "Chưa được mượn";
+            }
+            else
+            {
+                materialTextBoxDetailStatus.Text = "Đã mượn";
+            }
+        }
+
+        // -----------------------------------------------------------------------------------------------
+        //
+        //
+        // Detail tab
+        private void materialButtonDetailBorrow_Click(object sender, EventArgs e)
+        {
             materialTabControl1.SelectedTab = tabPageBorrow;
-            textmasach.Text = materialHomeListView.SelectedItems[0].SubItems[1].Text;
+            textmasach.Text = materialTextBoxDetailID.Text;
             button1_Click(sender, e);
+        }
+
+        private void materialButtonDetailReturn_Click(object sender, EventArgs e)
+        {
+            materialTabControl1.SelectedTab = tabPageHome;
         }
 
         // -----------------------------------------------------------------------------------------------
