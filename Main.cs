@@ -634,6 +634,13 @@ namespace LibraryManager
                 {
                     DataReaderView_Closed();
                     load_DataTable_Reader(task);
+
+                    DataRow dataRow = task.Rows[0];
+                    materialTextBoxReaderID.Text = dataRow["ID"].ToString();
+                    materialTextBoxReaderName.Text = dataRow["FullName"].ToString();
+                    dateTimePickerReader.Value = Convert.ToDateTime(dataRow["DateOfBirth"]);
+                    materialTextBoxReaderAddress.Text = dataRow["Address"].ToString();
+                    materialTextBoxReaderEmail.Text = dataRow["Email"].ToString();
                 }
                 else
                 {
