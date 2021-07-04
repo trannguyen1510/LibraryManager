@@ -185,5 +185,13 @@ namespace LibraryManager
                 return -1;
             return task.Rows.Count;
         }
+        public string CategoryGetID(string name)
+        {
+            string query = $"SELECT * FROM CATEGORY WHERE Name = '{name}'";
+            DataTable task = GetDataTable(query);
+            if (task == null)
+                return "";
+            return task.Rows[0]["ID"].ToString();
+        }
     }
 }

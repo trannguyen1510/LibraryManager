@@ -72,6 +72,7 @@ namespace LibraryManager
 
         private void materialButtonHomeReload_Click(object sender, EventArgs e)
         {
+            mtbHomeSearch.Text = "";
             load_database_Home(); // Refresh data  table
         }
 
@@ -164,6 +165,214 @@ namespace LibraryManager
         {
             materialTabControl1.SelectedTab = tabPageHome;
         }
+
+        private void materialButtonDetailAdd_Click(object sender, EventArgs e)
+        {
+            string id = materialTextBoxDetailID.Text;
+            string title = materialTextBoxDetailTitle.Text;
+            string author = materialTextBoxDetailAuthor.Text;
+            string category = materialComboBoxDetailCategory.Text;
+            int status = 0;
+
+            if (db.CheckID(id, "BOOK"))
+            {
+                MessageBox.Show("Trùng mã số");
+            }
+            else
+            {
+                if (category != "")
+                {
+                    string category_id = db.CategoryGetID(category);
+                    string query = $"INSERT INTO BOOK VALUES({id}, '{title}', '{author}', '{category_id}', '{status}')";
+                    bool book_result = db.ExucuteDbCmd(query);
+                    if (book_result)
+                    {
+                        MessageBox.Show("Thêm sách thành công");
+                        Reload_All(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm không thành công");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa chọn danh mục");
+                }
+            }
+        }
+
+        private string bookid;
+        private string booktitle;
+        private string bookauthor;
+        private string booktcategory;
+
+        private void materialButtonDetailEdit_Click(object sender, EventArgs e)
+        {
+            string id = materialTextBoxDetailID.Text;
+            string title = materialTextBoxDetailTitle.Text;
+            string author = materialTextBoxDetailAuthor.Text;
+            string category = materialComboBoxDetailCategory.Text;
+            string status = materialTextBoxDetailStatus.Text;
+
+            if (status == "Đã mượn")
+            {
+                MessageBox.Show("Sách đang được mượn");
+            }
+            else
+            {
+                if (db.CheckID(id, "BOOK"))
+                {
+                    if (category != "")
+                    {
+                        string category_id = db.CategoryGetID(category);
+                        string query = $"UPDATE READER SET Title = '{title}', Author = '{author}', CategoryID = '{category_id}' WHERE ID = {id}";
+                        bool category_result = db.ExucuteDbCmd(query);
+                        if (category_result)
+                        {
+                            MessageBox.Show("Cập nhật sách thành công");
+                            Reload_All(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật không thành công");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa chọn danh mục");
+                    }
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thay dổi mã số", "Phát hiện khác mã số", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (category != "")
+                        {
+                            string category_id = db.CategoryGetID(category);
+                            string query = $"UPDATE BOOK SET ID = '{id}', Title = '{title}', Author = '{author}', CategoryID = '{category_id}' WHERE ID = {bookid}";
+                            bool book_result = db.ExucuteDbCmd(query);
+                            if (book_result)
+                            {
+                                MessageBox.Show("Cập nhật sách thành công");
+                                Reload_All(sender, e);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cập nhật không thành công");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Chưa chọn danh mục");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chỉnh sửa thất bại");
+                    }
+                }
+            }
+        }
+
+        private void materialButtonDetailDelete_Click(object sender, EventArgs e)
+        {
+            string id = materialTextBoxDetailID.Text;
+            string status = materialTextBoxDetailStatus.Text;
+
+            if (status == "Đã mượn")
+            {
+                MessageBox.Show("Sách đang được mượn");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xóa sách", "Xóa sách khỏi kho sách", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string query = $"DELETE FROM BOOK WHERE ID = {id}";
+                    bool book_result = db.ExucuteDbCmd(query);
+                    if (book_result)
+                    {
+                        MessageBox.Show("Xóa sách thành công");
+                        Reload_All(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chỉnh sửa thất bại");
+                }
+            }
+        }
+
+        private void materialButtonDetailEditMode_Click(object sender, EventArgs e)
+        {
+            materialCardDetail3.Hide();
+            materialTextBoxDetailCategory.Hide();
+
+            materialCardDetail4.Show();
+            materialComboBoxDetailCategory.Show();
+
+            materialTextBoxDetailID.ReadOnly = false;
+            materialTextBoxDetailTitle.ReadOnly = false;
+            materialTextBoxDetailAuthor.ReadOnly = false;
+            materialTextBoxDetailCategory.ReadOnly = false;
+
+            string check = "SELECT Name FROM CATEGORY";
+            DataTable task = db.GetDataTable(check);
+            foreach (DataRow r in task.Rows)
+            {
+                materialComboBoxDetailCategory.Items.Add(r["Name"].ToString());
+            }
+
+            bookid = materialTextBoxDetailID.Text;
+            booktitle = materialTextBoxDetailTitle.Text;
+            bookauthor = materialTextBoxDetailAuthor.Text;
+            booktcategory = materialTextBoxDetailCategory.Text;
+        }
+
+        private void materialButtonDetailViewMode_Click(object sender, EventArgs e)
+        {
+            materialCardDetail4.Hide();
+            materialComboBoxDetailCategory.Hide();
+
+            materialCardDetail3.Show();
+            materialTextBoxDetailCategory.Show();
+
+            materialTextBoxDetailID.ReadOnly = true;
+            materialTextBoxDetailTitle.ReadOnly = true;
+            materialTextBoxDetailAuthor.ReadOnly = true;
+            materialTextBoxDetailCategory.ReadOnly = true;
+
+            materialTextBoxDetailID.Text = bookid;
+            materialTextBoxDetailTitle.Text = booktitle;
+            materialTextBoxDetailAuthor.Text = bookauthor;
+            materialTextBoxDetailCategory.Text = booktcategory;
+        }
+
+        private void tabPageDetail_Leave(object sender, EventArgs e)
+        {
+            materialButtonDetailViewMode_Click(sender, e);
+        }
+
+        private void materialButtonDetailReload_Click(object sender, EventArgs e)
+        {
+            materialButtonDetailViewMode_Click(sender, e);
+            materialTextBoxDetailID.Text = "";
+            materialTextBoxDetailTitle.Text = "";
+            materialTextBoxDetailAuthor.Text = "";
+            materialTextBoxDetailCategory.Text = "";
+            materialTextBoxDetailStatus.Text = "";
+            materialTextBoxDetailReaderID.Text = "";
+            materialTextBoxDetailReaderName.Text = "";
+        }
+
+
+        // end detail tab
 
         // -----------------------------------------------------------------------------------------------
         //
@@ -384,7 +593,22 @@ namespace LibraryManager
             materialTextBoxDetailReaderName.Text = row2["FullName"].ToString();
         }
 
-        // end borrow
+        private void materialButtonBorrowReload_Click(object sender, EventArgs e)
+        {
+            textmasach.Text = "";
+            texttensach.Text = "";
+            comboBox1.Text = "";
+            texttacgia.Text = "";
+            textBox3.Text = "";
+            textBox2.Text = "";
+            textBox5.Text = "";
+            dateTimePicker2.Value = DateTime.Now;
+            dateTimePicker1.Value = DateTime.Now;
+            materialComboBoxDetailCategory.Text = "";
+            materialListView2.Items.Clear();
+        }
+
+        // end borrow tab
 
         //-------------------------------------------------------------------------------------------------------------------
         //
@@ -604,12 +828,27 @@ namespace LibraryManager
             }
         }
 
+
         private void materialListView3_Click(object sender, EventArgs e)
         {
             string id = materialListView3.SelectedItems[0].SubItems[2].Text;
             textBox7_a.Text = id;
         }
 
+        private void materialButtonReturnReload_Click(object sender, EventArgs e)
+        {
+            textBox1_a.Text = "";
+            textBox2_a.Text = "";
+            textBox3_a.Text = "";
+            textBox4_a.Text = "";
+            textBox5_a.Text = "";
+            textBox6_a.Text = "";
+            textBox7_a.Text = "";
+            date.Value = DateTime.Now;
+            materialListView3.Items.Clear();
+        }
+
+        // end borow tab
 
         // -----------------------------------------------------------------------------------------------
         //
@@ -833,6 +1072,8 @@ namespace LibraryManager
 
         }
 
+        // end reader tab
+
         // -----------------------------------------------------------------------------------------------
         //
         //
@@ -988,6 +1229,14 @@ namespace LibraryManager
             }
         }
 
+        private void materialButtonCategoryReload_Click(object sender, EventArgs e)
+        {
+            materialTextBoxCategoryName.Text = "";
+            load_database_Category();
+        }
+
+        // end category tab
+
         // -----------------------------------------------------------------------------------------------
         //
         //
@@ -996,6 +1245,9 @@ namespace LibraryManager
         {
             Close();
         }
+        // end exit tab
+
+        // -----------------------------------------------------------------------------------------------
 
         private void ngaytra_Click(object sender, EventArgs e)
         {
@@ -1034,50 +1286,6 @@ namespace LibraryManager
         private void loaisach_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void materialButtonBorrowReload_Click(object sender, EventArgs e)
-        {
-            textmasach.Text = "";
-            texttensach.Text = "";
-            comboBox1.Text = "";
-            texttacgia.Text = "";
-            textBox3.Text = "";
-            textBox2.Text = "";
-            textBox5.Text = "";
-            dateTimePicker2.Value = DateTime.Now;
-            dateTimePicker1.Value = DateTime.Now;
-            materialListView2.Items.Clear();
-        }
-
-        private void materialButtonReturnReload_Click(object sender, EventArgs e)
-        {
-            textBox1_a.Text = "";
-            textBox2_a.Text = "";
-            textBox3_a.Text = "";
-            textBox4_a.Text = "";
-            textBox5_a.Text = "";
-            textBox6_a.Text = "";
-            textBox7_a.Text = "";
-            date.Value = DateTime.Now;
-            materialListView3.Items.Clear();
-        }
-
-        private void materialButtonDetailReload_Click(object sender, EventArgs e)
-        {
-            materialTextBoxDetailID.Text = "";
-            materialTextBoxDetailTitle.Text = "";
-            materialTextBoxDetailAuthor.Text = "";
-            materialTextBoxDetailCategory.Text = "";
-            materialTextBoxDetailStatus.Text = "";
-            materialTextBoxDetailReaderID.Text = "";
-            materialTextBoxDetailReaderName.Text = "";
-        }
-
-        private void materialButtonCategoryReload_Click(object sender, EventArgs e)
-        {
-            materialTextBoxCategoryName.Text = "";
-            load_database_Category();
         }
 
         private void Reload_All(object sender, EventArgs e)
