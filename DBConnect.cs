@@ -127,9 +127,15 @@ namespace LibraryManager
 
         }
 
-        public DataTable Search_Book(string code)
+        public DataTable Search_Book(string value, string column)
         {
-            string query = $"SELECT B.ID, Title, Author, Name, Status FROM BOOK B JOIN CATEGORY C WHERE CategoryID = C.ID AND B.ID = {code}";
+            string query = $"SELECT B.ID, Title, Author, Name, Status FROM BOOK B JOIN CATEGORY C WHERE CategoryID = C.ID AND B.{column} = '{value}'";
+            DataTable task = GetDataTable(query);
+            return task;
+        }
+        public DataTable Search_Book_Category(string value)
+        {
+            string query = $"SELECT B.ID, Title, Author, Name, Status FROM BOOK B JOIN CATEGORY C WHERE CategoryID = C.ID AND C.Name = '{value}'";
             DataTable task = GetDataTable(query);
             return task;
         }

@@ -420,6 +420,11 @@
             this.materialComboBoxCategory.FormattingEnabled = true;
             this.materialComboBoxCategory.IntegralHeight = false;
             this.materialComboBoxCategory.ItemHeight = 43;
+            this.materialComboBoxCategory.Items.AddRange(new object[] {
+            "Mã sách",
+            "Tiêu đề",
+            "Tác giả",
+            "Danh mục"});
             this.materialComboBoxCategory.Location = new System.Drawing.Point(590, 26);
             this.materialComboBoxCategory.MaxDropDownItems = 4;
             this.materialComboBoxCategory.MouseState = MaterialSkin.MouseState.OUT;
