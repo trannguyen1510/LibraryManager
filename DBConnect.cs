@@ -150,15 +150,22 @@ namespace LibraryManager
             return true;
         }
 
-        public string GetReaderID(string id)
+        public string CheckBorrow(string id)
         {
-            string query = $"SELECT UserID FROM BOOK_BORROW WHERE BookID = {id}";
+            string query = $"SELECT * FROM BOOK_BORROW WHERE UserID = '{id}'";
             DataTable task = GetDataTable(query);
             if (task == null)
                 return "";
             return task.Rows[0]["UserID"].ToString();
         }
-        
 
+        public string GetReaderID(string id)
+        {
+            string query = $"SELECT * FROM BOOK_BORROW WHERE BookID = '{id}'";
+            DataTable task = GetDataTable(query);
+            if (task == null)
+                return "";
+            return task.Rows[0]["UserID"].ToString();
+        }
     }
 }

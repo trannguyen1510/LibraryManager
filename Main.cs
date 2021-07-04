@@ -222,8 +222,8 @@ namespace LibraryManager
                     temp = db.GetDataTable(query);
                     if (temp != null)// Doc gia co ton tai hay khong
                     {
-                        textBox2.Text = temp.Rows[0][1].ToString();//họ tên
-                        textBox5.Text = temp.Rows[0][4].ToString();//Email
+                        textBox2.Text = temp.Rows[0]["Fullname"].ToString();//họ tên
+                        textBox5.Text = temp.Rows[0]["Email"].ToString();//Email
                         load_database_BR();
                     }
                     else//Neu doc gia khoong ton tai
@@ -268,7 +268,10 @@ namespace LibraryManager
                 string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id;
                 DataTable task = db.GetDataTable(query);
                 materialListView2.Items.Clear();   // Clear old data
-                load_DataTable_BR(task);
+                if (task != null)
+                {
+                    load_DataTable_BR(task);
+                }
             }
             else
                 MessageBox.Show("Không có độc giả cần tìm");
@@ -301,7 +304,15 @@ namespace LibraryManager
                     //Lấy số sách mà sinh viên đó mượn
                     string sql1 = "SELECT BooKID from BOOK_BORROW where  UserID = " + textBox3.Text;
                     DataTable kq1 = db.GetDataTable(sql1);
-                    int num_book = kq1.Rows.Count;
+                    int num_book;
+                    if (kq1 != null)
+                    {
+                        num_book = kq1.Rows.Count;
+                    }
+                    else
+                    {
+                        num_book = 0;
+                    }
 
                     if (num_book <= 3)//Nếu mượn và sl mượn <=3 và KHÔNG QUÁ HẠN  thì mới tính tiếp
                     {
@@ -706,12 +717,12 @@ namespace LibraryManager
                 if (reader_insert)
                 {
                     MessageBox.Show("Thêm thành công");
+                    materialButtonReaderReload_Click(sender, e);
                 }
                 else
                 {
                     MessageBox.Show("Thêm không thành công");
                 }
-                materialButtonReaderReload_Click(sender, e);
             }
         }
 
@@ -730,22 +741,55 @@ namespace LibraryManager
             if (materialReaderListView.SelectedItems.Count > 0)
             {
                 string id = materialReaderListView.SelectedItems[0].SubItems[1].Text;
-                string check_reader = db.GetReaderID(id);
+                string check_reader = db.CheckBorrow(id);
                 if (check_reader != "")
                 {
                     MessageBox.Show("Độc giả còn sách chưa trả");
                 }
                 else
                 {
-                    string query = $"DETELTE FROM READER WHERE ID = {id}";
-                    bool result = db.ExucuteDbCmd(query);
-                    if (result)
+                    string reader_id = materialTextBoxReaderID.Text;
+                    string name = materialTextBoxReaderName.Text;
+                    string date_birth = dateTimePickerReader.Value.ToShortDateString();
+                    string address = materialTextBoxReaderAddress.Text;
+                    string email = materialTextBoxReaderEmail.Text;
+                    //string date_create = DateTime.Now.ToShortDateString();
+
+                    if (db.CheckID(reader_id, "READER"))
                     {
-                        MessageBox.Show("Xoá độc giả thành công");
+                        string query = $"UPDATE READER SET FullName = '{name}', DateOfBirth = '{date_birth}', Address = '{address}', Email = '{email}' WHERE ID = {id}";
+                        bool result = db.ExucuteDbCmd(query);
+                        if (result)
+                        {
+                            MessageBox.Show("Chỉnh sửa độc giả thành công");
+                            materialButtonReaderReload_Click(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Chỉnh sửa không thành công");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Xóa không thành công");
+                        DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thay dổi mã số", "Phát hiện khác mã số", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            string query = $"UPDATE READER SET ID = {reader_id}, FullName = '{name}', DateOfBirth = '{date_birth}', Address = '{address}', Email = '{email}' WHERE ID = {id}";
+                            bool result = db.ExucuteDbCmd(query);
+                            if (result)
+                            {
+                                MessageBox.Show("Chỉnh sửa độc giả thành công");
+                                materialButtonReaderReload_Click(sender, e);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Chỉnh sửa không thành công");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Chỉnh sửa thất bại");
+                        }
                     }
                 }
             }
@@ -762,7 +806,7 @@ namespace LibraryManager
             if (materialReaderListView.SelectedItems.Count > 0)
             {
                 string id = materialReaderListView.SelectedItems[0].SubItems[1].Text;
-                string check_reader = db.GetReaderID(id);
+                string check_reader = db.CheckBorrow(id);
                 if (check_reader != "")
                 {
                     MessageBox.Show("Độc giả còn sách chưa trả");
@@ -774,6 +818,7 @@ namespace LibraryManager
                     if (result)
                     {
                         MessageBox.Show("Xoá độc giả thành công");
+                        materialButtonReaderReload_Click(sender, e);
                     }
                     else
                     {
@@ -847,6 +892,21 @@ namespace LibraryManager
         }
 
         private void materialLabelDetailBook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButtonBorrowReload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButtonReturnReload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButtonDetailReload_Click(object sender, EventArgs e)
         {
 
         }
