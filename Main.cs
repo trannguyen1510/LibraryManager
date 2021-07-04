@@ -665,7 +665,11 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["BookID"].ToString());
                 listViewItem.SubItems.Add(r["BorrowDay"].ToString());
                 listViewItem.SubItems.Add(r["ReturnDay"].ToString());
-                listViewItem.SubItems.Add(r["Status"].ToString());
+                if (r["Status"].ToString() == "0")
+                    listViewItem.SubItems.Add("Còn");
+                else
+                    listViewItem.SubItems.Add("Đã mượn");
+                listViewItem.SubItems.Add(Check_Date(r["ReturnDay"].ToString(), DateTime.Now.ToShortDateString()).ToString());
                 i++;
                 materialListView3.Items.Add(listViewItem);
             }
@@ -734,7 +738,11 @@ namespace LibraryManager
                 listViewItem.SubItems.Add(r["BookID"].ToString());
                 listViewItem.SubItems.Add(r["BorrowDay"].ToString());
                 listViewItem.SubItems.Add(r["ReturnDay"].ToString());
-                listViewItem.SubItems.Add(r["Status"].ToString());
+                if (r["Status"].ToString() == "0")
+                    listViewItem.SubItems.Add("Còn");
+                else
+                    listViewItem.SubItems.Add("Đã mượn");
+                listViewItem.SubItems.Add(Check_Date(r["ReturnDay"].ToString(), DateTime.Now.ToShortDateString()).ToString());
                 i++;
                 materialListView3.Items.Add(listViewItem);
             }
@@ -752,7 +760,7 @@ namespace LibraryManager
             string masach = textBox7_a.Text.Trim(); // lay ma sach can tra
             string mssv = textBox1_a.Text.Trim();   //Lay mssv
             //Lấy ngày trả
-            string ngay_tra = date.Value.ToString();//
+            string ngay_tra = date.Value.ToShortDateString();//
 
             try
             {
@@ -767,21 +775,21 @@ namespace LibraryManager
                     Data = db.GetDataTable(query);
 
                     // Lay ngay muon tra cua quyen sach tinh qua han
-                    string QuaHan = "SELECT BorrowDay FROM BOOK_BORROW WHERE UserID = " + mssv + " AND BookID= " + masach;
+                    string QuaHan = "SELECT ReturnDay FROM BOOK_BORROW WHERE UserID = " + mssv + " AND BookID= " + masach;
                     DataTable QH = db.GetDataTable(QuaHan);
                     double dem;
-                    string date_br;
+                    string date_rt;
                     if (QH != null && QH.Rows.Count != 0)
                     {
-                        //Ngày mượn
-                        date_br = QH.Rows[0]["BorrowDay"].ToString();
-                        dem = Check_Date(date_br, ngay_tra);
+                        //Ngày hẹn trả
+                        date_rt = QH.Rows[0]["ReturnDay"].ToString();
+                        dem = Check_Date(date_rt, ngay_tra);
                     }
                     else
                     {
                         MessageBox.Show("Không co muon sach nao !!");
                         return;
-                    }     
+                    }
                   
 
 
@@ -789,10 +797,11 @@ namespace LibraryManager
                     string Xoa;
                     string sql_update;
                     bool result_ne;
+                    int num = 0;
 
                     if (Data != null)//Neu quyen sach dang duoc muon 
                     {
-                       if (dem <= 7)// và dem <= 7-- > Muon trong so ngay quy dinh
+                       if (dem <= num)// num la so ngay quy dinh
                         {
                             // Xoa quyen sach ra khoi muon sach
                             Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
@@ -819,7 +828,7 @@ namespace LibraryManager
                         }
                         else
                         {
-                            //Nếu số ngày mượn  > 7 ngày vẫn xóa nhưng  --> tính phạt 
+                            //Nếu số ngày mượn  > num ngày vẫn xóa nhưng  --> tính phạt 
 
                             //VẪN XÓA 
                             // Xoa quyen sach ra khoi muon sach
