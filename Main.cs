@@ -717,7 +717,7 @@ namespace LibraryManager
                 if (reader_insert)
                 {
                     MessageBox.Show("Thêm thành công");
-                    materialButtonReaderReload_Click(sender, e);
+                    Reload_All(sender, e);
                 }
                 else
                 {
@@ -762,7 +762,7 @@ namespace LibraryManager
                         if (result)
                         {
                             MessageBox.Show("Chỉnh sửa độc giả thành công");
-                            materialButtonReaderReload_Click(sender, e);
+                            Reload_All(sender, e);
                         }
                         else
                         {
@@ -779,7 +779,7 @@ namespace LibraryManager
                             if (result)
                             {
                                 MessageBox.Show("Chỉnh sửa độc giả thành công");
-                                materialButtonReaderReload_Click(sender, e);
+                                Reload_All(sender, e);
                             }
                             else
                             {
@@ -818,7 +818,7 @@ namespace LibraryManager
                     if (result)
                     {
                         MessageBox.Show("Xoá độc giả thành công");
-                        materialButtonReaderReload_Click(sender, e);
+                        Reload_All(sender, e);
                     }
                     else
                     {
@@ -838,10 +838,155 @@ namespace LibraryManager
         //
         // Category tab
 
+        private void load_DataTable_Category(DataTable dataTable)
+        {
+            foreach (DataRow r in dataTable.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(r["ID"].ToString());
+                listViewItem.SubItems.Add(r["Name"].ToString());
+                materialListViewCategory.Items.Add(listViewItem);
+            }
+        }
 
+        private void DataCategoryView_Closed()
+        {
+            materialListViewCategory.Items.Clear();
+        }
 
+        private void load_database_Category()
+        {
+            DataTable task;
+            string query = "SELECT * FROM CATEGORY";
+            task = db.GetDataTable(query);
+            DataCategoryView_Closed();   // Clear old data
+            load_DataTable_Category(task);
+        }
 
+        private void materialListViewCategory_Click(object sender, EventArgs e)
+        {
+            materialTextBoxCategoryName.Text =  materialListViewCategory.SelectedItems[0].SubItems[1].Text;
+        }
 
+        private void tabPageCategory_Enter(object sender, EventArgs e)
+        {
+            load_database_Category();
+        }
+
+        private void materialButtonCategoryAdd_Click(object sender, EventArgs e)
+        {
+            string name = materialTextBoxCategoryName.Text;
+            if (db.CheckName(name, "CATEGORY"))
+            {
+                MessageBox.Show("Đã tồn tại");
+            }
+            else
+            {
+                string check = "SELECT Name FROM CATEGORY";
+                DataTable task = db.GetDataTable(check);
+                string id;
+                if (task.Rows.Count > 0)
+                {
+                    id = (task.Rows.Count + 1).ToString();
+                }
+                else
+                {
+                    id = (0).ToString();
+                }
+                string query = $"INSERT INTO CATEGORY VALUES({id}, '{name}')";
+                bool category_insert = db.ExucuteDbCmd(query);
+                if (category_insert)
+                {
+                    MessageBox.Show("Thêm thành công");
+                    Reload_All(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm không thành công");
+                }
+            }
+        }
+
+        private void materialButtonCategoryEdit_Click(object sender, EventArgs e)
+        {
+            if (materialListViewCategory.SelectedItems.Count > 0)
+            {
+                string id = materialListViewCategory.SelectedItems[0].SubItems[0].Text;
+                string name = materialTextBoxCategoryName.Text;
+                int check_category = db.CheckCategory(id);
+                if (check_category != -1)
+                {
+                    DialogResult dialogResult = MessageBox.Show($"Bạn có chắc muốn thay dổi danh mục\nSẽ có {check_category} sách bị ảnh hưởng", "Phát hiện có sách thuộc danh mục", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string query = $"UPDATE CATEGORY SET Name = '{name}' WHERE ID = {id}";
+                        bool result = db.ExucuteDbCmd(query);
+                        if (result)
+                        {
+                            MessageBox.Show($"Chỉnh sửa danh mục thành công\n{check_category} sách đã được thay đổi");
+                            Reload_All(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Chỉnh sửa không thành công");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chỉnh sửa thất bại");
+                    }
+                }
+                else
+                {
+                    string query = $"UPDATE CATEGORY SET Name = '{name}' WHERE ID = {id}";
+                    bool result = db.ExucuteDbCmd(query);
+                    if (result)
+                    {
+                        MessageBox.Show("Chỉnh sửa danh mục thành công");
+                        Reload_All(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chỉnh sửa không thành công");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn danh mục để chỉnh sửa");
+            }
+        }
+
+        private void materialButtonCategoryDelete_Click(object sender, EventArgs e)
+        {
+            if (materialListViewCategory.SelectedItems.Count > 0)
+            {
+                string id = materialListViewCategory.SelectedItems[0].SubItems[0].Text;
+                string name = materialTextBoxCategoryName.Text;
+                int check_category = db.CheckCategory(id);
+                if (check_category != -1)
+                {
+                     MessageBox.Show($"Không thể xóa danh mục\nCó {check_category} sách thuộc danh mục này");
+                }
+                else
+                {
+                    string query = $"DELETE FROM CATEGORY WHERE ID = {id}";
+                    bool result = db.ExucuteDbCmd(query);
+                    if (result)
+                    {
+                        MessageBox.Show("Xóa danh mục thành công");
+                        Reload_All(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn danh mục để xóa");
+            }
+        }
 
         // -----------------------------------------------------------------------------------------------
         //
@@ -891,24 +1036,58 @@ namespace LibraryManager
 
         }
 
-        private void materialLabelDetailBook_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void materialButtonBorrowReload_Click(object sender, EventArgs e)
         {
-
+            textmasach.Text = "";
+            texttensach.Text = "";
+            comboBox1.Text = "";
+            texttacgia.Text = "";
+            textBox3.Text = "";
+            textBox2.Text = "";
+            textBox5.Text = "";
+            dateTimePicker2.Value = DateTime.Now;
+            dateTimePicker1.Value = DateTime.Now;
+            materialListView2.Items.Clear();
         }
 
         private void materialButtonReturnReload_Click(object sender, EventArgs e)
         {
-
+            textBox1_a.Text = "";
+            textBox2_a.Text = "";
+            textBox3_a.Text = "";
+            textBox4_a.Text = "";
+            textBox5_a.Text = "";
+            textBox6_a.Text = "";
+            textBox7_a.Text = "";
+            date.Value = DateTime.Now;
+            materialListView3.Items.Clear();
         }
 
         private void materialButtonDetailReload_Click(object sender, EventArgs e)
         {
+            materialTextBoxDetailID.Text = "";
+            materialTextBoxDetailTitle.Text = "";
+            materialTextBoxDetailAuthor.Text = "";
+            materialTextBoxDetailCategory.Text = "";
+            materialTextBoxDetailStatus.Text = "";
+            materialTextBoxDetailReaderID.Text = "";
+            materialTextBoxDetailReaderName.Text = "";
+        }
 
+        private void materialButtonCategoryReload_Click(object sender, EventArgs e)
+        {
+            materialTextBoxCategoryName.Text = "";
+            load_database_Category();
+        }
+
+        private void Reload_All(object sender, EventArgs e)
+        {
+            materialButtonHomeReload_Click(sender, e);
+            materialButtonDetailReload_Click(sender, e);
+            materialButtonBorrowReload_Click(sender, e);
+            materialButtonReturnReload_Click(sender, e);
+            materialButtonReaderReload_Click(sender, e);
+            materialButtonCategoryReload_Click(sender, e);
         }
     }
 }

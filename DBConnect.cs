@@ -136,14 +136,14 @@ namespace LibraryManager
 
         public DataTable Search_Reader(string code)
         {
-            string query = $"SELECT * FROM READER WHERE ID = {code}";
+            string query = $"SELECT * FROM READER WHERE ID = '{code}'";
             DataTable task = GetDataTable(query);
             return task;
         }
 
         public bool CheckID(string id, string table)
         {
-            string query = $"SELECT id FROM {table} WHERE id = {id}";
+            string query = $"SELECT id FROM {table} WHERE id = '{id}'";
             DataTable task = GetDataTable(query);
             if (task == null)
                 return false;
@@ -166,6 +166,24 @@ namespace LibraryManager
             if (task == null)
                 return "";
             return task.Rows[0]["UserID"].ToString();
+        }
+
+        public bool CheckName(string name, string table)
+        {
+            string query = $"SELECT id FROM {table} WHERE Name = '{name}'";
+            DataTable task = GetDataTable(query);
+            if (task == null)
+                return false;
+            return true;
+        }
+
+        public int CheckCategory(string id)
+        {
+            string query = $"SELECT * FROM BOOK WHERE CategoryID = '{id}'";
+            DataTable task = GetDataTable(query);
+            if (task == null)
+                return -1;
+            return task.Rows.Count;
         }
     }
 }
