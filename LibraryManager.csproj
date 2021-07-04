@@ -71,18 +71,33 @@
     <Compile Include="CategoryDelete.Designer.cs">
       <DependentUpon>CategoryDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accounts.cs" />
+    <Compile Include="DataConnect.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="LoginDAL.cs" />
+    <Compile Include="LoginForget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="LoginForget.Designer.cs">
+      <DependentUpon>LoginForget.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginSign.Designer.cs">
+      <DependentUpon>LoginSign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Muon.cs">
       <SubType>Form</SubType>
@@ -116,11 +131,17 @@
     <EmbeddedResource Include="CategoryDelete.resx">
       <DependentUpon>CategoryDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForget.resx">
+      <DependentUpon>LoginForget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginSign.resx">
+      <DependentUpon>LoginSign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Muon.resx">
       <DependentUpon>Muon.cs</DependentUpon>
@@ -157,7 +178,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="References\logo-uit.png" />
+    <Folder Include="References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

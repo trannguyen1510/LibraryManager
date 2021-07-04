@@ -12,9 +12,22 @@ namespace LibraryManager
 {
     public partial class Main : Form
     {
-        public Main()
+    //--------khởi tạo để truyền tài khoản vào-----------
+        private Accounts loginAcc; 
+
+        public Accounts LoginAcc
+        {
+            get { return LoginAcc; }
+            set { LoginAcc = value; }
+        }
+     //---------------------------------------------------
+        public Main(Accounts acc)
+
         {
             InitializeComponent();
+
+            this.loginAcc = acc;  // nạp Tài khoản đăng nhập vào form Main 
+
             this.label1.BackColor = Color.FromArgb(17, 93, 130);
             this.checkedListBox1.BackColor = Color.FromArgb(229, 236, 244);
             this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
@@ -36,6 +49,7 @@ namespace LibraryManager
                 this.listView1.Items.Add(listViewItem);
             }
         }
+
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -91,6 +105,16 @@ namespace LibraryManager
         {
             //e.Cancel = true;
             //e.NewWidth = this.listView1.Columns[e.ColumnIndex].Width;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
