@@ -12,14 +12,8 @@ namespace LibraryManager
 {
     public class DBConnect
     {
-        private SQLiteConnection connection; 
         string connectionString;
         private string path;
-        private SQLiteDataReader reader;
-        private SQLiteCommand cmd;// d
-
-        public SQLiteConnection Connection { get => connection; set => connection = value; }
-        public object Messagebox { get; private set; }
 
         //Constructor
         public DBConnect()
@@ -34,29 +28,7 @@ namespace LibraryManager
             string projectDirectory = Directory.GetParent(enviroment).Parent.FullName;
             projectDirectory = projectDirectory.Replace(@"\", @"\\");
             path = $"{projectDirectory}\\lbDatabase.db";
-            connectionString = $"Data Source={projectDirectory}\\lbDatabase.db; Version = 3;";
-
-            Connection = new SQLiteConnection(connectionString);
-        }
-
-        //open connection to database
-        //kết nối với db để thực hiện truy vấn
-        //  OpenConnection(connection);
-        public void OpenConnection(SQLiteConnection connection)
-        {
-            if (File.Exists(path))
-                connection.Open();
-            else
-            {
-                MessageBox.Show("No Database Found");
-            }
-        }
-
-        //Close connection
-
-        private void CloseConnection(SQLiteConnection connection)
-        {
-            connection.Close();
+            connectionString = $"Data Source={path}; Version = 3;";
         }
 
         // Read data
@@ -64,60 +36,35 @@ namespace LibraryManager
 
         public DataTable GetDataTable(string query)
         {
-            DataTable dt = new DataTable();
             try
             {
-                OpenConnection(this.Connection);
-                if (Connection.State == ConnectionState.Open)
+                DataTable dt = new DataTable();
+                using (SQLiteConnection c = new SQLiteConnection(connectionString))
                 {
-                    cmd = Connection.CreateCommand();
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                    reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    c.Open();
+                    if (c.State == ConnectionState.Open)
                     {
-                        dt.Load(reader);
-                        reader.Close();
-                        CloseConnection(Connection);
+                        using (SQLiteCommand cmd = new SQLiteCommand(query, c))
+                        {
+                            using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                            {
+                                if (rdr.HasRows)
+                                {
+                                    dt.Load(rdr);
+                                }
+                                else
+                                {
+                                    dt = null;
+                                }
+                            }
+                        }
                     }
                     else
                     {
-                        CloseConnection(Connection);
-                        return null;
+                        MessageBox.Show("Connection Failed");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Connection Failed");
-                }
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-               
-            }
-            return dt;
-        }
-
-        //Insert statement
-        public bool Insert(string query)
-        {
-            try
-            {
-                OpenConnection(this.Connection);
-                if (Connection.State == ConnectionState.Open)
-                {
-                    cmd = Connection.CreateCommand();
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();  //Thuc hien chen vao csdl
-                    Connection.Close();
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Connection Failed");
-                    return false;
-                }
+                return dt;
             }
             catch (Exception e)
             {
@@ -125,71 +72,36 @@ namespace LibraryManager
             }
         }
 
-        //Update statement
-        public bool Update(string query)
+        //Insert - Update - Delete statement
+        public bool ExucuteDbCmd(string query)
         {
-            bool result;
             try
             {
-                OpenConnection(this.Connection);
-                if (Connection.State == ConnectionState.Open)
+                bool ifSuccess = false;
+                using (SQLiteConnection c = new SQLiteConnection(connectionString))
                 {
-                    cmd = Connection.CreateCommand();
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();  //Thuc hien update vao csdl
-                    Connection.Close();
-                    result= true;
+                    c.Open();
+                    if (c.State == ConnectionState.Open)
+                    {
+                        using (SQLiteCommand cmd = new SQLiteCommand(query, c))
+                        {
+                            cmd.ExecuteNonQuery();
+                            ifSuccess = true;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connection Failed");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Connection Failed");
-                    result = false;
-                }
+                return ifSuccess;
             }
             catch (Exception e)
             {
-                result = false;
-                MessageBox.Show(e.Message);
+                throw new Exception(e.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
-            return result;
         }
 
-        //Delete statement
-        public bool Delete(string query)
-        {
-            bool result;
-            try
-            {
-                OpenConnection(this.Connection);
-                if (Connection.State == ConnectionState.Open)
-                {
-                    cmd = Connection.CreateCommand();
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();  //Thuc hien update vao csdl
-                    Connection.Close();
-                    result = true;
-                }
-                else
-                {
-                    MessageBox.Show("Connection Failed");
-                    result = false;
-                }
-            }
-            catch (Exception e)
-            {
-                result = false;
-                MessageBox.Show(e.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return result;
-        }
 
         //Select statement
         public List<string>[] Select()
@@ -246,6 +158,7 @@ namespace LibraryManager
                 return "";
             return task.Rows[0]["UserID"].ToString();
         }
+        
 
     }
 }

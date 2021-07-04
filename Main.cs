@@ -182,7 +182,6 @@ namespace LibraryManager
 
         private void button1_Click(object sender, EventArgs e)//Borrow_search_BOOK_ID
         {
-            DBConnect db = new DBConnect();
             DataTable task;
             string maso = textmasach.Text;
             if (string.IsNullOrWhiteSpace(maso))
@@ -191,13 +190,13 @@ namespace LibraryManager
             }
             else
             {
-                string query = "SELECT * FROM BOOK where ID = " + maso;
+                string query = "SELECT B.ID, Title, Author, Name, Status FROM BOOK B JOIN CATEGORY C WHERE CategoryID = C.ID AND B.ID = " + maso;
                 task = db.GetDataTable(query);
                 if (task != null)//Kiêmr tra sách có tồn tại hay ko
                 {
-                    texttensach.Text = task.Rows[0][1].ToString();
-                    comboBox1.Text = task.Rows[0][2].ToString();
-                    texttacgia.Text = task.Rows[0][3].ToString();
+                    texttensach.Text = task.Rows[0]["ID"].ToString();
+                    comboBox1.Text = task.Rows[0]["Name"].ToString();
+                    texttacgia.Text = task.Rows[0]["Author"].ToString();
                 }
                 else
                 {
@@ -209,7 +208,6 @@ namespace LibraryManager
         //BORROW_SEARCH_USER_ID
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
             DataTable temp;
             string id = textBox3.Text;// lay ma doc gia
             try
@@ -264,7 +262,6 @@ namespace LibraryManager
 
         private void load_database_BR()
         {
-            db = new DBConnect();
             string id = textBox3.Text;
             if (id != "")
             {
@@ -280,7 +277,6 @@ namespace LibraryManager
         //Hàm mượn chính 
         private void cho_muon_Click(object sender, EventArgs e)
         {
-            DBConnect db = new DBConnect();
             string masach = textmasach.Text;//Ma sach
             string id = textBox3.Text; //Ma doc gia
             string tensach = texttensach.Text;// Teen sach
@@ -311,10 +307,10 @@ namespace LibraryManager
                     {
                         //Lưu vào csdl thông tin người mượn và mã sách 
                         string sql2 = "INSERT INTO BOOK_BORROW VALUES(" + id + "," + "'" + masach + "'" + "," + "'" + NgayMuon + "'" + "," + "'" + NgayTra + "'" + ")";
-                        bool kq2 = db.Insert(sql2);
+                        bool kq2 = db.ExucuteDbCmd(sql2);
                         //Lưu vào csdl BOOK.Status==1 --> update đã được mượn
                         string sql3 = " UPDATE BOOK SET Status = 1 WHERE ID=" + masach;
-                        bool kq3 = db.Update(sql3);
+                        bool kq3 = db.ExucuteDbCmd(sql3);
 
                         // Neu chen vaf cap nhat thanh cong thif xuat ra grid 
                         if (kq2 == true && kq3 == true)
@@ -416,7 +412,6 @@ namespace LibraryManager
             //MSSV
             //Ngay sinh
 
-            DBConnect db = new DBConnect();
             DataTable Table;
             DataTable Data;
             string id = textBox1_a.Text;// lay ma doc gia
@@ -482,7 +477,6 @@ namespace LibraryManager
             //Kiem tra no co trong sach muon hay khong 
             //xóa dữ liệu trong csdl
             //Hiển thị lại dữ liệu
-            DBConnect db = new DBConnect();
             bool Data2;
             DataTable Data3;
             DataTable Data;
@@ -533,11 +527,11 @@ namespace LibraryManager
                         {
                             // Xoa quyen sach ra khoi muon sach
                             Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
-                            Data2 = db.Delete(Xoa);
+                            Data2 = db.ExucuteDbCmd(Xoa);
 
                             //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi                       
                             sql_update = " UPDATE BOOK SET Status = 0 WHERE ID=" + masach;
-                            result_ne = db.Update(sql_update);
+                            result_ne = db.ExucuteDbCmd(sql_update);
 
                             if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách 
                             {
@@ -561,11 +555,11 @@ namespace LibraryManager
                             //VẪN XÓA 
                             // Xoa quyen sach ra khoi muon sach
                             Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
-                            Data2 = db.Delete(Xoa);
+                            Data2 = db.ExucuteDbCmd(Xoa);
 
                             //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi                       
                             sql_update = " UPDATE BOOK SET Status = 0 WHERE ID=" + masach;
-                            result_ne = db.Update(sql_update);
+                            result_ne = db.ExucuteDbCmd(sql_update);
 
                             if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách 
                             {
@@ -629,7 +623,6 @@ namespace LibraryManager
 
         private void load_database_Reader()
         {
-            db = new DBConnect();
             DataTable task;
             string query = "SELECT * FROM READER";
             task = db.GetDataTable(query);
@@ -700,7 +693,7 @@ namespace LibraryManager
             string datetime = dateTimePickerReader.Value.ToShortDateString();
             string address = materialTextBoxReaderAddress.Text;
             string email = materialTextBoxReaderEmail.Text;
-            string datecreate = dateTimePickerReader2.Value.ToShortDateString();
+            string datecreate = DateTime.Now.ToShortDateString();
 
             if (db.CheckID(id, "READER"))
             {
@@ -709,7 +702,7 @@ namespace LibraryManager
             else
             {
                 string query = $"INSERT INTO READER VALUES({id}, '{name}', '{datetime}', '{address}', '{email}', '{datecreate}')";
-                bool reader_insert = db.Insert(query);
+                bool reader_insert = db.ExucuteDbCmd(query);
                 if (reader_insert)
                 {
                     MessageBox.Show("Thêm thành công");
@@ -734,8 +727,65 @@ namespace LibraryManager
 
         private void materialButtonReaderEdit_Click(object sender, EventArgs e)
         {
-            string id = materialReaderListView.SelectedItems[0].SubItems[1].Text;
-            string check_query = $"select * from book_borrow where UserID = {id}";
+            if (materialReaderListView.SelectedItems.Count > 0)
+            {
+                string id = materialReaderListView.SelectedItems[0].SubItems[1].Text;
+                string check_reader = db.GetReaderID(id);
+                if (check_reader != "")
+                {
+                    MessageBox.Show("Độc giả còn sách chưa trả");
+                }
+                else
+                {
+                    string query = $"DETELTE FROM READER WHERE ID = {id}";
+                    bool result = db.ExucuteDbCmd(query);
+                    if (result)
+                    {
+                        MessageBox.Show("Xoá độc giả thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn độc giả để chỉnh sửa");
+            }
+
+        }
+
+
+        private void materialButtonReaderDelete_Click(object sender, EventArgs e)
+        {
+            if (materialReaderListView.SelectedItems.Count > 0)
+            {
+                string id = materialReaderListView.SelectedItems[0].SubItems[1].Text;
+                string check_reader = db.GetReaderID(id);
+                if (check_reader != "")
+                {
+                    MessageBox.Show("Độc giả còn sách chưa trả");
+                }
+                else
+                {
+                    string query = $"DELETE FROM READER WHERE ID = {id}";
+                    bool result = db.ExucuteDbCmd(query);
+                    if (result)
+                    {
+                        MessageBox.Show("Xoá độc giả thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn độc giả để xóa");
+            }
+
         }
 
         // -----------------------------------------------------------------------------------------------

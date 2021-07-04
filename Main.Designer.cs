@@ -160,6 +160,7 @@
             this.clmDateCreated = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.materialButtonReaderDelete = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
@@ -965,7 +966,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(210, 174);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker1.TabIndex = 14;
             // 
             // dateTimePicker2
@@ -974,7 +975,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(210, 133);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker2.TabIndex = 13;
             // 
             // ngaytra
@@ -1289,7 +1290,7 @@
             // 
             this.date.Location = new System.Drawing.Point(176, 100);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(316, 26);
+            this.date.Size = new System.Drawing.Size(316, 20);
             this.date.TabIndex = 4;
             // 
             // button4_aa
@@ -1572,6 +1573,7 @@
             // tabPageReader
             // 
             this.tabPageReader.BackColor = System.Drawing.Color.White;
+            this.tabPageReader.Controls.Add(this.materialButtonReaderDelete);
             this.tabPageReader.Controls.Add(this.materialButtonReaderEdit);
             this.tabPageReader.Controls.Add(this.materialButtonReaderReload);
             this.tabPageReader.Controls.Add(this.materialCardReaderInfo);
@@ -1657,7 +1659,7 @@
             // 
             this.dateTimePickerReader2.Location = new System.Drawing.Point(498, 109);
             this.dateTimePickerReader2.Name = "dateTimePickerReader2";
-            this.dateTimePickerReader2.Size = new System.Drawing.Size(233, 26);
+            this.dateTimePickerReader2.Size = new System.Drawing.Size(233, 20);
             this.dateTimePickerReader2.TabIndex = 12;
             // 
             // materialLabelReaderDateCreate
@@ -1696,7 +1698,7 @@
             // 
             this.dateTimePickerReader.Location = new System.Drawing.Point(116, 110);
             this.dateTimePickerReader.Name = "dateTimePickerReader";
-            this.dateTimePickerReader.Size = new System.Drawing.Size(233, 26);
+            this.dateTimePickerReader.Size = new System.Drawing.Size(233, 20);
             this.dateTimePickerReader.TabIndex = 10;
             // 
             // materialTextBoxReaderEmail
@@ -1950,9 +1952,29 @@
             this.imageList1.Images.SetKeyName(5, "detail_32x.png");
             this.imageList1.Images.SetKeyName(6, "reload_32x.png");
             // 
+            // materialButtonReaderDelete
+            // 
+            this.materialButtonReaderDelete.AutoSize = false;
+            this.materialButtonReaderDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonReaderDelete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonReaderDelete.Depth = 0;
+            this.materialButtonReaderDelete.HighEmphasis = true;
+            this.materialButtonReaderDelete.Icon = null;
+            this.materialButtonReaderDelete.Location = new System.Drawing.Point(1065, 226);
+            this.materialButtonReaderDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonReaderDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonReaderDelete.Name = "materialButtonReaderDelete";
+            this.materialButtonReaderDelete.Size = new System.Drawing.Size(122, 36);
+            this.materialButtonReaderDelete.TabIndex = 23;
+            this.materialButtonReaderDelete.Text = "Xóa";
+            this.materialButtonReaderDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonReaderDelete.UseAccentColor = false;
+            this.materialButtonReaderDelete.UseVisualStyleBackColor = true;
+            this.materialButtonReaderDelete.Click += new System.EventHandler(this.materialButtonReaderDelete_Click);
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1321, 833);
@@ -2133,5 +2155,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerReader2;
         private MaterialSkin.Controls.MaterialLabel materialLabelReaderDateCreate;
         private MaterialSkin.Controls.MaterialButton materialButtonReaderEdit;
+        private MaterialSkin.Controls.MaterialButton materialButtonReaderDelete;
     }
 }
