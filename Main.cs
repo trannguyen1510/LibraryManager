@@ -28,11 +28,6 @@ namespace LibraryManager
 
             this.loginAcc = acc;  // nạp Tài khoản đăng nhập vào form Main 
 
-            this.label1.BackColor = Color.FromArgb(17, 93, 130);
-            this.checkedListBox1.BackColor = Color.FromArgb(229, 236, 244);
-            this.groupBox1.BackColor = Color.FromArgb(229, 236, 244);
-            this.groupBox2.BackColor = Color.FromArgb(229, 236, 244);
-
             DBConnect db = new DBConnect();
             DataTable task;
             string query  = "SELECT * FROM BOOK";

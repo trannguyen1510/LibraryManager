@@ -54,7 +54,7 @@ namespace LibraryManager
             {
                 if (Check(email, username, pass1))
                 {
-                    MessageBox.Show("Change Succeed");
+                    MessageBox.Show("Thay đổi thành công");
                     log = new Login();
                     log.ShowDialog();
                     this.Hide();
