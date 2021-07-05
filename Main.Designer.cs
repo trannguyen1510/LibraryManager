@@ -124,7 +124,6 @@
             this.Column5_a = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4_a = new MaterialSkin.Controls.MaterialCard();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.date = new System.Windows.Forms.DateTimePicker();
             this.button4_aa = new MaterialSkin.Controls.MaterialButton();
             this.textBox7_a = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -188,6 +187,7 @@
             this.clmCategoryName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.materialTextBoxDateReturn = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
@@ -377,7 +377,7 @@
             this.mtbHomeSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mtbHomeSearch.LeadingIcon = null;
             this.mtbHomeSearch.Location = new System.Drawing.Point(154, 27);
-            this.mtbHomeSearch.MaxLength = 50;
+            this.mtbHomeSearch.MaxLength = 100;
             this.mtbHomeSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.mtbHomeSearch.Multiline = false;
             this.mtbHomeSearch.Name = "mtbHomeSearch";
@@ -896,7 +896,7 @@
             this.materialTextBoxDetailTitle.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxDetailTitle.LeadingIcon = null;
             this.materialTextBoxDetailTitle.Location = new System.Drawing.Point(130, 163);
-            this.materialTextBoxDetailTitle.MaxLength = 50;
+            this.materialTextBoxDetailTitle.MaxLength = 100;
             this.materialTextBoxDetailTitle.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxDetailTitle.Multiline = false;
             this.materialTextBoxDetailTitle.Name = "materialTextBoxDetailTitle";
@@ -1443,6 +1443,7 @@
             this.tabReturn.Size = new System.Drawing.Size(1305, 687);
             this.tabReturn.TabIndex = 5;
             this.tabReturn.Text = "Trả sách";
+            this.tabReturn.Enter += new System.EventHandler(this.tabReturn_Enter);
             // 
             // materialButtonReturnReload
             // 
@@ -1545,8 +1546,8 @@
             // button4_a
             // 
             this.button4_a.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button4_a.Controls.Add(this.materialTextBoxDateReturn);
             this.button4_a.Controls.Add(this.materialLabel8);
-            this.button4_a.Controls.Add(this.date);
             this.button4_a.Controls.Add(this.button4_aa);
             this.button4_a.Controls.Add(this.textBox7_a);
             this.button4_a.Controls.Add(this.materialLabel2);
@@ -1571,13 +1572,6 @@
             this.materialLabel8.Size = new System.Drawing.Size(65, 19);
             this.materialLabel8.TabIndex = 5;
             this.materialLabel8.Text = "Ngày trả:";
-            // 
-            // date
-            // 
-            this.date.Location = new System.Drawing.Point(176, 100);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(316, 20);
-            this.date.TabIndex = 4;
             // 
             // button4_aa
             // 
@@ -2490,6 +2484,23 @@
             this.imageList1.Images.SetKeyName(6, "return_32x.png");
             this.imageList1.Images.SetKeyName(7, "exit_32x.png");
             // 
+            // materialTextBoxDateReturn
+            // 
+            this.materialTextBoxDateReturn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBoxDateReturn.Depth = 0;
+            this.materialTextBoxDateReturn.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBoxDateReturn.LeadingIcon = null;
+            this.materialTextBoxDateReturn.Location = new System.Drawing.Point(176, 76);
+            this.materialTextBoxDateReturn.MaxLength = 50;
+            this.materialTextBoxDateReturn.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBoxDateReturn.Multiline = false;
+            this.materialTextBoxDateReturn.Name = "materialTextBoxDateReturn";
+            this.materialTextBoxDateReturn.ReadOnly = true;
+            this.materialTextBoxDateReturn.Size = new System.Drawing.Size(316, 50);
+            this.materialTextBoxDateReturn.TabIndex = 6;
+            this.materialTextBoxDateReturn.Text = "";
+            this.materialTextBoxDateReturn.TrailingIcon = null;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2644,7 +2655,6 @@
         private System.Windows.Forms.ColumnHeader STT;
         private System.Windows.Forms.ColumnHeader STT1;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
-        private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.ColumnHeader clmHomeStatus;
         private System.Windows.Forms.TabPage tabPageDetail;
         private MaterialSkin.Controls.MaterialCard materialCardDetail1;
@@ -2712,5 +2722,6 @@
         private MaterialSkin.Controls.MaterialButton materialButtonDetailViewMode;
         private MaterialSkin.Controls.MaterialButton materialButtonDetailEditMode;
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxDetailCategory;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBoxDateReturn;
     }
 }

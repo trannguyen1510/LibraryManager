@@ -401,7 +401,7 @@ namespace LibraryManager
 
         private void tabPageDetail_Leave(object sender, EventArgs e)
         {
-            materialButtonDetailViewMode_Click(sender, e);
+            
         }
 
         private void materialButtonDetailReload_Click(object sender, EventArgs e)
@@ -680,7 +680,10 @@ namespace LibraryManager
                     listViewItem.SubItems.Add("Còn");
                 else
                     listViewItem.SubItems.Add("Đã mượn");
-                listViewItem.SubItems.Add(Check_Date(r["ReturnDay"].ToString(), DateTime.Now.ToShortDateString()).ToString());
+                if (Check_Date(r["ReturnDay"].ToString(), DateTime.Now.ToShortDateString()) > 0)
+                    listViewItem.SubItems.Add(Check_Date(r["ReturnDay"].ToString(), DateTime.Now.ToShortDateString()).ToString());
+                else
+                    listViewItem.SubItems.Add((0).ToString());
                 i++;
                 materialListView3.Items.Add(listViewItem);
             }
@@ -695,6 +698,8 @@ namespace LibraryManager
             //Email
             //MSSV
             //Ngay sinh
+
+            materialTextBoxDateReturn.Text = DateTime.Now.ToShortDateString();
 
             DataTable Table;
             DataTable Data;
@@ -760,8 +765,10 @@ namespace LibraryManager
         }
         private void button4_aa_Click(object sender, EventArgs e)
         {
+            materialTextBoxDateReturn.Text = DateTime.Now.ToShortDateString();
+
             ///Nut tra
-             //Lay ma sach can tra
+            //Lay ma sach can tra
             //Kiem tra no co trong sach muon hay khong
             //xóa dữ liệu trong csdl
             //Hiển thị lại dữ liệu
@@ -771,7 +778,7 @@ namespace LibraryManager
             string masach = textBox7_a.Text.Trim(); // lay ma sach can tra
             string mssv = textBox1_a.Text.Trim();   //Lay mssv
             //Lấy ngày trả
-            string ngay_tra = date.Value.ToShortDateString();//
+            string ngay_tra = DateTime.Now.ToShortDateString();//
 
             try
             {
@@ -898,7 +905,7 @@ namespace LibraryManager
             textBox5_a.Text = "";
             textBox6_a.Text = "";
             textBox7_a.Text = "";
-            date.Value = DateTime.Now;
+            materialTextBoxDateReturn.Text = DateTime.Now.ToShortDateString();
             materialListView3.Items.Clear();
         }
 
@@ -1185,7 +1192,7 @@ namespace LibraryManager
                 }
                 else
                 {
-                    id = (0).ToString();
+                    id = (1).ToString();
                 }
                 string query = $"INSERT INTO CATEGORY VALUES({id}, '{name}')";
                 bool category_insert = db.ExucuteDbCmd(query);
@@ -1360,6 +1367,11 @@ namespace LibraryManager
         private void tabPageDetail_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabReturn_Enter(object sender, EventArgs e)
+        {
+            materialTextBoxDateReturn.Text = DateTime.Now.ToShortDateString();
         }
     }
 }
