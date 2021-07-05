@@ -47,6 +47,7 @@
             this.mbtnHomeSearch = new MaterialSkin.Controls.MaterialButton();
             this.materialComboBoxCategory = new MaterialSkin.Controls.MaterialComboBox();
             this.tabPageDetail = new System.Windows.Forms.TabPage();
+            this.materialCardDetail4 = new MaterialSkin.Controls.MaterialCard();
             this.materialButtonDetailAdd = new MaterialSkin.Controls.MaterialButton();
             this.materialButtonDetailEdit = new MaterialSkin.Controls.MaterialButton();
             this.materialCardDetail3 = new MaterialSkin.Controls.MaterialCard();
@@ -187,13 +188,12 @@
             this.clmCategoryName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageExit = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.materialCardDetail4 = new MaterialSkin.Controls.MaterialCard();
-            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.materialTabControl1.SuspendLayout();
             this.tabPageHome.SuspendLayout();
             this.materialCardHome2.SuspendLayout();
             this.materialCardHome1.SuspendLayout();
             this.tabPageDetail.SuspendLayout();
+            this.materialCardDetail4.SuspendLayout();
             this.materialCardDetail3.SuspendLayout();
             this.materialCardDetail2.SuspendLayout();
             this.materialCardDetail1.SuspendLayout();
@@ -217,7 +217,6 @@
             this.materialCard1.SuspendLayout();
             this.materialCardCategory3.SuspendLayout();
             this.materialCardCategory2.SuspendLayout();
-            this.materialCardDetail4.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -447,7 +446,24 @@
             this.tabPageDetail.Size = new System.Drawing.Size(1305, 687);
             this.tabPageDetail.TabIndex = 6;
             this.tabPageDetail.Text = "Chi tiết sách";
+            this.tabPageDetail.Click += new System.EventHandler(this.tabPageDetail_Click);
             this.tabPageDetail.Leave += new System.EventHandler(this.tabPageDetail_Leave);
+            // 
+            // materialCardDetail4
+            // 
+            this.materialCardDetail4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCardDetail4.Controls.Add(this.materialButtonDetailAdd);
+            this.materialCardDetail4.Controls.Add(this.materialButtonDetailEdit);
+            this.materialCardDetail4.Depth = 0;
+            this.materialCardDetail4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCardDetail4.Location = new System.Drawing.Point(663, 454);
+            this.materialCardDetail4.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCardDetail4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCardDetail4.Name = "materialCardDetail4";
+            this.materialCardDetail4.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCardDetail4.Size = new System.Drawing.Size(526, 65);
+            this.materialCardDetail4.TabIndex = 24;
+            this.materialCardDetail4.Visible = false;
             // 
             // materialButtonDetailAdd
             // 
@@ -457,11 +473,11 @@
             this.materialButtonDetailAdd.Depth = 0;
             this.materialButtonDetailAdd.HighEmphasis = true;
             this.materialButtonDetailAdd.Icon = null;
-            this.materialButtonDetailAdd.Location = new System.Drawing.Point(60, 48);
+            this.materialButtonDetailAdd.Location = new System.Drawing.Point(20, 12);
             this.materialButtonDetailAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonDetailAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonDetailAdd.Name = "materialButtonDetailAdd";
-            this.materialButtonDetailAdd.Size = new System.Drawing.Size(134, 36);
+            this.materialButtonDetailAdd.Size = new System.Drawing.Size(170, 36);
             this.materialButtonDetailAdd.TabIndex = 1;
             this.materialButtonDetailAdd.Text = "Thêm";
             this.materialButtonDetailAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -477,11 +493,11 @@
             this.materialButtonDetailEdit.Depth = 0;
             this.materialButtonDetailEdit.HighEmphasis = true;
             this.materialButtonDetailEdit.Icon = null;
-            this.materialButtonDetailEdit.Location = new System.Drawing.Point(261, 46);
+            this.materialButtonDetailEdit.Location = new System.Drawing.Point(332, 12);
             this.materialButtonDetailEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonDetailEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonDetailEdit.Name = "materialButtonDetailEdit";
-            this.materialButtonDetailEdit.Size = new System.Drawing.Size(122, 36);
+            this.materialButtonDetailEdit.Size = new System.Drawing.Size(159, 36);
             this.materialButtonDetailEdit.TabIndex = 22;
             this.materialButtonDetailEdit.Text = "Chỉnh sửa";
             this.materialButtonDetailEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -497,12 +513,12 @@
             this.materialCardDetail3.Controls.Add(this.materialButtonDetailReturn);
             this.materialCardDetail3.Depth = 0;
             this.materialCardDetail3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardDetail3.Location = new System.Drawing.Point(663, 408);
+            this.materialCardDetail3.Location = new System.Drawing.Point(663, 444);
             this.materialCardDetail3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardDetail3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardDetail3.Name = "materialCardDetail3";
             this.materialCardDetail3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardDetail3.Size = new System.Drawing.Size(526, 153);
+            this.materialCardDetail3.Size = new System.Drawing.Size(526, 75);
             this.materialCardDetail3.TabIndex = 25;
             // 
             // materialButtonDetailDelete
@@ -513,7 +529,7 @@
             this.materialButtonDetailDelete.Depth = 0;
             this.materialButtonDetailDelete.HighEmphasis = true;
             this.materialButtonDetailDelete.Icon = null;
-            this.materialButtonDetailDelete.Location = new System.Drawing.Point(201, 56);
+            this.materialButtonDetailDelete.Location = new System.Drawing.Point(206, 20);
             this.materialButtonDetailDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonDetailDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonDetailDelete.Name = "materialButtonDetailDelete";
@@ -533,7 +549,7 @@
             this.materialButtonDetailBorrow.Depth = 0;
             this.materialButtonDetailBorrow.HighEmphasis = true;
             this.materialButtonDetailBorrow.Icon = null;
-            this.materialButtonDetailBorrow.Location = new System.Drawing.Point(20, 56);
+            this.materialButtonDetailBorrow.Location = new System.Drawing.Point(20, 22);
             this.materialButtonDetailBorrow.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonDetailBorrow.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonDetailBorrow.Name = "materialButtonDetailBorrow";
@@ -553,7 +569,7 @@
             this.materialButtonDetailReturn.Depth = 0;
             this.materialButtonDetailReturn.HighEmphasis = true;
             this.materialButtonDetailReturn.Icon = null;
-            this.materialButtonDetailReturn.Location = new System.Drawing.Point(369, 56);
+            this.materialButtonDetailReturn.Location = new System.Drawing.Point(369, 22);
             this.materialButtonDetailReturn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonDetailReturn.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonDetailReturn.Name = "materialButtonDetailReturn";
@@ -756,7 +772,7 @@
             this.materialButtonDetailEditMode.Depth = 0;
             this.materialButtonDetailEditMode.HighEmphasis = true;
             this.materialButtonDetailEditMode.Icon = null;
-            this.materialButtonDetailEditMode.Location = new System.Drawing.Point(133, 491);
+            this.materialButtonDetailEditMode.Location = new System.Drawing.Point(94, 491);
             this.materialButtonDetailEditMode.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonDetailEditMode.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonDetailEditMode.Name = "materialButtonDetailEditMode";
@@ -947,7 +963,7 @@
             this.materialButtonBorrowReload.HighEmphasis = true;
             this.materialButtonBorrowReload.Icon = global::LibraryManager.Properties.Resources.reload_32x;
             this.materialButtonBorrowReload.ImageKey = "(none)";
-            this.materialButtonBorrowReload.Location = new System.Drawing.Point(968, 325);
+            this.materialButtonBorrowReload.Location = new System.Drawing.Point(1148, 36);
             this.materialButtonBorrowReload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonBorrowReload.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonBorrowReload.Name = "materialButtonBorrowReload";
@@ -1214,7 +1230,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(210, 174);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker1.TabIndex = 14;
             // 
             // dateTimePicker2
@@ -1223,7 +1239,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(210, 133);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(294, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(294, 20);
             this.dateTimePicker2.TabIndex = 13;
             // 
             // ngaytra
@@ -1560,7 +1576,7 @@
             // 
             this.date.Location = new System.Drawing.Point(176, 100);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(316, 26);
+            this.date.Size = new System.Drawing.Size(316, 20);
             this.date.TabIndex = 4;
             // 
             // button4_aa
@@ -1865,12 +1881,12 @@
             this.materialCardButtons.Controls.Add(this.materialButtonReaderEdit);
             this.materialCardButtons.Depth = 0;
             this.materialCardButtons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardButtons.Location = new System.Drawing.Point(1058, 14);
+            this.materialCardButtons.Location = new System.Drawing.Point(1058, 34);
             this.materialCardButtons.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardButtons.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardButtons.Name = "materialCardButtons";
             this.materialCardButtons.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardButtons.Size = new System.Drawing.Size(156, 248);
+            this.materialCardButtons.Size = new System.Drawing.Size(156, 207);
             this.materialCardButtons.TabIndex = 24;
             // 
             // materialButtonReaderAdd
@@ -1983,7 +1999,7 @@
             // 
             this.dateTimePickerReader2.Location = new System.Drawing.Point(498, 109);
             this.dateTimePickerReader2.Name = "dateTimePickerReader2";
-            this.dateTimePickerReader2.Size = new System.Drawing.Size(233, 26);
+            this.dateTimePickerReader2.Size = new System.Drawing.Size(233, 20);
             this.dateTimePickerReader2.TabIndex = 12;
             // 
             // materialLabelReaderDateCreate
@@ -2022,7 +2038,7 @@
             // 
             this.dateTimePickerReader.Location = new System.Drawing.Point(116, 110);
             this.dateTimePickerReader.Name = "dateTimePickerReader";
-            this.dateTimePickerReader.Size = new System.Drawing.Size(233, 26);
+            this.dateTimePickerReader.Size = new System.Drawing.Size(233, 20);
             this.dateTimePickerReader.TabIndex = 10;
             // 
             // materialTextBoxReaderEmail
@@ -2160,7 +2176,7 @@
             this.materialCardReaderTable.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardReaderTable.Name = "materialCardReaderTable";
             this.materialCardReaderTable.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardReaderTable.Size = new System.Drawing.Size(1163, 242);
+            this.materialCardReaderTable.Size = new System.Drawing.Size(996, 242);
             this.materialCardReaderTable.TabIndex = 0;
             // 
             // materialReaderListView
@@ -2186,7 +2202,7 @@
             this.materialReaderListView.MouseState = MaterialSkin.MouseState.OUT;
             this.materialReaderListView.Name = "materialReaderListView";
             this.materialReaderListView.OwnerDraw = true;
-            this.materialReaderListView.Size = new System.Drawing.Size(1135, 214);
+            this.materialReaderListView.Size = new System.Drawing.Size(968, 214);
             this.materialReaderListView.TabIndex = 0;
             this.materialReaderListView.UseCompatibleStateImageBehavior = false;
             this.materialReaderListView.View = System.Windows.Forms.View.Details;
@@ -2199,32 +2215,38 @@
             // clmReaderID
             // 
             this.clmReaderID.Text = "Mã sinh viên";
-            this.clmReaderID.Width = 120;
+            this.clmReaderID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmReaderID.Width = 150;
             // 
             // clmReaderName
             // 
             this.clmReaderName.Text = "Họ và tên";
-            this.clmReaderName.Width = 200;
+            this.clmReaderName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmReaderName.Width = 250;
             // 
             // clmReaderDateOfBirth
             // 
             this.clmReaderDateOfBirth.Text = "Ngày sinh";
-            this.clmReaderDateOfBirth.Width = 200;
+            this.clmReaderDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmReaderDateOfBirth.Width = 100;
             // 
             // clmReaderAddress
             // 
             this.clmReaderAddress.Text = "Địa chỉ";
-            this.clmReaderAddress.Width = 200;
+            this.clmReaderAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmReaderAddress.Width = 170;
             // 
             // clmReaderEmail
             // 
             this.clmReaderEmail.Text = "Email";
-            this.clmReaderEmail.Width = 200;
+            this.clmReaderEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmReaderEmail.Width = 120;
             // 
             // clmDateCreated
             // 
             this.clmDateCreated.Text = "Ngày tạo";
-            this.clmDateCreated.Width = 200;
+            this.clmDateCreated.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clmDateCreated.Width = 100;
             // 
             // tabPageCategory
             // 
@@ -2263,12 +2285,12 @@
             this.materialCard1.Controls.Add(this.materialButtonCategoryReload);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(790, 19);
+            this.materialCard1.Location = new System.Drawing.Point(897, 28);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(231, 435);
+            this.materialCard1.Size = new System.Drawing.Size(156, 207);
             this.materialCard1.TabIndex = 26;
             // 
             // materialButtonCategoryAdd
@@ -2279,7 +2301,7 @@
             this.materialButtonCategoryAdd.Depth = 0;
             this.materialButtonCategoryAdd.HighEmphasis = true;
             this.materialButtonCategoryAdd.Icon = null;
-            this.materialButtonCategoryAdd.Location = new System.Drawing.Point(60, 94);
+            this.materialButtonCategoryAdd.Location = new System.Drawing.Point(18, 60);
             this.materialButtonCategoryAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonCategoryAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCategoryAdd.Name = "materialButtonCategoryAdd";
@@ -2299,7 +2321,7 @@
             this.materialButtonCategoryDelete.Depth = 0;
             this.materialButtonCategoryDelete.HighEmphasis = true;
             this.materialButtonCategoryDelete.Icon = null;
-            this.materialButtonCategoryDelete.Location = new System.Drawing.Point(60, 243);
+            this.materialButtonCategoryDelete.Location = new System.Drawing.Point(20, 156);
             this.materialButtonCategoryDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonCategoryDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCategoryDelete.Name = "materialButtonCategoryDelete";
@@ -2319,7 +2341,7 @@
             this.materialButtonCategoryEdit.Depth = 0;
             this.materialButtonCategoryEdit.HighEmphasis = true;
             this.materialButtonCategoryEdit.Icon = null;
-            this.materialButtonCategoryEdit.Location = new System.Drawing.Point(60, 172);
+            this.materialButtonCategoryEdit.Location = new System.Drawing.Point(18, 108);
             this.materialButtonCategoryEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonCategoryEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCategoryEdit.Name = "materialButtonCategoryEdit";
@@ -2340,7 +2362,7 @@
             this.materialButtonCategoryReload.HighEmphasis = true;
             this.materialButtonCategoryReload.Icon = global::LibraryManager.Properties.Resources.reload_32x;
             this.materialButtonCategoryReload.ImageKey = "(none)";
-            this.materialButtonCategoryReload.Location = new System.Drawing.Point(101, 26);
+            this.materialButtonCategoryReload.Location = new System.Drawing.Point(60, 14);
             this.materialButtonCategoryReload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonCategoryReload.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCategoryReload.Name = "materialButtonCategoryReload";
@@ -2358,12 +2380,12 @@
             this.materialCardCategory3.Controls.Add(this.materialLabelCategoryName);
             this.materialCardCategory3.Depth = 0;
             this.materialCardCategory3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardCategory3.Location = new System.Drawing.Point(169, 19);
+            this.materialCardCategory3.Location = new System.Drawing.Point(414, 19);
             this.materialCardCategory3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardCategory3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardCategory3.Name = "materialCardCategory3";
             this.materialCardCategory3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardCategory3.Size = new System.Drawing.Size(593, 114);
+            this.materialCardCategory3.Size = new System.Drawing.Size(444, 114);
             this.materialCardCategory3.TabIndex = 25;
             // 
             // materialTextBoxCategoryName
@@ -2400,12 +2422,12 @@
             this.materialCardCategory2.Controls.Add(this.materialListViewCategory);
             this.materialCardCategory2.Depth = 0;
             this.materialCardCategory2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardCategory2.Location = new System.Drawing.Point(169, 161);
+            this.materialCardCategory2.Location = new System.Drawing.Point(28, 19);
             this.materialCardCategory2.Margin = new System.Windows.Forms.Padding(14);
             this.materialCardCategory2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCardCategory2.Name = "materialCardCategory2";
             this.materialCardCategory2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardCategory2.Size = new System.Drawing.Size(593, 293);
+            this.materialCardCategory2.Size = new System.Drawing.Size(358, 461);
             this.materialCardCategory2.TabIndex = 24;
             // 
             // materialListViewCategory
@@ -2426,7 +2448,7 @@
             this.materialListViewCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.materialListViewCategory.Name = "materialListViewCategory";
             this.materialListViewCategory.OwnerDraw = true;
-            this.materialListViewCategory.Size = new System.Drawing.Size(565, 265);
+            this.materialListViewCategory.Size = new System.Drawing.Size(330, 433);
             this.materialListViewCategory.TabIndex = 0;
             this.materialListViewCategory.UseCompatibleStateImageBehavior = false;
             this.materialListViewCategory.View = System.Windows.Forms.View.Details;
@@ -2468,33 +2490,9 @@
             this.imageList1.Images.SetKeyName(6, "return_32x.png");
             this.imageList1.Images.SetKeyName(7, "exit_32x.png");
             // 
-            // materialCardDetail4
-            // 
-            this.materialCardDetail4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCardDetail4.Controls.Add(this.materialButtonDetailAdd);
-            this.materialCardDetail4.Controls.Add(this.materialButtonDetailEdit);
-            this.materialCardDetail4.Depth = 0;
-            this.materialCardDetail4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCardDetail4.Location = new System.Drawing.Point(1267, 537);
-            this.materialCardDetail4.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCardDetail4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCardDetail4.Name = "materialCardDetail4";
-            this.materialCardDetail4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCardDetail4.Size = new System.Drawing.Size(531, 154);
-            this.materialCardDetail4.TabIndex = 26;
-            this.materialCardDetail4.Visible = false;
-            // 
-            // entityCommand1
-            // 
-            this.entityCommand1.CommandTimeout = 0;
-            this.entityCommand1.CommandTree = null;
-            this.entityCommand1.Connection = null;
-            this.entityCommand1.EnablePlanCaching = true;
-            this.entityCommand1.Transaction = null;
-            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1321, 833);
@@ -2515,6 +2513,7 @@
             this.materialCardHome1.ResumeLayout(false);
             this.materialCardHome1.PerformLayout();
             this.tabPageDetail.ResumeLayout(false);
+            this.materialCardDetail4.ResumeLayout(false);
             this.materialCardDetail3.ResumeLayout(false);
             this.materialCardDetail2.ResumeLayout(false);
             this.materialCardDetail2.PerformLayout();
@@ -2550,7 +2549,6 @@
             this.materialCardCategory3.ResumeLayout(false);
             this.materialCardCategory3.PerformLayout();
             this.materialCardCategory2.ResumeLayout(false);
-            this.materialCardDetail4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2707,13 +2705,12 @@
         private MaterialSkin.Controls.MaterialListView materialListViewCategory;
         private System.Windows.Forms.ColumnHeader clmCategorySTT;
         private System.Windows.Forms.ColumnHeader clmCategoryName;
+        private MaterialSkin.Controls.MaterialCard materialCardDetail4;
         private MaterialSkin.Controls.MaterialButton materialButtonDetailDelete;
         private MaterialSkin.Controls.MaterialButton materialButtonDetailAdd;
         private MaterialSkin.Controls.MaterialButton materialButtonDetailEdit;
         private MaterialSkin.Controls.MaterialButton materialButtonDetailViewMode;
         private MaterialSkin.Controls.MaterialButton materialButtonDetailEditMode;
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxDetailCategory;
-        private MaterialSkin.Controls.MaterialCard materialCardDetail4;
-        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }

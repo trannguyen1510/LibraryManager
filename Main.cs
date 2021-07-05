@@ -1356,5 +1356,10 @@ namespace LibraryManager
         {
 
         }
+
+        private void tabPageDetail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
