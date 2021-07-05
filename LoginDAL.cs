@@ -34,7 +34,7 @@ namespace LibraryManager
             return result.Rows.Count>0;
         }
 
-        public bool checkAccbyUser(string username) // hàm check username có tồn                                               tại hay không
+        public bool checkAccbyUser(string username) // hàm check username có tồn tại hay không
         {
             string query = "Select * From LIBRARIAN Where Username='" + username + "' ";
             DataTable result = DataConnect.Instance.ExcuteQuery(query);

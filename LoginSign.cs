@@ -12,16 +12,18 @@ namespace LibraryManager
 {
     public partial class LoginSign : Form
     {
+        public Login log;
+
+
         public LoginSign()
         {
             InitializeComponent();
         }
-
        
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Login log = new Login();
+            log = new Login();
             this.Hide();
             log.ShowDialog();
         }
@@ -74,9 +76,9 @@ namespace LibraryManager
                 {
                     CreACC(username, password, email, name);
                 }
-                else MessageBox.Show("Username already used");
+                else MessageBox.Show("Username đã được sử dụng");
             }
-            else MessageBox.Show("Pls check your email");
+            else MessageBox.Show("Kiểm tra lại email\nSử dụng tài khoản @gm.uit.edu.vn hoặc @gmail.com");
 
         }
         bool CheckUser(string username)
@@ -86,9 +88,9 @@ namespace LibraryManager
         void CreACC(string username,string password,string email,string name)
         {
             if (Accounts.Instance.InsertAcc(username, password, email, name))
-                MessageBox.Show("Succeed Sign Up");
+                MessageBox.Show("Đăng ký thành công");
             else 
-                MessageBox.Show("Not Succed pls check information again");
+                MessageBox.Show("Đăng ký không thành công\nVui lòng kiểm tra lại thông tin cá nhân");
 
         }
 

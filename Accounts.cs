@@ -33,7 +33,7 @@ namespace LibraryManager
             this.username = row["Username"].ToString();
             this.password = row["Password"].ToString();
             this.email = row["Email"].ToString();
-            this.hoten = row["HoTen"].ToString();
+            this.hoten = row["Fullname"].ToString();
         }
 
         private string username;

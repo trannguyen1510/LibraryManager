@@ -46,7 +46,7 @@ namespace LibraryManager
         private void btnEnter_Click(object sender, EventArgs e)  
         {
             
-            string username = TbUserName.Text;
+            string username = TbUserName.Text.Trim();
             string pass = TbPassword.Text;
             if (LoginUser(username, pass))
             {
@@ -57,7 +57,7 @@ namespace LibraryManager
             }
             else
             {
-                MessageBox.Show("Not correct,pls enter again");
+                MessageBox.Show("Tài khoản hoặc mật khaair sai\nVui lòng nhập lại");
             }
         }
         bool LoginUser(string username, string password) //  hàm kiểm tra gọi từ class xử lý đăng nhập 

@@ -14,7 +14,7 @@ namespace LibraryManager
 {
     public class DataConnect
     {
-        private string ConnectionStr = "Data Source=D:\\CÔNG NGHỆ PHẦN MỀM\\LibraryManager-main\\lbDatabase.db; Version = 3;";
+        private string ConnectionStr = "Data Source=D:\\Programs\\Git Repo\\LibraryManager\\lbDatabase.db; Version = 3;";
 
         private SQLiteConnection connect = new SQLiteConnection();
 

@@ -12,6 +12,7 @@ namespace LibraryManager
 {
     public partial class LoginForget : Form
     {
+        public Login log;
         public LoginForget()
         {
             InitializeComponent();
@@ -54,20 +55,27 @@ namespace LibraryManager
                 if (Check(email, username, pass1))
                 {
                     MessageBox.Show("Change Succeed");
-                    Login lg = new Login();
-                    lg.ShowDialog();
+                    log = new Login();
+                    log.ShowDialog();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("pls check email and username");
+                    MessageBox.Show("Vui lòng kiểm tra lại email and username");
                 }
             }
-            else MessageBox.Show("Pls check your new password again");
+            else MessageBox.Show("Mật khẩu mới không khớp\nVui lòng nhập lại");
         }
         bool Check(string email,string username,string password)
         {
             return LoginDAL.Instance.ChangePas(email,username,password);
+        }
+
+        private void textBack_Click(object sender, EventArgs e)
+        {
+            log = new Login();
+            this.Hide();
+            log.ShowDialog();
         }
     }
 }
