@@ -52,7 +52,11 @@ namespace LibraryManager
             if (LoginUser(username, pass))
             {
                 loginAcc = LoginDAL.Instance.GetAcccoutbyUser(username);
-                Close();
+                Main fmain = new Main(loginAcc);
+                Hide();
+                fmain.ShowDialog();
+                TbPassword.Clear();
+                Show();
             }
             else
             {
@@ -72,6 +76,7 @@ namespace LibraryManager
         private void TbPassword_Click(object sender, EventArgs e)
         {
             TbPassword.Clear();
+            TbPassword.PasswordChar = '*';
         }
 
         private void btnEnter_MouseHover(object sender, EventArgs e)

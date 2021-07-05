@@ -19,13 +19,13 @@ namespace LibraryManager
         private readonly MaterialSkinManager materialSkinManager;
 
         //--------khởi tạo để truyền tài khoản vào-----------
-            private Accounts loginAcc;
+        private Accounts loginAcc;
 
-            public Accounts LoginAcc
-            {
-                get { return LoginAcc; }
-                set { LoginAcc = value; }
-            }
+        public Accounts LoginAcc
+        {
+            get { return LoginAcc; }
+            set { LoginAcc = value; }
+        }
 
         public Main(Accounts acc)
         {

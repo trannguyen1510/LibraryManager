@@ -2487,6 +2487,7 @@
             this.imageList1.Images.SetKeyName(4, "category_32x.png");
             this.imageList1.Images.SetKeyName(5, "reload_32x.png");
             this.imageList1.Images.SetKeyName(6, "return_32x.png");
+            this.imageList1.Images.SetKeyName(7, "exit_32x.png");
             // 
             // Main
             // 
