@@ -17,9 +17,20 @@ namespace LibraryManager
     {
         DBConnect db;
         private readonly MaterialSkinManager materialSkinManager;
-        public Main()
+
+        //--------khởi tạo để truyền tài khoản vào-----------
+            private Accounts loginAcc;
+
+            public Accounts LoginAcc
+            {
+                get { return LoginAcc; }
+                set { LoginAcc = value; }
+            }
+
+        public Main(Accounts acc)
         {
             InitializeComponent();
+            this.loginAcc = acc;  // nạp Tài khoản đăng nhập vào form Main
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
             materialSkinManager.AddFormToManage(this);
@@ -413,12 +424,12 @@ namespace LibraryManager
         //
         // Borrow tab
 
-        //CHECK QUÁ HẠN 
+        //CHECK QUÁ HẠN
         public double Check_Date(string date_br, string date_rt)
         {
             DateTime muon = Convert.ToDateTime(date_br);
             DateTime tra = Convert.ToDateTime(date_rt);
-            double sl; 
+            double sl;
             sl = (tra - muon).TotalDays;
             return sl;
         }
@@ -500,7 +511,7 @@ namespace LibraryManager
                     listViewItem.SubItems.Add("Đã mượn");
                 i++;
                 materialListView2.Items.Add(listViewItem);
-            }            
+            }
         }
 
         private void load_database_BR()
@@ -520,7 +531,7 @@ namespace LibraryManager
                 MessageBox.Show("Không có độc giả cần tìm");
         }
 
-        //Hàm mượn chính 
+        //Hàm mượn chính
         private void cho_muon_Click(object sender, EventArgs e)
         {
             string masach = textmasach.Text.Trim();//Ma sach
@@ -528,12 +539,12 @@ namespace LibraryManager
             string tensach = texttensach.Text.Trim();// Teen sach
             string HoTen = textBox2.Text.Trim();  //Ho ten
             string Email = textBox5.Text.Trim();  //email
-            string NgayMuon = dateTimePicker2.Value.ToShortDateString(); //Ngay muon 
-            string NgayTra = dateTimePicker1.Value.ToShortDateString();  //Ngay Tra     
+            string NgayMuon = dateTimePicker2.Value.ToShortDateString(); //Ngay muon
+            string NgayTra = dateTimePicker1.Value.ToShortDateString();  //Ngay Tra
             try//ys oong laf sao nãy tui thấy ở trên list có 2 cái nó trùng cả id sách và id user
             {
-                //Kiểm tra xem quyển sách muốn mượn đã từng mượn chưa -->Tránh mượn trùng 
-                //Vaf tình trạng quyển sách có ==0 (chưa mượn) hay chưa 
+                //Kiểm tra xem quyển sách muốn mượn đã từng mượn chưa -->Tránh mượn trùng
+                //Vaf tình trạng quyển sách có ==0 (chưa mượn) hay chưa
                 string sql = "SELECT * FROM BOOK_BORROW bb join BOOK b on bb.BookID=b.ID where bb.UserID = " + id + " AND bb.BooKID=" + "'" + masach + "'" ;
                 DataTable kq = db.GetDataTable(sql); // = null nêus quyển sách chưa được mượn
 
@@ -559,17 +570,17 @@ namespace LibraryManager
 
                     if (num_book <= 3)//Nếu mượn và sl mượn <=3 và KHÔNG QUÁ HẠN  thì mới tính tiếp
                     {
-                        //Lưu vào csdl thông tin người mượn và mã sách 
+                        //Lưu vào csdl thông tin người mượn và mã sách
                         string sql2 = "INSERT INTO BOOK_BORROW VALUES(" + id + "," + "'" + masach + "'" + "," + "'" + NgayMuon + "'" + "," + "'" + NgayTra + "'" + ")";
                         bool kq2 = db.ExucuteDbCmd(sql2);
                         //Lưu vào csdl BOOK.Status==1 --> update đã được mượn
                         string sql3 = " UPDATE BOOK SET Status = 1 WHERE ID=" + masach;
                         bool kq3 = db.ExucuteDbCmd(sql3);
 
-                        // Neu chen vaf cap nhat thanh cong thif xuat ra grid 
+                        // Neu chen vaf cap nhat thanh cong thif xuat ra grid
                         if (kq2 == true && kq3 == true)
                         {
-                            //Xuất ra bảng: lay het cac ma sach con dang muon 
+                            //Xuất ra bảng: lay het cac ma sach con dang muon
                             string query = "SELECT UserID, BookID,BorrowDay,ReturnDay, Status FROM BOOK_BORROW bb join BOOK b on b.ID= bb.BookID WHERE UserID= " + id; //Status = '1' and
                             DataTable Data2 = db.GetDataTable(query);
                             materialListView2.Items.Clear();
@@ -679,7 +690,7 @@ namespace LibraryManager
         {
             //tim
             //Nhap ma sinh vien--> Hien thi ra thong tin sinh vien vaf cac cuon sach da muon
-            //Ho va ten 
+            //Ho va ten
             //Dia chi
             //Email
             //MSSV
@@ -703,12 +714,12 @@ namespace LibraryManager
                     if (Table != null)
                     {
                         //HIen thi thong tin sinh vien
-                        textBox4_a.Text = Table.Rows[0][0].ToString();  //MSSV             
+                        textBox4_a.Text = Table.Rows[0][0].ToString();  //MSSV
                         textBox2_a.Text = Table.Rows[0][1].ToString();  //Ho va ten
                         textBox6_a.Text = Table.Rows[0][2].ToString();  //Ngay sinh
                         textBox5_a.Text = Table.Rows[0][3].ToString();  //Dia chi
                         textBox3_a.Text = Table.Rows[0][4].ToString();  //Email
-                       //Hien thi thong tin muon sach sinh vien ra bang                       
+                       //Hien thi thong tin muon sach sinh vien ra bang
                         load_DataTable_Search(Data);
                     }
                     else
@@ -751,7 +762,7 @@ namespace LibraryManager
         {
             ///Nut tra
              //Lay ma sach can tra
-            //Kiem tra no co trong sach muon hay khong 
+            //Kiem tra no co trong sach muon hay khong
             //xóa dữ liệu trong csdl
             //Hiển thị lại dữ liệu
             bool Data2;
@@ -770,7 +781,7 @@ namespace LibraryManager
                 }
                 else
                 {
-                    //Kiem tra no co trong sach muon hay khong 
+                    //Kiem tra no co trong sach muon hay khong
                     string query = "SELECT * from BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                     Data = db.GetDataTable(query);
 
@@ -790,7 +801,7 @@ namespace LibraryManager
                         MessageBox.Show("Không co muon sach nao !!");
                         return;
                     }
-                  
+
 
 
 
@@ -799,7 +810,7 @@ namespace LibraryManager
                     bool result_ne;
                     int num = 0;
 
-                    if (Data != null)//Neu quyen sach dang duoc muon 
+                    if (Data != null)//Neu quyen sach dang duoc muon
                     {
                        if (dem <= num)// num la so ngay quy dinh
                         {
@@ -807,11 +818,11 @@ namespace LibraryManager
                             Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                             Data2 = db.ExucuteDbCmd(Xoa);
 
-                            //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi                       
+                            //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi
                             sql_update = " UPDATE BOOK SET Status = 0 WHERE ID=" + masach;
                             result_ne = db.ExucuteDbCmd(sql_update);
 
-                            if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách 
+                            if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách
                             {
                                 //Hiển thị lại dữ liệu
                                 materialListView3.Items.Clear();   // Clear old data
@@ -828,18 +839,18 @@ namespace LibraryManager
                         }
                         else
                         {
-                            //Nếu số ngày mượn  > num ngày vẫn xóa nhưng  --> tính phạt 
+                            //Nếu số ngày mượn  > num ngày vẫn xóa nhưng  --> tính phạt
 
-                            //VẪN XÓA 
+                            //VẪN XÓA
                             // Xoa quyen sach ra khoi muon sach
                             Xoa = "DELETE FROM BOOK_BORROW where UserID = " + mssv + " AND BookID= " + masach;
                             Data2 = db.ExucuteDbCmd(Xoa);
 
-                            //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi                       
+                            //Cap nhat quyen sach ve tinh trang chua muon status==0 --> Update da tra roi
                             sql_update = " UPDATE BOOK SET Status = 0 WHERE ID=" + masach;
                             result_ne = db.ExucuteDbCmd(sql_update);
 
-                            if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách 
+                            if (Data2 == true && result_ne == true)// Xóa thành công và cập nhật lại tình trạng sách
                             {
                                 //Hiển thị lại dữ liệu
                                 materialListView3.Items.Clear();   // Clear old data
@@ -855,7 +866,7 @@ namespace LibraryManager
                             ///XUẤT PHẠT
                             MessageBox.Show("Quá hạn : " + dem + "ngay. Bạn bị phạt!!!");
                             return;
-                        }                       
+                        }
                     }
                     else
                     {
@@ -1317,9 +1328,9 @@ namespace LibraryManager
 
         }
 
- 
 
-        
+
+
 
         private void textBox5_a_TextChanged(object sender, EventArgs e)
         {
@@ -1339,6 +1350,16 @@ namespace LibraryManager
             materialButtonReturnReload_Click(sender, e);
             materialButtonReaderReload_Click(sender, e);
             materialButtonCategoryReload_Click(sender, e);
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
