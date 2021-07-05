@@ -14,13 +14,22 @@ namespace LibraryManager
 {
     public class DataConnect
     {
-        private string ConnectionStr = "Data Source=D:\\Programs\\Git Repo\\LibraryManager\\lbDatabase.db; Version = 3;";
+        
+        private string ConnectionStr;
+        private string path;
 
         private SQLiteConnection connect = new SQLiteConnection();
 
         private static DataConnect instance;
 
-        private DataConnect() { }
+        private DataConnect()
+        {
+            var enviroment = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(enviroment).Parent.FullName;
+            projectDirectory = projectDirectory.Replace(@"\", @"\\");
+            path = $"{projectDirectory}\\lbDatabase.db";
+            ConnectionStr = $"Data Source={path}; Version = 3;";
+        }
 
         public static DataConnect Instance
         {

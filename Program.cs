@@ -14,11 +14,24 @@ namespace LibraryManager
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        static Accounts GetAccount()
+        {
+            Login loginForm = new Login();
+            Application.Run(loginForm);
+            return loginForm.loginAcc;
+        }
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Accounts loginAcc = GetAccount();
+            if (loginAcc != null)
+            {
+                Main main = new Main(loginAcc);
+                Application.Run(main);
+            }
+            else
+                MessageBox.Show("Đăng nhập thất bại");
         }
     }
 }

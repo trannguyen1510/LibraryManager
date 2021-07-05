@@ -13,6 +13,7 @@ namespace LibraryManager
 {
     public partial class Login : Form
     {
+        public Accounts loginAcc = null;
         public Login()
         {
             InitializeComponent();
@@ -50,10 +51,8 @@ namespace LibraryManager
             string pass = TbPassword.Text;
             if (LoginUser(username, pass))
             {
-                Accounts loginAcc = LoginDAL.Instance.GetAcccoutbyUser(username);
-                Main fmain = new Main(loginAcc);
-                this.Hide();
-                fmain.ShowDialog();
+                loginAcc = LoginDAL.Instance.GetAcccoutbyUser(username);
+                Close();
             }
             else
             {
