@@ -81,6 +81,9 @@ namespace LibraryManager
 
         }
 
+
+
+        //REFRESH 
         private void materialButtonHomeReload_Click(object sender, EventArgs e)
         {
             mtbHomeSearch.Text = "";
@@ -116,8 +119,8 @@ namespace LibraryManager
                         task = db.Search_Book(mtbHomeSearch.Text.Trim(), "ID");
                         if (task != null)
                         {
-                            DataView_Closed();
-                            load_DataTable_Home(task);
+                            DataView_Closed();//xoa du lieu nhap cũ
+                            load_DataTable_Home(task);/// load du liẹu mới lên
                         }
                         else
                         {
