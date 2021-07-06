@@ -63,7 +63,7 @@ namespace LibraryManager
             string username = txbUser.Text;
             string password = txbPass.Text;
             string email = txbEmail.Text;
-            string name = txbName.Text;
+            string name = txbName.Text;// Luu ho va ten day 
 
             //---Check Email type but just check only 2 type is edu.vn and gmail
             string t1 = "@gm.uit.edu.vn";
@@ -74,7 +74,7 @@ namespace LibraryManager
             {
                 if (!CheckUser(username))
                 {
-                    CreACC(username, password, email, name);
+                    CreACC(username, password, email, name);// Tạo account mới 
                 }
                 else MessageBox.Show("Username đã được sử dụng");
             }

@@ -108,7 +108,7 @@ namespace LibraryManager
         {
             try
             {
-                string type = materialComboBoxCategory.Text.Trim();
+                string type = materialComboBoxCategory.Text.Trim();//căt khoảng trắng ở đàu và cuối
                 DataTable task;
                 switch (type)
                 {

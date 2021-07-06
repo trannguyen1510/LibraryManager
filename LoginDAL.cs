@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
+
+// Xử lý trong login 
 namespace LibraryManager
 {
     public class LoginDAL
@@ -41,7 +43,7 @@ namespace LibraryManager
             return result.Rows.Count > 0;
         }
 
-        public Accounts GetAcccoutbyUser(string username) // hàm truyền/nạp tài                                                     khoản khi đăng nhập
+        public Accounts GetAcccoutbyUser(string username) // hàm truyền/nạp tài khoản khi đăng nhập
         {
             string query = "Select * from LIBRARIAN Where Username = '" + username + "'";
             DataTable data = DataConnect.Instance.ExcuteQuery(query);

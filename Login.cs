@@ -43,7 +43,9 @@ namespace LibraryManager
             this.Hide();
             sign.ShowDialog();
         }
-
+        //
+        /// ENTER- hÀM LOGIN 
+        /// //
         private void btnEnter_Click(object sender, EventArgs e)  
         {
             
@@ -51,8 +53,8 @@ namespace LibraryManager
             string pass = TbPassword.Text;
             if (LoginUser(username, pass))
             {
-                loginAcc = LoginDAL.Instance.GetAcccoutbyUser(username);
-                Main fmain = new Main(loginAcc);
+                loginAcc = LoginDAL.Instance.GetAcccoutbyUser(username); //goi ham lay  tai khoan trong dal khi dang nhap
+                Main fmain = new Main(loginAcc);// nạp Tài khoản đăng nhập vào form Main
                 Hide();
                 fmain.ShowDialog();
                 TbPassword.Clear();
@@ -63,7 +65,8 @@ namespace LibraryManager
                 MessageBox.Show("Tài khoản hoặc mật khaair sai\nVui lòng nhập lại");
             }
         }
-        bool LoginUser(string username, string password) //  hàm kiểm tra gọi từ class xử lý đăng nhập 
+        //  hàm kiểm tra gọi từ class xử lý đăng nhập 
+        bool LoginUser(string username, string password) 
         {                                           
             return LoginDAL.Instance.Login(username, password);
         }
