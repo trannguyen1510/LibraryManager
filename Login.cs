@@ -62,7 +62,7 @@ namespace LibraryManager
             }
             else
             {
-                MessageBox.Show("Tài khoản hoặc mật khaair sai\nVui lòng nhập lại");
+                MessageBox.Show("Tài khoản hoặc mật khẩu sai\nVui lòng nhập lại");
             }
         }
         //  hàm kiểm tra gọi từ class xử lý đăng nhập 

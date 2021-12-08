@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Text.RegularExpressions;
 
 
 namespace LibraryManager
@@ -110,10 +111,11 @@ namespace LibraryManager
             {
                 string type = materialComboBoxCategory.Text.Trim();//căt khoảng trắng ở đàu và cuối
                 DataTable task;
+                string text = mtbHomeSearch.Text.Trim();
                 switch (type)
                 {
                     case "Mã sách":
-                        task = db.Search_Book(mtbHomeSearch.Text.Trim(), "ID");
+                        task = db.Search_Book(text, "ID");
                         if (task != null)
                         {
                             DataView_Closed();
@@ -125,7 +127,8 @@ namespace LibraryManager
                         }
                         break;
                     case "Tiêu đề":
-                        task = db.Search_Book(mtbHomeSearch.Text.Trim(), "Title");
+                        text = text.ToUpper();
+                        task = db.Search_Book(text, "Title");
                         if (task != null)
                         {
                             DataView_Closed();
@@ -137,7 +140,9 @@ namespace LibraryManager
                         }
                         break;
                     case "Tác giả":
-                        task = db.Search_Book(mtbHomeSearch.Text.Trim(), "Author");
+                        text = Regex.Replace(text, @"\b[a-z]", m=>m.Value.ToUpper());
+                        Console.WriteLine(text);
+                        task = db.Search_Book(text, "Author");
                         if (task != null)
                         {
                             DataView_Closed();
@@ -149,7 +154,9 @@ namespace LibraryManager
                         }
                         break;
                     case "Danh mục":
-                        task = db.Search_Book_Category(mtbHomeSearch.Text.Trim());
+                        text = Regex.Replace(text, @"\b[a-z]", m => m.Value.ToUpper());
+                        Console.WriteLine(text);
+                        task = db.Search_Book_Category(text);
                         if (task != null)
                         {
                             DataView_Closed();

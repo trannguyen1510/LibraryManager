@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace LibraryManager
 {
     public class DBConnect
