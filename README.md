@@ -1,2 +1,2 @@
 # LibraryManager
-An app for a subject (Introduction to Software Engineering)
+An app for Introduction to Software Engineering Subject
